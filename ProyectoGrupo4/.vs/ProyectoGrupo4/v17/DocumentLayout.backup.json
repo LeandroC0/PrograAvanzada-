@@ -1,0 +1,160 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\User\\Documents\\GitHub\\PrograAvanzada\\ProyectoGrupo4\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4D4B38B0-EBA0-48F5-A7EB-D6F3181801DD}|ProyectoGrupo4\\ProyectoGrupo4.csproj|c:\\users\\user\\documents\\github\\prograavanzada\\proyectogrupo4\\proyectogrupo4\\models\\detalleorden.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D4B38B0-EBA0-48F5-A7EB-D6F3181801DD}|ProyectoGrupo4\\ProyectoGrupo4.csproj|solutionrelative:proyectogrupo4\\models\\detalleorden.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D4B38B0-EBA0-48F5-A7EB-D6F3181801DD}|ProyectoGrupo4\\ProyectoGrupo4.csproj|c:\\users\\user\\documents\\github\\prograavanzada\\proyectogrupo4\\proyectogrupo4\\models\\orden.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D4B38B0-EBA0-48F5-A7EB-D6F3181801DD}|ProyectoGrupo4\\ProyectoGrupo4.csproj|solutionrelative:proyectogrupo4\\models\\orden.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D4B38B0-EBA0-48F5-A7EB-D6F3181801DD}|ProyectoGrupo4\\ProyectoGrupo4.csproj|c:\\users\\user\\documents\\github\\prograavanzada\\proyectogrupo4\\proyectogrupo4\\models\\resenna.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D4B38B0-EBA0-48F5-A7EB-D6F3181801DD}|ProyectoGrupo4\\ProyectoGrupo4.csproj|solutionrelative:proyectogrupo4\\models\\resenna.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D4B38B0-EBA0-48F5-A7EB-D6F3181801DD}|ProyectoGrupo4\\ProyectoGrupo4.csproj|c:\\users\\user\\documents\\github\\prograavanzada\\proyectogrupo4\\proyectogrupo4\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D4B38B0-EBA0-48F5-A7EB-D6F3181801DD}|ProyectoGrupo4\\ProyectoGrupo4.csproj|solutionrelative:proyectogrupo4\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D4B38B0-EBA0-48F5-A7EB-D6F3181801DD}|ProyectoGrupo4\\ProyectoGrupo4.csproj|c:\\users\\user\\documents\\github\\prograavanzada\\proyectogrupo4\\proyectogrupo4\\models\\imagenproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D4B38B0-EBA0-48F5-A7EB-D6F3181801DD}|ProyectoGrupo4\\ProyectoGrupo4.csproj|solutionrelative:proyectogrupo4\\models\\imagenproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D4B38B0-EBA0-48F5-A7EB-D6F3181801DD}|ProyectoGrupo4\\ProyectoGrupo4.csproj|c:\\users\\user\\documents\\github\\prograavanzada\\proyectogrupo4\\proyectogrupo4\\models\\producto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D4B38B0-EBA0-48F5-A7EB-D6F3181801DD}|ProyectoGrupo4\\ProyectoGrupo4.csproj|solutionrelative:proyectogrupo4\\models\\producto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D4B38B0-EBA0-48F5-A7EB-D6F3181801DD}|ProyectoGrupo4\\ProyectoGrupo4.csproj|c:\\users\\user\\documents\\github\\prograavanzada\\proyectogrupo4\\proyectogrupo4\\models\\rol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D4B38B0-EBA0-48F5-A7EB-D6F3181801DD}|ProyectoGrupo4\\ProyectoGrupo4.csproj|solutionrelative:proyectogrupo4\\models\\rol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D4B38B0-EBA0-48F5-A7EB-D6F3181801DD}|ProyectoGrupo4\\ProyectoGrupo4.csproj|c:\\users\\user\\documents\\github\\prograavanzada\\proyectogrupo4\\proyectogrupo4\\models\\estado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D4B38B0-EBA0-48F5-A7EB-D6F3181801DD}|ProyectoGrupo4\\ProyectoGrupo4.csproj|solutionrelative:proyectogrupo4\\models\\estado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DetalleOrden.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\PrograAvanzada\\ProyectoGrupo4\\ProyectoGrupo4\\Models\\DetalleOrden.cs",
+              "RelativeDocumentMoniker": "ProyectoGrupo4\\Models\\DetalleOrden.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\PrograAvanzada\\ProyectoGrupo4\\ProyectoGrupo4\\Models\\DetalleOrden.cs",
+              "RelativeToolTip": "ProyectoGrupo4\\Models\\DetalleOrden.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-23T06:50:17.594Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Orden.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\PrograAvanzada\\ProyectoGrupo4\\ProyectoGrupo4\\Models\\Orden.cs",
+              "RelativeDocumentMoniker": "ProyectoGrupo4\\Models\\Orden.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\PrograAvanzada\\ProyectoGrupo4\\ProyectoGrupo4\\Models\\Orden.cs",
+              "RelativeToolTip": "ProyectoGrupo4\\Models\\Orden.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-23T06:50:09.907Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Resenna.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\PrograAvanzada\\ProyectoGrupo4\\ProyectoGrupo4\\Models\\Resenna.cs",
+              "RelativeDocumentMoniker": "ProyectoGrupo4\\Models\\Resenna.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\PrograAvanzada\\ProyectoGrupo4\\ProyectoGrupo4\\Models\\Resenna.cs",
+              "RelativeToolTip": "ProyectoGrupo4\\Models\\Resenna.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-23T06:50:02.001Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Usuario.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\PrograAvanzada\\ProyectoGrupo4\\ProyectoGrupo4\\Models\\Usuario.cs",
+              "RelativeDocumentMoniker": "ProyectoGrupo4\\Models\\Usuario.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\PrograAvanzada\\ProyectoGrupo4\\ProyectoGrupo4\\Models\\Usuario.cs",
+              "RelativeToolTip": "ProyectoGrupo4\\Models\\Usuario.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-23T06:49:49.008Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ImagenProducto.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\PrograAvanzada\\ProyectoGrupo4\\ProyectoGrupo4\\Models\\ImagenProducto.cs",
+              "RelativeDocumentMoniker": "ProyectoGrupo4\\Models\\ImagenProducto.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\PrograAvanzada\\ProyectoGrupo4\\ProyectoGrupo4\\Models\\ImagenProducto.cs",
+              "RelativeToolTip": "ProyectoGrupo4\\Models\\ImagenProducto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-23T06:49:34.667Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Producto.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\PrograAvanzada\\ProyectoGrupo4\\ProyectoGrupo4\\Models\\Producto.cs",
+              "RelativeDocumentMoniker": "ProyectoGrupo4\\Models\\Producto.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\PrograAvanzada\\ProyectoGrupo4\\ProyectoGrupo4\\Models\\Producto.cs",
+              "RelativeToolTip": "ProyectoGrupo4\\Models\\Producto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-23T06:49:25.739Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Rol.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\PrograAvanzada\\ProyectoGrupo4\\ProyectoGrupo4\\Models\\Rol.cs",
+              "RelativeDocumentMoniker": "ProyectoGrupo4\\Models\\Rol.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\PrograAvanzada\\ProyectoGrupo4\\ProyectoGrupo4\\Models\\Rol.cs",
+              "RelativeToolTip": "ProyectoGrupo4\\Models\\Rol.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-23T06:49:17.304Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Estado.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\PrograAvanzada\\ProyectoGrupo4\\ProyectoGrupo4\\Models\\Estado.cs",
+              "RelativeDocumentMoniker": "ProyectoGrupo4\\Models\\Estado.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\PrograAvanzada\\ProyectoGrupo4\\ProyectoGrupo4\\Models\\Estado.cs",
+              "RelativeToolTip": "ProyectoGrupo4\\Models\\Estado.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-23T06:49:11.329Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
