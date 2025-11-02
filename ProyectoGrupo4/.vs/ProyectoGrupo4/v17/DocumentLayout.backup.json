@@ -3,40 +3,36 @@
   "WorkspaceRootPath": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F1D4752C-EE33-4DF6-9681-3748AEA3081F}|Producto\\Producto.csproj|c:\\users\\rafael\\source\\repos\\prograavanzada-\\proyectogrupo4\\producto\\controllers\\productoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F1D4752C-EE33-4DF6-9681-3748AEA3081F}|Producto\\Producto.csproj|solutionrelative:producto\\controllers\\productoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F1D4752C-EE33-4DF6-9681-3748AEA3081F}|Producto\\Producto.csproj|c:\\users\\rafael\\source\\repos\\prograavanzada-\\proyectogrupo4\\producto\\models\\estado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F1D4752C-EE33-4DF6-9681-3748AEA3081F}|Producto\\Producto.csproj|solutionrelative:producto\\models\\estado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{204395BD-18C4-4506-A960-B8CC3BA0ABB8}|Usuario\\Usuario.csproj|c:\\users\\rafael\\source\\repos\\prograavanzada-\\proyectogrupo4\\usuario\\migrations\\202511010533153_creausuarioyproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{204395BD-18C4-4506-A960-B8CC3BA0ABB8}|Usuario\\Usuario.csproj|solutionrelative:usuario\\migrations\\202511010533153_creausuarioyproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F1D4752C-EE33-4DF6-9681-3748AEA3081F}|Producto\\ProyectoG4.csproj|c:\\users\\rafael\\source\\repos\\prograavanzada-\\proyectogrupo4\\producto\\controllers\\estadoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F1D4752C-EE33-4DF6-9681-3748AEA3081F}|Producto\\ProyectoG4.csproj|solutionrelative:producto\\controllers\\estadoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{204395BD-18C4-4506-A960-B8CC3BA0ABB8}|Usuario\\Usuario.csproj|c:\\users\\rafael\\source\\repos\\prograavanzada-\\proyectogrupo4\\usuario\\migrations\\configuration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{204395BD-18C4-4506-A960-B8CC3BA0ABB8}|Usuario\\Usuario.csproj|solutionrelative:usuario\\migrations\\configuration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F1D4752C-EE33-4DF6-9681-3748AEA3081F}|Producto\\ProyectoG4.csproj|c:\\users\\rafael\\source\\repos\\prograavanzada-\\proyectogrupo4\\producto\\models\\manageviewmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F1D4752C-EE33-4DF6-9681-3748AEA3081F}|Producto\\ProyectoG4.csproj|solutionrelative:producto\\models\\manageviewmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F1D4752C-EE33-4DF6-9681-3748AEA3081F}|Producto\\Producto.csproj|c:\\users\\rafael\\source\\repos\\prograavanzada-\\proyectogrupo4\\producto\\models\\productoscontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F1D4752C-EE33-4DF6-9681-3748AEA3081F}|Producto\\Producto.csproj|solutionrelative:producto\\models\\productoscontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F1D4752C-EE33-4DF6-9681-3748AEA3081F}|Producto\\Producto.csproj|c:\\users\\rafael\\source\\repos\\prograavanzada-\\proyectogrupo4\\producto\\models\\detalleorden.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F1D4752C-EE33-4DF6-9681-3748AEA3081F}|Producto\\Producto.csproj|solutionrelative:producto\\models\\detalleorden.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{204395BD-18C4-4506-A960-B8CC3BA0ABB8}|Usuario\\Usuario.csproj|c:\\users\\rafael\\source\\repos\\prograavanzada-\\proyectogrupo4\\usuario\\models\\usuarioscontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{204395BD-18C4-4506-A960-B8CC3BA0ABB8}|Usuario\\Usuario.csproj|solutionrelative:usuario\\models\\usuarioscontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F1D4752C-EE33-4DF6-9681-3748AEA3081F}|Producto\\Producto.csproj|c:\\users\\rafael\\source\\repos\\prograavanzada-\\proyectogrupo4\\producto\\models\\resenna.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F1D4752C-EE33-4DF6-9681-3748AEA3081F}|Producto\\Producto.csproj|solutionrelative:producto\\models\\resenna.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F1D4752C-EE33-4DF6-9681-3748AEA3081F}|Producto\\Producto.csproj|c:\\users\\rafael\\source\\repos\\prograavanzada-\\proyectogrupo4\\producto\\models\\producto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F1D4752C-EE33-4DF6-9681-3748AEA3081F}|Producto\\Producto.csproj|solutionrelative:producto\\models\\producto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{204395BD-18C4-4506-A960-B8CC3BA0ABB8}|Usuario\\Usuario.csproj|c:\\users\\rafael\\source\\repos\\prograavanzada-\\proyectogrupo4\\usuario\\global.asax.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{204395BD-18C4-4506-A960-B8CC3BA0ABB8}|Usuario\\Usuario.csproj|solutionrelative:usuario\\global.asax.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F1D4752C-EE33-4DF6-9681-3748AEA3081F}|Producto\\Producto.csproj|C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\producto\\models\\identitymodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F1D4752C-EE33-4DF6-9681-3748AEA3081F}|Producto\\Producto.csproj|solutionrelative:producto\\models\\identitymodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{204395BD-18C4-4506-A960-B8CC3BA0ABB8}|Usuario\\Usuario.csproj|c:\\users\\rafael\\source\\repos\\prograavanzada-\\proyectogrupo4\\usuario\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{204395BD-18C4-4506-A960-B8CC3BA0ABB8}|Usuario\\Usuario.csproj|solutionrelative:usuario\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{204395BD-18C4-4506-A960-B8CC3BA0ABB8}|Usuario\\Usuario.csproj|c:\\users\\rafael\\source\\repos\\prograavanzada-\\proyectogrupo4\\usuario\\models\\rol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{204395BD-18C4-4506-A960-B8CC3BA0ABB8}|Usuario\\Usuario.csproj|solutionrelative:usuario\\models\\rol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F1D4752C-EE33-4DF6-9681-3748AEA3081F}|Producto\\Producto.csproj|c:\\users\\rafael\\source\\repos\\prograavanzada-\\proyectogrupo4\\producto\\models\\orden.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F1D4752C-EE33-4DF6-9681-3748AEA3081F}|Producto\\Producto.csproj|solutionrelative:producto\\models\\orden.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -45,8 +41,8 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 135,
-          "SelectedChildIndex": 54,
+          "DockedWidth": 102,
+          "SelectedChildIndex": 58,
           "Children": [
             {
               "$type": "Bookmark",
@@ -267,91 +263,99 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "202511010533153_CreaUsuarioYproducto.cs",
-              "DocumentMoniker": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\Usuario\\Migrations\\202511010533153_CreaUsuarioYproducto.cs",
-              "RelativeDocumentMoniker": "Usuario\\Migrations\\202511010533153_CreaUsuarioYproducto.cs",
-              "ToolTip": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\Usuario\\Migrations\\202511010533153_CreaUsuarioYproducto.cs",
-              "RelativeToolTip": "Usuario\\Migrations\\202511010533153_CreaUsuarioYproducto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "EstadosController.cs",
+              "DocumentMoniker": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\Producto\\Controllers\\EstadosController.cs",
+              "RelativeDocumentMoniker": "Producto\\Controllers\\EstadosController.cs",
+              "ToolTip": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\Producto\\Controllers\\EstadosController.cs",
+              "RelativeToolTip": "Producto\\Controllers\\EstadosController.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAwwD4AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T05:33:38.532Z",
+              "WhenOpened": "2025-11-02T04:05:12.742Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Configuration.cs",
-              "DocumentMoniker": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\Usuario\\Migrations\\Configuration.cs",
-              "RelativeDocumentMoniker": "Usuario\\Migrations\\Configuration.cs",
-              "ToolTip": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\Usuario\\Migrations\\Configuration.cs",
-              "RelativeToolTip": "Usuario\\Migrations\\Configuration.cs",
+              "Title": "ManageViewModels.cs",
+              "DocumentMoniker": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\Producto\\Models\\ManageViewModels.cs",
+              "RelativeDocumentMoniker": "Producto\\Models\\ManageViewModels.cs",
+              "ToolTip": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\Producto\\Models\\ManageViewModels.cs",
+              "RelativeToolTip": "Producto\\Models\\ManageViewModels.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T05:32:11.771Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ProductosContext.cs",
-              "DocumentMoniker": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\Producto\\Models\\ProductosContext.cs",
-              "RelativeDocumentMoniker": "Producto\\Models\\ProductosContext.cs",
-              "ToolTip": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\Producto\\Models\\ProductosContext.cs",
-              "RelativeToolTip": "Producto\\Models\\ProductosContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T05:29:58.945Z",
+              "WhenOpened": "2025-11-02T04:02:20.184Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "UsuariosContext.cs",
-              "DocumentMoniker": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\Usuario\\Models\\UsuariosContext.cs",
-              "RelativeDocumentMoniker": "Usuario\\Models\\UsuariosContext.cs",
-              "ToolTip": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\Usuario\\Models\\UsuariosContext.cs",
-              "RelativeToolTip": "Usuario\\Models\\UsuariosContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Title": "Resenna.cs",
+              "DocumentMoniker": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\Producto\\Models\\Resenna.cs",
+              "RelativeDocumentMoniker": "Producto\\Models\\Resenna.cs",
+              "ToolTip": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\Producto\\Models\\Resenna.cs",
+              "RelativeToolTip": "Producto\\Models\\Resenna.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABYAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T03:46:32.622Z",
+              "WhenOpened": "2025-11-02T03:33:53.761Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DetalleOrden.cs",
+              "DocumentMoniker": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\Producto\\Models\\DetalleOrden.cs",
+              "RelativeDocumentMoniker": "Producto\\Models\\DetalleOrden.cs",
+              "ToolTip": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\Producto\\Models\\DetalleOrden.cs",
+              "RelativeToolTip": "Producto\\Models\\DetalleOrden.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-02T02:59:56.276Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Estado.cs",
+              "DocumentMoniker": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\Producto\\Models\\Estado.cs",
+              "RelativeDocumentMoniker": "Producto\\Models\\Estado.cs",
+              "ToolTip": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\Producto\\Models\\Estado.cs",
+              "RelativeToolTip": "Producto\\Models\\Estado.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-02T02:58:40.15Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "Usuario.cs",
-              "DocumentMoniker": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\Usuario\\Models\\Usuario.cs",
-              "RelativeDocumentMoniker": "Usuario\\Models\\Usuario.cs",
-              "ToolTip": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\Usuario\\Models\\Usuario.cs",
-              "RelativeToolTip": "Usuario\\Models\\Usuario.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAbAAAAAAAAAA==",
+              "Title": "Orden.cs",
+              "DocumentMoniker": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\Producto\\Models\\Orden.cs",
+              "RelativeDocumentMoniker": "Producto\\Models\\Orden.cs",
+              "ToolTip": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\Producto\\Models\\Orden.cs",
+              "RelativeToolTip": "Producto\\Models\\Orden.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T03:30:58.987Z",
+              "WhenOpened": "2025-11-02T02:58:29.048Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IdentityModels.cs",
+              "DocumentMoniker": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\Producto\\Models\\IdentityModels.cs",
+              "RelativeDocumentMoniker": "Producto\\Models\\IdentityModels.cs",
+              "ToolTip": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\Producto\\Models\\IdentityModels.cs",
+              "RelativeToolTip": "Producto\\Models\\IdentityModels.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T23:22:02.456Z"
             }
           ]
         },
         {
-          "DockedWidth": 103,
-          "SelectedChildIndex": 1,
+          "DockedWidth": 102,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ProductosController.cs",
-              "DocumentMoniker": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\Producto\\Controllers\\ProductosController.cs",
-              "RelativeDocumentMoniker": "Producto\\Controllers\\ProductosController.cs",
-              "ToolTip": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\Producto\\Controllers\\ProductosController.cs",
-              "RelativeToolTip": "Producto\\Controllers\\ProductosController.cs",
-              "ViewState": "AgIAAFoAAAAAAAAAAAArwHAAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T05:38:59.228Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 5,
@@ -360,36 +364,20 @@
               "RelativeDocumentMoniker": "Producto\\Models\\Producto.cs",
               "ToolTip": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\Producto\\Models\\Producto.cs",
               "RelativeToolTip": "Producto\\Models\\Producto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T05:24:17.822Z",
+              "WhenOpened": "2025-11-01T23:20:58.809Z",
               "EditorCaption": ""
-            },
+            }
+          ]
+        },
+        {
+          "DockedWidth": 136,
+          "SelectedChildIndex": -1,
+          "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Global.asax.cs",
-              "DocumentMoniker": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\Usuario\\Global.asax.cs",
-              "RelativeDocumentMoniker": "Usuario\\Global.asax.cs",
-              "ToolTip": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\Usuario\\Global.asax.cs",
-              "RelativeToolTip": "Usuario\\Global.asax.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T04:02:05.157Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Rol.cs",
-              "DocumentMoniker": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\Usuario\\Models\\Rol.cs",
-              "RelativeDocumentMoniker": "Usuario\\Models\\Rol.cs",
-              "ToolTip": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\Usuario\\Models\\Rol.cs",
-              "RelativeToolTip": "Usuario\\Models\\Rol.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T03:31:29.526Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             }
           ]
         }

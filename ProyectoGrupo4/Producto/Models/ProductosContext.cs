@@ -5,9 +5,9 @@ namespace Producto.Models
 {
     public class ProductosContext : DbContext
     {
-        public ProductosContext() : base("ProyectoG4DbConnection")
-        {
-        }
-        public DbSet<Producto> Productos { get; set; }
+        //public ProductosContext() : base("ProyectoG4DbConnection")
+        //{
+        //}
+        //public DbSet<Producto> Productos { get; set; }
     }
 }

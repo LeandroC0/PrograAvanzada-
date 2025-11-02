@@ -21,7 +21,7 @@ namespace Producto.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("ProyectoG4DbConnection", throwIfV1Schema: false)
         {
         }
 
@@ -29,5 +29,7 @@ namespace Producto.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<Producto.Models.Estado> Estadoes { get; set; }
     }
 }
