@@ -28,5 +28,9 @@ namespace ProyectoGrupo4.Models
         [ForeignKey("Producto")]
         public int ID_Producto { get; set; }
         public virtual Producto Producto { get; set; }
+
+        [ForeignKey("Usuario")]
+        public string ID_Usuario { get; set; }
+        public virtual ApplicationUser Usuario { get; set; }
     }
 }

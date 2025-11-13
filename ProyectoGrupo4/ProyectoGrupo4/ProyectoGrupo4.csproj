@@ -175,6 +175,22 @@
     <Compile Include="Migrations\202511130559313_CreacionDB.Designer.cs">
       <DependentUpon>202511130559313_CreacionDB.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202511131901075_UpdateDataBase2.cs" />
+    <Compile Include="Migrations\202511131901075_UpdateDataBase2.Designer.cs">
+      <DependentUpon>202511131901075_UpdateDataBase2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202511132042513_UpdateDataBase21.cs" />
+    <Compile Include="Migrations\202511132042513_UpdateDataBase21.Designer.cs">
+      <DependentUpon>202511132042513_UpdateDataBase21.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202511132108259_MigracionX.cs" />
+    <Compile Include="Migrations\202511132108259_MigracionX.Designer.cs">
+      <DependentUpon>202511132108259_MigracionX.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202511132116024_MigracionY.cs" />
+    <Compile Include="Migrations\202511132116024_MigracionY.Designer.cs">
+      <DependentUpon>202511132116024_MigracionY.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\DetalleOrden.cs" />
@@ -294,6 +310,18 @@
     <EmbeddedResource Include="Migrations\202511130559313_CreacionDB.resx">
       <DependentUpon>202511130559313_CreacionDB.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202511131901075_UpdateDataBase2.resx">
+      <DependentUpon>202511131901075_UpdateDataBase2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202511132042513_UpdateDataBase21.resx">
+      <DependentUpon>202511132042513_UpdateDataBase21.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202511132108259_MigracionX.resx">
+      <DependentUpon>202511132108259_MigracionX.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202511132116024_MigracionY.resx">
+      <DependentUpon>202511132116024_MigracionY.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -327,12 +355,12 @@
     <PropertyGroup>
       <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
     </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
     <Error Condition="!Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.1\build\EntityFramework.props'))" />
     <Error Condition="!Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.1\build\EntityFramework.targets'))" />
-    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
   </Target>
-  <Import Project="..\packages\EntityFramework.6.5.1\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" />
+  <Import Project="..\packages\EntityFramework.6.5.1\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

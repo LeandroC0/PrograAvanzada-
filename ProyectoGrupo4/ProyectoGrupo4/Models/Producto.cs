@@ -10,17 +10,17 @@ namespace ProyectoGrupo4.Models
     public class Producto
     {
         [Key]
-        public int ProductoId { get; set; }
+        public int ID_Producto { get; set; }
         [Required]
         public string Nombre { get; set; }
         [Required]
-        [Column(TypeName = "decimal(18,2)")]
+        [Column(TypeName = "decimal")]
         public decimal Precio { get; set; }
         [Required]
         public int Inventario { get; set; }
 
         [ForeignKey("Estado")]
-        public int EstadoId { get; set; }
+        public int ID_Estado { get; set; }
         public virtual Estado Estado { get; set; }
 
         public virtual ICollection<ImagenProducto> Imagenes { get; set; }

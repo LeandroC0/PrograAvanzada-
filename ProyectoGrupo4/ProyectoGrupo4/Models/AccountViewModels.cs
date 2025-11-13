@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProyectoGrupo4.Models
 {
@@ -49,9 +52,9 @@ namespace ProyectoGrupo4.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "Correo electrónico")]
-        [EmailAddress]
-        public string Email { get; set; }
+        [StringLength(100)]
+        [Display(Name = "Nombre de Usuario")]
+        public string NombreUsuario { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
@@ -65,9 +68,9 @@ namespace ProyectoGrupo4.Models
     public class RegisterViewModel
     {
         [Required]
-        [EmailAddress]
-        [Display(Name = "Correo electrónico")]
-        public string Email { get; set; }
+        [StringLength(100)]
+        [Display(Name = "Nombre de Usuario")]
+        public string NombreUsuario { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "El número de caracteres de {0} debe ser al menos {2}.", MinimumLength = 6)]
@@ -79,6 +82,7 @@ namespace ProyectoGrupo4.Models
         [Display(Name = "Confirmar contraseña")]
         [Compare("Password", ErrorMessage = "La contraseña y la contraseña de confirmación no coinciden.")]
         public string ConfirmPassword { get; set; }
+
     }
 
     public class ResetPasswordViewModel

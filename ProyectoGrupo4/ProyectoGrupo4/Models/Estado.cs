@@ -16,7 +16,6 @@ namespace ProyectoGrupo4.Models
         public string Nombre { get; set; }
 
         public virtual ICollection<Producto> Productos { get; set; }
-        //public virtual ICollection<Usuario> Usuarios { get; set; }
         public virtual ICollection<Orden> Ordenes { get; set; }
         public virtual ICollection<DetalleOrden> DetallesOrden { get; set; }
         public virtual ICollection<ImagenProducto> ImagenesProducto { get; set; }

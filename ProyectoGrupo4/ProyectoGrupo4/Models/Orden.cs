@@ -16,12 +16,12 @@ namespace ProyectoGrupo4.Models
         public DateTime Fecha_Orden { get; set; }
 
         [Required]
-        [Column(TypeName = "decimal(10,2)")]
+        [Column(TypeName = "decimal")]
         public decimal Total { get; set; }
 
         [ForeignKey("Usuario")]
-        public int ID_Usuario { get; set; }
-        public virtual Usuario Usuario { get; set; }
+        public string ID_Usuario { get; set; }
+        public virtual ApplicationUser Usuario { get; set; }
 
         [ForeignKey("Estado")]
         public int ID_Estado { get; set; }

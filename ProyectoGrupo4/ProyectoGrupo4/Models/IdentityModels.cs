@@ -1,14 +1,19 @@
-﻿using System.Data.Entity;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using System;
+using System.Data;
+using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace ProyectoGrupo4.Models
 {
     // Para agregar datos de perfil del usuario, agregue más propiedades a su clase ApplicationUser. Visite https://go.microsoft.com/fwlink/?LinkID=317594 para obtener más información.
     public class ApplicationUser : IdentityUser
     {
+        public DateTime? UltimaConexion { get; set; }
+        public string NombreUsuario { get; set; }
+
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Tenga en cuenta que authenticationType debe coincidir con el valor definido en CookieAuthenticationOptions.AuthenticationType
@@ -17,7 +22,6 @@ namespace ProyectoGrupo4.Models
             return userIdentity;
         }
     }
-
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
@@ -29,6 +33,40 @@ namespace ProyectoGrupo4.Models
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
+        }
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Producto>()
+                .HasRequired(p => p.Estado)
+                .WithMany(e => e.Productos)
+                .HasForeignKey(p => p.ID_Estado)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Orden>()
+                .HasRequired(o => o.Estado)
+                .WithMany(e => e.Ordenes)
+                .HasForeignKey(o => o.ID_Estado)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<DetalleOrden>()
+                .HasRequired(d => d.Estado)
+                .WithMany(e => e.DetallesOrden)
+                .HasForeignKey(d => d.ID_Estado)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<ImagenProducto>()
+                .HasRequired(i => i.Estado)
+                .WithMany(e => e.ImagenesProducto)
+                .HasForeignKey(i => i.ID_Estado)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Resenna>()
+                .HasRequired(r => r.Estado)
+                .WithMany(e => e.Resenas)
+                .HasForeignKey(r => r.ID_Estado)
+                .WillCascadeOnDelete(false);
         }
     }
 }
