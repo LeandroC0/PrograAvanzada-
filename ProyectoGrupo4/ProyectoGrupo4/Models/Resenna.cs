@@ -1,0 +1,32 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Web;
+
+namespace ProyectoGrupo4.Models
+{
+    public class Resenna
+    {
+        [Key]
+        public int ID_Reseña { get; set; }
+
+        [Required, StringLength(500)]
+        public string Comentario { get; set; }
+
+        [Range(1, 5)]
+        public int Calificación { get; set; }
+
+        [Required]
+        public DateTime Fecha_Reseña { get; set; }
+
+        [ForeignKey("Estado")]
+        public int ID_Estado { get; set; }
+        public virtual Estado Estado { get; set; }
+
+        [ForeignKey("Producto")]
+        public int ID_Producto { get; set; }
+        public virtual Producto Producto { get; set; }
+    }
+}
