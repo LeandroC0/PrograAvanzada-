@@ -17,7 +17,7 @@ namespace ProyectoGrupo4.Controllers
         // GET: Orden
         public ActionResult Index()
         {
-            var ordens = db.Ordens.Include(o => o.Estado).Include(o => o.Usuario);
+            var ordens = db.Ordenes.Include(o => o.Estado).Include(o => o.Usuario);
             return View(ordens.ToList());
         }
 
@@ -28,7 +28,7 @@ namespace ProyectoGrupo4.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Orden orden = db.Ordens.Find(id);
+            Orden orden = db.Ordenes.Find(id);
             if (orden == null)
             {
                 return HttpNotFound();
@@ -39,7 +39,7 @@ namespace ProyectoGrupo4.Controllers
         // GET: Orden/Create
         public ActionResult Create()
         {
-            ViewBag.ID_Estado = new SelectList(db.Estadoes, "ID_Estado", "Nombre");
+            ViewBag.ID_Estado = new SelectList(db.Estados, "ID_Estado", "Nombre");
             ViewBag.ID_Usuario = new SelectList(db.ApplicationUsers, "Id", "NombreUsuario");
             return View();
         }
@@ -53,12 +53,12 @@ namespace ProyectoGrupo4.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Ordens.Add(orden);
+                db.Ordenes.Add(orden);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ID_Estado = new SelectList(db.Estadoes, "ID_Estado", "Nombre", orden.ID_Estado);
+            ViewBag.ID_Estado = new SelectList(db.Estados, "ID_Estado", "Nombre", orden.ID_Estado);
             ViewBag.ID_Usuario = new SelectList(db.ApplicationUsers, "Id", "NombreUsuario", orden.ID_Usuario);
             return View(orden);
         }
@@ -70,12 +70,12 @@ namespace ProyectoGrupo4.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Orden orden = db.Ordens.Find(id);
+            Orden orden = db.Ordenes.Find(id);
             if (orden == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.ID_Estado = new SelectList(db.Estadoes, "ID_Estado", "Nombre", orden.ID_Estado);
+            ViewBag.ID_Estado = new SelectList(db.Estados, "ID_Estado", "Nombre", orden.ID_Estado);
             ViewBag.ID_Usuario = new SelectList(db.ApplicationUsers, "Id", "NombreUsuario", orden.ID_Usuario);
             return View(orden);
         }
@@ -93,7 +93,7 @@ namespace ProyectoGrupo4.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ID_Estado = new SelectList(db.Estadoes, "ID_Estado", "Nombre", orden.ID_Estado);
+            ViewBag.ID_Estado = new SelectList(db.Estados, "ID_Estado", "Nombre", orden.ID_Estado);
             ViewBag.ID_Usuario = new SelectList(db.ApplicationUsers, "Id", "NombreUsuario", orden.ID_Usuario);
             return View(orden);
         }
@@ -105,7 +105,7 @@ namespace ProyectoGrupo4.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Orden orden = db.Ordens.Find(id);
+            Orden orden = db.Ordenes.Find(id);
             if (orden == null)
             {
                 return HttpNotFound();
@@ -118,8 +118,8 @@ namespace ProyectoGrupo4.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Orden orden = db.Ordens.Find(id);
-            db.Ordens.Remove(orden);
+            Orden orden = db.Ordenes.Find(id);
+            db.Ordenes.Remove(orden);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

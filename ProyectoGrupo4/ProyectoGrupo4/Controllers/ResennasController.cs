@@ -39,8 +39,8 @@ namespace ProyectoGrupo4.Controllers
         // GET: Resennas/Create
         public ActionResult Create()
         {
-            ViewBag.ID_Estado = new SelectList(db.Estadoes, "ID_Estado", "Nombre");
-            ViewBag.ID_Producto = new SelectList(db.Productoes, "ID_Producto", "Nombre");
+            ViewBag.ID_Estado = new SelectList(db.Estados, "ID_Estado", "Nombre");
+            ViewBag.ID_Producto = new SelectList(db.Productos, "ID_Producto", "Nombre");
             ViewBag.ID_Usuario = new SelectList(db.ApplicationUsers, "Id", "NombreUsuario");
             return View();
         }
@@ -59,8 +59,8 @@ namespace ProyectoGrupo4.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ID_Estado = new SelectList(db.Estadoes, "ID_Estado", "Nombre", resenna.ID_Estado);
-            ViewBag.ID_Producto = new SelectList(db.Productoes, "ID_Producto", "Nombre", resenna.ID_Producto);
+            ViewBag.ID_Estado = new SelectList(db.Estados, "ID_Estado", "Nombre", resenna.ID_Estado);
+            ViewBag.ID_Producto = new SelectList(db.Productos, "ID_Producto", "Nombre", resenna.ID_Producto);
             ViewBag.ID_Usuario = new SelectList(db.ApplicationUsers, "Id", "NombreUsuario", resenna.ID_Usuario);
             return View(resenna);
         }
@@ -77,8 +77,8 @@ namespace ProyectoGrupo4.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.ID_Estado = new SelectList(db.Estadoes, "ID_Estado", "Nombre", resenna.ID_Estado);
-            ViewBag.ID_Producto = new SelectList(db.Productoes, "ID_Producto", "Nombre", resenna.ID_Producto);
+            ViewBag.ID_Estado = new SelectList(db.Estados, "ID_Estado", "Nombre", resenna.ID_Estado);
+            ViewBag.ID_Producto = new SelectList(db.Productos, "ID_Producto", "Nombre", resenna.ID_Producto);
             ViewBag.ID_Usuario = new SelectList(db.ApplicationUsers, "Id", "NombreUsuario", resenna.ID_Usuario);
             return View(resenna);
         }
@@ -96,8 +96,8 @@ namespace ProyectoGrupo4.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ID_Estado = new SelectList(db.Estadoes, "ID_Estado", "Nombre", resenna.ID_Estado);
-            ViewBag.ID_Producto = new SelectList(db.Productoes, "ID_Producto", "Nombre", resenna.ID_Producto);
+            ViewBag.ID_Estado = new SelectList(db.Estados, "ID_Estado", "Nombre", resenna.ID_Estado);
+            ViewBag.ID_Producto = new SelectList(db.Productos, "ID_Producto", "Nombre", resenna.ID_Producto);
             ViewBag.ID_Usuario = new SelectList(db.ApplicationUsers, "Id", "NombreUsuario", resenna.ID_Usuario);
             return View(resenna);
         }

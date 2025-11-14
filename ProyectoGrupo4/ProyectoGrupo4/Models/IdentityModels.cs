@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
+using System.Collections;
 using System.Data;
 using System.Data.Entity;
 using System.Security.Claims;
@@ -24,6 +25,8 @@ namespace ProyectoGrupo4.Models
     }
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        internal readonly IEnumerable ApplicationUsers;
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
