@@ -19,16 +19,17 @@ namespace ProyectoGrupo4.Models
         [Column(TypeName = "decimal")]
         public decimal PrecioUnitario { get; set; }
 
-        [ForeignKey("Producto")]
         public int ID_Producto { get; set; }
+        public int ID_Orden { get; set; }
+        public int ID_Estado { get; set; }
+
+        [ForeignKey("ID_Producto")]
         public virtual Producto Producto { get; set; }
 
-        [ForeignKey("Orden")]
-        public int ID_Orden { get; set; }
+        [ForeignKey("ID_Orden")]
         public virtual Orden Orden { get; set; }
 
-        [ForeignKey("Estado")]
-        public int ID_Estado { get; set; }
+        [ForeignKey("ID_Estado")]
         public virtual Estado Estado { get; set; }
     }
 }

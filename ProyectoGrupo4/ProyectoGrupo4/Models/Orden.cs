@@ -19,12 +19,13 @@ namespace ProyectoGrupo4.Models
         [Column(TypeName = "decimal")]
         public decimal Total { get; set; }
 
-        [ForeignKey("Usuario")]
         public string ID_Usuario { get; set; }
+        public int ID_Estado { get; set; }
+
+        [ForeignKey("ID_Usuario")]
         public virtual ApplicationUser Usuario { get; set; }
 
-        [ForeignKey("Estado")]
-        public int ID_Estado { get; set; }
+        [ForeignKey("ID_Estado")]
         public virtual Estado Estado { get; set; }
 
         public virtual ICollection<DetalleOrden> Detalles { get; set; }

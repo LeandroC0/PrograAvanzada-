@@ -166,30 +166,19 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\DetalleOrdenController.cs" />
+    <Compile Include="Controllers\EstadosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\OrdensController.cs" />
+    <Compile Include="Controllers\ProductosController.cs" />
+    <Compile Include="Controllers\ResennasController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202511130559313_CreacionDB.cs" />
-    <Compile Include="Migrations\202511130559313_CreacionDB.Designer.cs">
-      <DependentUpon>202511130559313_CreacionDB.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202511131901075_UpdateDataBase2.cs" />
-    <Compile Include="Migrations\202511131901075_UpdateDataBase2.Designer.cs">
-      <DependentUpon>202511131901075_UpdateDataBase2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202511132042513_UpdateDataBase21.cs" />
-    <Compile Include="Migrations\202511132042513_UpdateDataBase21.Designer.cs">
-      <DependentUpon>202511132042513_UpdateDataBase21.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202511132108259_MigracionX.cs" />
-    <Compile Include="Migrations\202511132108259_MigracionX.Designer.cs">
-      <DependentUpon>202511132108259_MigracionX.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202511132116024_MigracionY.cs" />
-    <Compile Include="Migrations\202511132116024_MigracionY.Designer.cs">
-      <DependentUpon>202511132116024_MigracionY.cs</DependentUpon>
+    <Compile Include="Migrations\202511140134579_DbUpdate.cs" />
+    <Compile Include="Migrations\202511140134579_DbUpdate.Designer.cs">
+      <DependentUpon>202511140134579_DbUpdate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -275,6 +264,31 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Estados\Create.cshtml" />
+    <Content Include="Views\Estados\Delete.cshtml" />
+    <Content Include="Views\Estados\Details.cshtml" />
+    <Content Include="Views\Estados\Edit.cshtml" />
+    <Content Include="Views\Estados\Index.cshtml" />
+    <Content Include="Views\DetalleOrden\Create.cshtml" />
+    <Content Include="Views\DetalleOrden\Delete.cshtml" />
+    <Content Include="Views\DetalleOrden\Details.cshtml" />
+    <Content Include="Views\DetalleOrden\Edit.cshtml" />
+    <Content Include="Views\DetalleOrden\Index.cshtml" />
+    <Content Include="Views\Productos\Create.cshtml" />
+    <Content Include="Views\Productos\Delete.cshtml" />
+    <Content Include="Views\Productos\Details.cshtml" />
+    <Content Include="Views\Productos\Edit.cshtml" />
+    <Content Include="Views\Productos\Index.cshtml" />
+    <Content Include="Views\Orden\Create.cshtml" />
+    <Content Include="Views\Orden\Delete.cshtml" />
+    <Content Include="Views\Orden\Details.cshtml" />
+    <Content Include="Views\Orden\Edit.cshtml" />
+    <Content Include="Views\Orden\Index.cshtml" />
+    <Content Include="Views\Resennas\Create.cshtml" />
+    <Content Include="Views\Resennas\Delete.cshtml" />
+    <Content Include="Views\Resennas\Details.cshtml" />
+    <Content Include="Views\Resennas\Edit.cshtml" />
+    <Content Include="Views\Resennas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -307,20 +321,8 @@
     <Content Include="Scripts\jquery-3.7.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202511130559313_CreacionDB.resx">
-      <DependentUpon>202511130559313_CreacionDB.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202511131901075_UpdateDataBase2.resx">
-      <DependentUpon>202511131901075_UpdateDataBase2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202511132042513_UpdateDataBase21.resx">
-      <DependentUpon>202511132042513_UpdateDataBase21.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202511132108259_MigracionX.resx">
-      <DependentUpon>202511132108259_MigracionX.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202511132116024_MigracionY.resx">
-      <DependentUpon>202511132116024_MigracionY.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202511140134579_DbUpdate.resx">
+      <DependentUpon>202511140134579_DbUpdate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

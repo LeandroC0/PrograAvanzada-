@@ -14,13 +14,13 @@ namespace ProyectoGrupo4.Models
 
         public byte[] RutaImagen { get; set; }
         [Required]
-
-        [ForeignKey("Estado")]
+        public int ID_Producto { get; set; }
         public int ID_Estado { get; set; }
+
+        [ForeignKey("ID_Estado")]
         public virtual Estado Estado { get; set; }
 
-        [ForeignKey("Producto")]
-        public int ID_Producto { get; set; }
+        [ForeignKey("ID_Producto")]
         public virtual Producto Producto { get; set; }
 
 

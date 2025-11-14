@@ -294,13 +294,9 @@ C:\Users\Rafael\source\repos\PrograAvanzada-\ProyectoGrupo4\ProyectoGrupo4\bin\e
 C:\Users\Rafael\source\repos\PrograAvanzada-\ProyectoGrupo4\ProyectoGrupo4\bin\es\Microsoft.AspNet.Identity.Owin.resources.dll
 C:\Users\Rafael\source\repos\PrograAvanzada-\ProyectoGrupo4\ProyectoGrupo4\bin\es\Microsoft.AspNet.Identity.EntityFramework.resources.dll
 C:\Users\Rafael\source\repos\PrograAvanzada-\ProyectoGrupo4\ProyectoGrupo4\obj\Debug\ProyectoGrupo4.csproj.AssemblyReference.cache
-C:\Users\Rafael\source\repos\PrograAvanzada-\ProyectoGrupo4\ProyectoGrupo4\obj\Debug\ProyectoGrupo4.Migrations.CreacionDB.resources
-C:\Users\Rafael\source\repos\PrograAvanzada-\ProyectoGrupo4\ProyectoGrupo4\obj\Debug\ProyectoGrupo4.Migrations.UpdateDataBase2.resources
-C:\Users\Rafael\source\repos\PrograAvanzada-\ProyectoGrupo4\ProyectoGrupo4\obj\Debug\ProyectoGrupo4.Migrations.UpdateDataBase21.resources
-C:\Users\Rafael\source\repos\PrograAvanzada-\ProyectoGrupo4\ProyectoGrupo4\obj\Debug\ProyectoGrupo4.Migrations.MigracionX.resources
-C:\Users\Rafael\source\repos\PrograAvanzada-\ProyectoGrupo4\ProyectoGrupo4\obj\Debug\ProyectoGrupo4.csproj.GenerateResource.cache
 C:\Users\Rafael\source\repos\PrograAvanzada-\ProyectoGrupo4\ProyectoGrupo4\obj\Debug\ProyectoGrupo4.csproj.CoreCompileInputs.cache
 C:\Users\Rafael\source\repos\PrograAvanzada-\ProyectoGrupo4\ProyectoGrupo4\obj\Debug\Proyecto.34BE0F85.Up2Date
 C:\Users\Rafael\source\repos\PrograAvanzada-\ProyectoGrupo4\ProyectoGrupo4\obj\Debug\ProyectoGrupo4.dll
 C:\Users\Rafael\source\repos\PrograAvanzada-\ProyectoGrupo4\ProyectoGrupo4\obj\Debug\ProyectoGrupo4.pdb
-C:\Users\Rafael\source\repos\PrograAvanzada-\ProyectoGrupo4\ProyectoGrupo4\obj\Debug\ProyectoGrupo4.Migrations.MigracionY.resources
+C:\Users\Rafael\source\repos\PrograAvanzada-\ProyectoGrupo4\ProyectoGrupo4\obj\Debug\ProyectoGrupo4.Migrations.DbUpdate.resources
+C:\Users\Rafael\source\repos\PrograAvanzada-\ProyectoGrupo4\ProyectoGrupo4\obj\Debug\ProyectoGrupo4.csproj.GenerateResource.cache

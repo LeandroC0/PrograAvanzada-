@@ -3,11 +3,35 @@
   "WorkspaceRootPath": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{68C6002D-4B64-493B-A613-2C2326AB3C1B}|ProyectoGrupo4\\ProyectoGrupo4.csproj|c:\\users\\rafael\\source\\repos\\prograavanzada-\\proyectogrupo4\\proyectogrupo4\\migrations\\202511132116024_migraciony.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{68C6002D-4B64-493B-A613-2C2326AB3C1B}|ProyectoGrupo4\\ProyectoGrupo4.csproj|solutionrelative:proyectogrupo4\\migrations\\202511132116024_migraciony.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{68C6002D-4B64-493B-A613-2C2326AB3C1B}|ProyectoGrupo4\\ProyectoGrupo4.csproj|c:\\users\\rafael\\source\\repos\\prograavanzada-\\proyectogrupo4\\proyectogrupo4\\controllers\\resennascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{68C6002D-4B64-493B-A613-2C2326AB3C1B}|ProyectoGrupo4\\ProyectoGrupo4.csproj|solutionrelative:proyectogrupo4\\controllers\\resennascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{68C6002D-4B64-493B-A613-2C2326AB3C1B}|ProyectoGrupo4\\ProyectoGrupo4.csproj|c:\\users\\rafael\\source\\repos\\prograavanzada-\\proyectogrupo4\\proyectogrupo4\\models\\identitymodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{68C6002D-4B64-493B-A613-2C2326AB3C1B}|ProyectoGrupo4\\ProyectoGrupo4.csproj|c:\\users\\rafael\\source\\repos\\prograavanzada-\\proyectogrupo4\\proyectogrupo4\\controllers\\detalleordencontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{68C6002D-4B64-493B-A613-2C2326AB3C1B}|ProyectoGrupo4\\ProyectoGrupo4.csproj|solutionrelative:proyectogrupo4\\controllers\\detalleordencontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{68C6002D-4B64-493B-A613-2C2326AB3C1B}|ProyectoGrupo4\\ProyectoGrupo4.csproj|c:\\users\\rafael\\source\\repos\\prograavanzada-\\proyectogrupo4\\proyectogrupo4\\controllers\\productoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{68C6002D-4B64-493B-A613-2C2326AB3C1B}|ProyectoGrupo4\\ProyectoGrupo4.csproj|solutionrelative:proyectogrupo4\\controllers\\productoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{68C6002D-4B64-493B-A613-2C2326AB3C1B}|ProyectoGrupo4\\ProyectoGrupo4.csproj|c:\\users\\rafael\\source\\repos\\prograavanzada-\\proyectogrupo4\\proyectogrupo4\\controllers\\ordenscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{68C6002D-4B64-493B-A613-2C2326AB3C1B}|ProyectoGrupo4\\ProyectoGrupo4.csproj|solutionrelative:proyectogrupo4\\controllers\\ordenscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{68C6002D-4B64-493B-A613-2C2326AB3C1B}|ProyectoGrupo4\\ProyectoGrupo4.csproj|c:\\users\\rafael\\source\\repos\\prograavanzada-\\proyectogrupo4\\proyectogrupo4\\controllers\\estadoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{68C6002D-4B64-493B-A613-2C2326AB3C1B}|ProyectoGrupo4\\ProyectoGrupo4.csproj|solutionrelative:proyectogrupo4\\controllers\\estadoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{68C6002D-4B64-493B-A613-2C2326AB3C1B}|ProyectoGrupo4\\ProyectoGrupo4.csproj|c:\\users\\rafael\\source\\repos\\prograavanzada-\\proyectogrupo4\\proyectogrupo4\\migrations\\202511140134579_dbupdate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{68C6002D-4B64-493B-A613-2C2326AB3C1B}|ProyectoGrupo4\\ProyectoGrupo4.csproj|solutionrelative:proyectogrupo4\\migrations\\202511140134579_dbupdate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{68C6002D-4B64-493B-A613-2C2326AB3C1B}|ProyectoGrupo4\\ProyectoGrupo4.csproj|c:\\users\\rafael\\source\\repos\\prograavanzada-\\proyectogrupo4\\proyectogrupo4\\migrations\\configuration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{68C6002D-4B64-493B-A613-2C2326AB3C1B}|ProyectoGrupo4\\ProyectoGrupo4.csproj|solutionrelative:proyectogrupo4\\migrations\\configuration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{68C6002D-4B64-493B-A613-2C2326AB3C1B}|ProyectoGrupo4\\ProyectoGrupo4.csproj|C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\proyectogrupo4\\models\\identitymodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{68C6002D-4B64-493B-A613-2C2326AB3C1B}|ProyectoGrupo4\\ProyectoGrupo4.csproj|solutionrelative:proyectogrupo4\\models\\identitymodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -15,8 +39,12 @@
       "RelativeMoniker": "D:0:0:{68C6002D-4B64-493B-A613-2C2326AB3C1B}|ProyectoGrupo4\\ProyectoGrupo4.csproj|solutionrelative:proyectogrupo4\\models\\producto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{68C6002D-4B64-493B-A613-2C2326AB3C1B}|ProyectoGrupo4\\ProyectoGrupo4.csproj|C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\proyectogrupo4\\models\\orden.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{68C6002D-4B64-493B-A613-2C2326AB3C1B}|ProyectoGrupo4\\ProyectoGrupo4.csproj|c:\\users\\rafael\\source\\repos\\prograavanzada-\\proyectogrupo4\\proyectogrupo4\\models\\orden.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{68C6002D-4B64-493B-A613-2C2326AB3C1B}|ProyectoGrupo4\\ProyectoGrupo4.csproj|solutionrelative:proyectogrupo4\\models\\orden.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{68C6002D-4B64-493B-A613-2C2326AB3C1B}|ProyectoGrupo4\\ProyectoGrupo4.csproj|c:\\users\\rafael\\source\\repos\\prograavanzada-\\proyectogrupo4\\proyectogrupo4\\models\\manageviewmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{68C6002D-4B64-493B-A613-2C2326AB3C1B}|ProyectoGrupo4\\ProyectoGrupo4.csproj|solutionrelative:proyectogrupo4\\models\\manageviewmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{68C6002D-4B64-493B-A613-2C2326AB3C1B}|ProyectoGrupo4\\ProyectoGrupo4.csproj|C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\proyectogrupo4\\models\\resenna.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -27,12 +55,12 @@
       "RelativeMoniker": "D:0:0:{68C6002D-4B64-493B-A613-2C2326AB3C1B}|ProyectoGrupo4\\ProyectoGrupo4.csproj|solutionrelative:proyectogrupo4\\models\\imagenproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{68C6002D-4B64-493B-A613-2C2326AB3C1B}|ProyectoGrupo4\\ProyectoGrupo4.csproj|c:\\users\\rafael\\source\\repos\\prograavanzada-\\proyectogrupo4\\proyectogrupo4\\models\\detalleorden.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{68C6002D-4B64-493B-A613-2C2326AB3C1B}|ProyectoGrupo4\\ProyectoGrupo4.csproj|solutionrelative:proyectogrupo4\\models\\detalleorden.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{68C6002D-4B64-493B-A613-2C2326AB3C1B}|ProyectoGrupo4\\ProyectoGrupo4.csproj|C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\proyectogrupo4\\models\\estado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{68C6002D-4B64-493B-A613-2C2326AB3C1B}|ProyectoGrupo4\\ProyectoGrupo4.csproj|solutionrelative:proyectogrupo4\\models\\estado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{68C6002D-4B64-493B-A613-2C2326AB3C1B}|ProyectoGrupo4\\ProyectoGrupo4.csproj|C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\proyectogrupo4\\migrations\\202511132042513_updatedatabase21.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{68C6002D-4B64-493B-A613-2C2326AB3C1B}|ProyectoGrupo4\\ProyectoGrupo4.csproj|solutionrelative:proyectogrupo4\\migrations\\202511132042513_updatedatabase21.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{68C6002D-4B64-493B-A613-2C2326AB3C1B}|ProyectoGrupo4\\ProyectoGrupo4.csproj|C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\proyectogrupo4\\models\\detalleorden.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{68C6002D-4B64-493B-A613-2C2326AB3C1B}|ProyectoGrupo4\\ProyectoGrupo4.csproj|solutionrelative:proyectogrupo4\\models\\detalleorden.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,7 +70,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 189,
-          "SelectedChildIndex": 55,
+          "SelectedChildIndex": 54,
           "Children": [
             {
               "$type": "Bookmark",
@@ -262,106 +290,198 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "IdentityModels.cs",
-              "DocumentMoniker": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\ProyectoGrupo4\\Models\\IdentityModels.cs",
-              "RelativeDocumentMoniker": "ProyectoGrupo4\\Models\\IdentityModels.cs",
-              "ToolTip": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\ProyectoGrupo4\\Models\\IdentityModels.cs",
-              "RelativeToolTip": "ProyectoGrupo4\\Models\\IdentityModels.cs",
-              "ViewState": "AgIAADEAAAAAAAAAAADwvycAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "ResennasController.cs",
+              "DocumentMoniker": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\ProyectoGrupo4\\Controllers\\ResennasController.cs",
+              "RelativeDocumentMoniker": "ProyectoGrupo4\\Controllers\\ResennasController.cs",
+              "ToolTip": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\ProyectoGrupo4\\Controllers\\ResennasController.cs",
+              "RelativeToolTip": "ProyectoGrupo4\\Controllers\\ResennasController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-13T21:17:44.142Z",
+              "WhenOpened": "2025-11-14T01:47:31.751Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "202511132116024_MigracionY.cs",
-              "DocumentMoniker": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\ProyectoGrupo4\\Migrations\\202511132116024_MigracionY.cs",
-              "RelativeDocumentMoniker": "ProyectoGrupo4\\Migrations\\202511132116024_MigracionY.cs",
-              "ToolTip": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\ProyectoGrupo4\\Migrations\\202511132116024_MigracionY.cs",
-              "RelativeToolTip": "ProyectoGrupo4\\Migrations\\202511132116024_MigracionY.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "OrdensController.cs",
+              "DocumentMoniker": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\ProyectoGrupo4\\Controllers\\OrdensController.cs",
+              "RelativeDocumentMoniker": "ProyectoGrupo4\\Controllers\\OrdensController.cs",
+              "ToolTip": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\ProyectoGrupo4\\Controllers\\OrdensController.cs",
+              "RelativeToolTip": "ProyectoGrupo4\\Controllers\\OrdensController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-13T21:16:09.352Z",
+              "WhenOpened": "2025-11-14T01:46:38.45Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ProductosController.cs",
+              "DocumentMoniker": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\ProyectoGrupo4\\Controllers\\ProductosController.cs",
+              "RelativeDocumentMoniker": "ProyectoGrupo4\\Controllers\\ProductosController.cs",
+              "ToolTip": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\ProyectoGrupo4\\Controllers\\ProductosController.cs",
+              "RelativeToolTip": "ProyectoGrupo4\\Controllers\\ProductosController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T01:46:08.51Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DetalleOrdenController.cs",
+              "DocumentMoniker": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\ProyectoGrupo4\\Controllers\\DetalleOrdenController.cs",
+              "RelativeDocumentMoniker": "ProyectoGrupo4\\Controllers\\DetalleOrdenController.cs",
+              "ToolTip": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\ProyectoGrupo4\\Controllers\\DetalleOrdenController.cs",
+              "RelativeToolTip": "ProyectoGrupo4\\Controllers\\DetalleOrdenController.cs",
+              "ViewState": "AgIAAG4AAAAAAAAAAAAuwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T01:45:45.081Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "EstadosController.cs",
+              "DocumentMoniker": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\ProyectoGrupo4\\Controllers\\EstadosController.cs",
+              "RelativeDocumentMoniker": "ProyectoGrupo4\\Controllers\\EstadosController.cs",
+              "ToolTip": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\ProyectoGrupo4\\Controllers\\EstadosController.cs",
+              "RelativeToolTip": "ProyectoGrupo4\\Controllers\\EstadosController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T01:45:10.012Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "202511140134579_DbUpdate.cs",
+              "DocumentMoniker": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\ProyectoGrupo4\\Migrations\\202511140134579_DbUpdate.cs",
+              "RelativeDocumentMoniker": "ProyectoGrupo4\\Migrations\\202511140134579_DbUpdate.cs",
+              "ToolTip": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\ProyectoGrupo4\\Migrations\\202511140134579_DbUpdate.cs",
+              "RelativeToolTip": "ProyectoGrupo4\\Migrations\\202511140134579_DbUpdate.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T01:35:04.606Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
+              "Title": "Configuration.cs",
+              "DocumentMoniker": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\ProyectoGrupo4\\Migrations\\Configuration.cs",
+              "RelativeDocumentMoniker": "ProyectoGrupo4\\Migrations\\Configuration.cs",
+              "ToolTip": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\ProyectoGrupo4\\Migrations\\Configuration.cs",
+              "RelativeToolTip": "ProyectoGrupo4\\Migrations\\Configuration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T01:34:27.993Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ManageViewModels.cs",
+              "DocumentMoniker": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\ProyectoGrupo4\\Models\\ManageViewModels.cs",
+              "RelativeDocumentMoniker": "ProyectoGrupo4\\Models\\ManageViewModels.cs",
+              "ToolTip": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\ProyectoGrupo4\\Models\\ManageViewModels.cs",
+              "RelativeToolTip": "ProyectoGrupo4\\Models\\ManageViewModels.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T00:33:07.242Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "IdentityModels.cs",
+              "DocumentMoniker": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\ProyectoGrupo4\\Models\\IdentityModels.cs",
+              "RelativeDocumentMoniker": "ProyectoGrupo4\\Models\\IdentityModels.cs",
+              "ToolTip": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\ProyectoGrupo4\\Models\\IdentityModels.cs",
+              "RelativeToolTip": "ProyectoGrupo4\\Models\\IdentityModels.cs",
+              "ViewState": "AgIAAEcAAAAAAAAAAAAwwEsAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-13T21:30:31.375Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Estado.cs",
+              "DocumentMoniker": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\ProyectoGrupo4\\Models\\Estado.cs",
+              "RelativeDocumentMoniker": "ProyectoGrupo4\\Models\\Estado.cs",
+              "ToolTip": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\ProyectoGrupo4\\Models\\Estado.cs",
+              "RelativeToolTip": "ProyectoGrupo4\\Models\\Estado.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-13T21:27:51.663Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
               "Title": "DetalleOrden.cs",
               "DocumentMoniker": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\ProyectoGrupo4\\Models\\DetalleOrden.cs",
               "RelativeDocumentMoniker": "ProyectoGrupo4\\Models\\DetalleOrden.cs",
               "ToolTip": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\ProyectoGrupo4\\Models\\DetalleOrden.cs",
               "RelativeToolTip": "ProyectoGrupo4\\Models\\DetalleOrden.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAjAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAB8AAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-13T20:50:56.5Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 12,
               "Title": "ImagenProducto.cs",
               "DocumentMoniker": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\ProyectoGrupo4\\Models\\ImagenProducto.cs",
               "RelativeDocumentMoniker": "ProyectoGrupo4\\Models\\ImagenProducto.cs",
               "ToolTip": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\ProyectoGrupo4\\Models\\ImagenProducto.cs",
               "RelativeToolTip": "ProyectoGrupo4\\Models\\ImagenProducto.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABUAAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABYAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-13T20:50:49.344Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 8,
               "Title": "Producto.cs",
               "DocumentMoniker": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\ProyectoGrupo4\\Models\\Producto.cs",
               "RelativeDocumentMoniker": "ProyectoGrupo4\\Models\\Producto.cs",
               "ToolTip": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\ProyectoGrupo4\\Models\\Producto.cs",
               "RelativeToolTip": "ProyectoGrupo4\\Models\\Producto.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABUAAAAXAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-13T20:50:37.069Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 9,
               "Title": "Orden.cs",
               "DocumentMoniker": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\ProyectoGrupo4\\Models\\Orden.cs",
               "RelativeDocumentMoniker": "ProyectoGrupo4\\Models\\Orden.cs",
               "ToolTip": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\ProyectoGrupo4\\Models\\Orden.cs",
               "RelativeToolTip": "ProyectoGrupo4\\Models\\Orden.cs",
-              "ViewState": "AgIAABcAAAAAAAAAAAAIwBIAAAAjAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABsAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-13T20:50:43.764Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 11,
               "Title": "Resenna.cs",
               "DocumentMoniker": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\ProyectoGrupo4\\Models\\Resenna.cs",
               "RelativeDocumentMoniker": "ProyectoGrupo4\\Models\\Resenna.cs",
               "ToolTip": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\ProyectoGrupo4\\Models\\Resenna.cs",
               "RelativeToolTip": "ProyectoGrupo4\\Models\\Resenna.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAABAAAAAAAAAAAAAgwCEAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-13T20:50:41.532Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "202511132042513_UpdateDataBase21.cs",
-              "DocumentMoniker": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\ProyectoGrupo4\\Migrations\\202511132042513_UpdateDataBase21.cs",
-              "RelativeDocumentMoniker": "ProyectoGrupo4\\Migrations\\202511132042513_UpdateDataBase21.cs",
-              "ToolTip": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada-\\ProyectoGrupo4\\ProyectoGrupo4\\Migrations\\202511132042513_UpdateDataBase21.cs",
-              "RelativeToolTip": "ProyectoGrupo4\\Migrations\\202511132042513_UpdateDataBase21.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-13T20:42:57.052Z"
             }
           ]
         },

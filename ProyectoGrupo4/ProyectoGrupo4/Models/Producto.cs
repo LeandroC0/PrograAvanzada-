@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Web;
 
 namespace ProyectoGrupo4.Models
 {
@@ -18,9 +15,9 @@ namespace ProyectoGrupo4.Models
         public decimal Precio { get; set; }
         [Required]
         public int Inventario { get; set; }
-
-        [ForeignKey("Estado")]
         public int ID_Estado { get; set; }
+
+        [ForeignKey("ID_Estado")]
         public virtual Estado Estado { get; set; }
 
         public virtual ICollection<ImagenProducto> Imagenes { get; set; }

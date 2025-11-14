@@ -20,17 +20,18 @@ namespace ProyectoGrupo4.Models
 
         [Required]
         public DateTime Fecha_Reseña { get; set; }
-
-        [ForeignKey("Estado")]
-        public int ID_Estado { get; set; }
-        public virtual Estado Estado { get; set; }
-
-        [ForeignKey("Producto")]
         public int ID_Producto { get; set; }
+        public int ID_Estado { get; set; }
+
+        public string ID_Usuario { get; set; }
+
+        [ForeignKey("ID_Producto")]
         public virtual Producto Producto { get; set; }
 
-        [ForeignKey("Usuario")]
-        public string ID_Usuario { get; set; }
+        [ForeignKey("ID_Estado")]
+        public virtual Estado Estado { get; set; }
+
+        [ForeignKey("ID_Usuario")]
         public virtual ApplicationUser Usuario { get; set; }
     }
 }
