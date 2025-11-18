@@ -7,13 +7,13 @@ namespace ProyectoGrupo4.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.5.1")]
-    public sealed partial class DbUpdate : IMigrationMetadata
+    public sealed partial class UpdateDM : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(DbUpdate));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(UpdateDM));
         
         string IMigrationMetadata.Id
         {
-            get { return "202511140134579_DbUpdate"; }
+            get { return "202511180320533_UpdateDM"; }
         }
         
         string IMigrationMetadata.Source
