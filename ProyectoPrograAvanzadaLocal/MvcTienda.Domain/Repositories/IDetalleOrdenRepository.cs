@@ -1,0 +1,20 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using MvcTienda.Domain.Entities;
+using System.Collections.Generic;
+
+namespace MvcTienda.Domain.Repositories
+{
+    public interface IDetalleOrdenRepository
+    {
+        IEnumerable<DetalleOrden> GetAll();
+        DetalleOrden GetById(int id);
+        void Add(DetalleOrden detalle);
+        void Update(DetalleOrden detalle);
+        void Delete(int id);
+        void Save();
+    }
+}

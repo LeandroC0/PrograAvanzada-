@@ -1,0 +1,6 @@
+C:\Users\User\Documents\CODIGOS VISUAL\ProyectoPrograAvanzadaLocal\MvcTienda.Domain\bin\Debug\MvcTienda.Domain.dll
+C:\Users\User\Documents\CODIGOS VISUAL\ProyectoPrograAvanzadaLocal\MvcTienda.Domain\bin\Debug\MvcTienda.Domain.pdb
+C:\Users\User\Documents\CODIGOS VISUAL\ProyectoPrograAvanzadaLocal\MvcTienda.Domain\obj\Debug\MvcTienda.Domain.csproj.AssemblyReference.cache
+C:\Users\User\Documents\CODIGOS VISUAL\ProyectoPrograAvanzadaLocal\MvcTienda.Domain\obj\Debug\MvcTienda.Domain.csproj.CoreCompileInputs.cache
+C:\Users\User\Documents\CODIGOS VISUAL\ProyectoPrograAvanzadaLocal\MvcTienda.Domain\obj\Debug\MvcTienda.Domain.dll
+C:\Users\User\Documents\CODIGOS VISUAL\ProyectoPrograAvanzadaLocal\MvcTienda.Domain\obj\Debug\MvcTienda.Domain.pdb

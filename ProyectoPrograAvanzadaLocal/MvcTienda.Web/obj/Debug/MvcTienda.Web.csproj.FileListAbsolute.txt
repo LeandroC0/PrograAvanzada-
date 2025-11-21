@@ -1,0 +1,2 @@
+C:\Users\User\Documents\CODIGOS VISUAL\ProyectoPrograAvanzadaLocal\MvcTienda.Web\obj\Debug\MvcTienda.Web.csproj.AssemblyReference.cache
+C:\Users\User\Documents\CODIGOS VISUAL\ProyectoPrograAvanzadaLocal\MvcTienda.Web\obj\Debug\MvcTienda.Web.csproj.CoreCompileInputs.cache
