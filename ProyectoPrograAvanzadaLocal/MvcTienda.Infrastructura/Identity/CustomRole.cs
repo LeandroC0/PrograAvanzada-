@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
-using MvcTienda.Infrastrutura.Identity;
+using MvcTienda.Infrastructura.Identity;
 
 public class CustomRole : IdentityRole<int, CustomUserRole>
 {

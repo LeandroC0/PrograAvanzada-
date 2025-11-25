@@ -3,7 +3,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using MvcTienda.Infrastructura.Data;
 
-namespace MvcTienda.Infrastrutura.Identity
+namespace MvcTienda.Infrastructura.Identity
 {
     public class ApplicationUserManager : UserManager<ApplicationUser, int>
     {

@@ -80,26 +80,26 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\NegocioException.cs" />
-    <Compile Include="Productos\AuthService.cs" />
-    <Compile Include="Productos\DetalleOrdenDto.cs" />
-    <Compile Include="Productos\DetalleOrdenService.cs" />
-    <Compile Include="Productos\EstadoDto.cs" />
-    <Compile Include="Productos\EstadoService.cs" />
-    <Compile Include="Productos\IAuthService.cs" />
-    <Compile Include="Productos\IDetalleOrdenService.cs" />
-    <Compile Include="Productos\IEstadoService.cs" />
-    <Compile Include="Productos\IImagenProductoService.cs" />
-    <Compile Include="Productos\ImagenProductoDto.cs" />
-    <Compile Include="Productos\ImagenProductoSerivce.cs" />
-    <Compile Include="Productos\IOrdenService.cs" />
-    <Compile Include="Productos\IProductoService.cs" />
-    <Compile Include="Productos\IResennaRepository.cs" />
-    <Compile Include="Productos\OrdenDto.cs" />
-    <Compile Include="Productos\OrdenService.cs" />
-    <Compile Include="Productos\ProductoDto.cs" />
-    <Compile Include="Productos\ProductoService.cs" />
-    <Compile Include="Productos\ResennaDto.cs" />
-    <Compile Include="Productos\ResennaSerivce.cs" />
+    <Compile Include="Usuario\AuthService.cs" />
+    <Compile Include="DetalleOrden\DetalleOrdenDto.cs" />
+    <Compile Include="DetalleOrden\DetalleOrdenService.cs" />
+    <Compile Include="Estado\EstadoDto.cs" />
+    <Compile Include="Estado\EstadoService.cs" />
+    <Compile Include="Usuario\IAuthService.cs" />
+    <Compile Include="DetalleOrden\IDetalleOrdenService.cs" />
+    <Compile Include="Estado\IEstadoService.cs" />
+    <Compile Include="Imagen\IImagenProductoService.cs" />
+    <Compile Include="Imagen\ImagenProductoDto.cs" />
+    <Compile Include="Imagen\ImagenProductoSerivce.cs" />
+    <Compile Include="Orden\IOrdenService.cs" />
+    <Compile Include="Producto\IProductoService.cs" />
+    <Compile Include="Resenna\IResennaRepository.cs" />
+    <Compile Include="Orden\OrdenDto.cs" />
+    <Compile Include="Orden\OrdenService.cs" />
+    <Compile Include="Producto\ProductoDto.cs" />
+    <Compile Include="Producto\ProductoService.cs" />
+    <Compile Include="Resenna\ResennaDto.cs" />
+    <Compile Include="Resenna\ResennaSerivce.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

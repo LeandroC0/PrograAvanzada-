@@ -2,7 +2,7 @@
 using MvcTienda.Infrastructura.Data;
 
 
-namespace MvcTienda.Infrastrutura.Identity
+namespace MvcTienda.Infrastructura.Identity
 {
     public class ApplicationUserStore :
         UserStore<ApplicationUser, CustomRole, int, CustomUserLogin, CustomUserRole, CustomUserClaim>

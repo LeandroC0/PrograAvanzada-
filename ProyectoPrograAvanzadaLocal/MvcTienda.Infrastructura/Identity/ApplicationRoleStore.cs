@@ -1,8 +1,7 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
 using MvcTienda.Infrastructura.Data;
-using MvcTienda.Infrastrutura.Data;
 
-namespace MvcTienda.Infrastrutura.Identity
+namespace MvcTienda.Infrastructura.Identity
 {
     public class ApplicationRoleStore :
         RoleStore<CustomRole, int, CustomUserRole>

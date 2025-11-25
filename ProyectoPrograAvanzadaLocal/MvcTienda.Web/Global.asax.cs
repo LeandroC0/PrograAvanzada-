@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
@@ -14,14 +10,14 @@ namespace MvcTienda.Web
         {
             AreaRegistration.RegisterAllAreas();
 
-            UnityConfig.RegisterComponents();  
+            UnityConfig.RegisterComponents();
 
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            UnityConfig.RegisterComponents();
 
 
-            MvcTienda.Infrastrutura.Identity.IdentitySeeder.Seed();
         }
     }
 }

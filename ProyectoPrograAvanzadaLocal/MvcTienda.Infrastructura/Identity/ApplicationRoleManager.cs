@@ -1,8 +1,7 @@
 ﻿using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 
-namespace MvcTienda.Infrastrutura.Identity
+namespace MvcTienda.Infrastructura.Identity
 {
     public class ApplicationRoleManager : RoleManager<CustomRole, int>
     {
@@ -11,7 +10,7 @@ namespace MvcTienda.Infrastrutura.Identity
         {
         }
 
-        
+
         public static ApplicationRoleManager Create(
             Microsoft.Owin.IOwinContext context)
         {

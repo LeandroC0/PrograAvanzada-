@@ -1,12 +1,9 @@
 ﻿using MvcTienda.Domain.Entities;
 using MvcTienda.Domain.Repositories;
 using MvcTienda.Infrastructura.Data;
-using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MvcTienda.Infrastructura.Repositories
 {

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data.Entity;
 
 namespace MvcTienda.Infrastructura.Data
 {
@@ -12,7 +7,7 @@ namespace MvcTienda.Infrastructura.Data
 
         protected override void Seed(AppDbContext context)
         {
-            
+
             base.Seed(context);
         }
     }

@@ -1,50 +1,62 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\User\\Documents\\CODIGOS VISUAL\\ProyectoPrograAvanzadaLocal\\",
+  "WorkspaceRootPath": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada\\ProyectoPrograAvanzadaLocal\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{39F0554E-E6FC-4D30-8A4A-15F3DA147766}|MvcTienda.Infrastructura\\MvcTienda.Infrastructura.csproj|c:\\users\\user\\documents\\codigos visual\\proyectoprograavanzadalocal\\mvctienda.infrastructura\\identity\\applicationrolemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{39F0554E-E6FC-4D30-8A4A-15F3DA147766}|MvcTienda.Infrastructura\\MvcTienda.Infrastructura.csproj|solutionrelative:mvctienda.infrastructura\\identity\\applicationrolemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0F5B37A3-7805-484C-95DA-C9E1260BA5EC}|MvcTienda.Web\\MvcTienda.Web.csproj|c:\\users\\rafael\\source\\repos\\prograavanzada\\proyectoprograavanzadalocal\\mvctienda.web\\views\\estado\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0F5B37A3-7805-484C-95DA-C9E1260BA5EC}|MvcTienda.Web\\MvcTienda.Web.csproj|solutionrelative:mvctienda.web\\views\\estado\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0F5B37A3-7805-484C-95DA-C9E1260BA5EC}|MvcTienda.Web\\MvcTienda.Web.csproj|c:\\users\\user\\documents\\codigos visual\\proyectoprograavanzadalocal\\mvctienda.web\\startup.auth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0F5B37A3-7805-484C-95DA-C9E1260BA5EC}|MvcTienda.Web\\MvcTienda.Web.csproj|solutionrelative:mvctienda.web\\startup.auth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9BE7C04B-2653-446E-B07D-8F31F5EDDC64}|MvcTienda.Aplicacion\\MvcTienda.Aplicacion.csproj|c:\\users\\rafael\\source\\repos\\prograavanzada\\proyectoprograavanzadalocal\\mvctienda.aplicacion\\estado\\estadodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9BE7C04B-2653-446E-B07D-8F31F5EDDC64}|MvcTienda.Aplicacion\\MvcTienda.Aplicacion.csproj|solutionrelative:mvctienda.aplicacion\\estado\\estadodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{39F0554E-E6FC-4D30-8A4A-15F3DA147766}|MvcTienda.Infrastructura\\MvcTienda.Infrastructura.csproj|c:\\users\\user\\documents\\codigos visual\\proyectoprograavanzadalocal\\mvctienda.infrastructura\\identity\\identityseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{39F0554E-E6FC-4D30-8A4A-15F3DA147766}|MvcTienda.Infrastructura\\MvcTienda.Infrastructura.csproj|solutionrelative:mvctienda.infrastructura\\identity\\identityseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9BE7C04B-2653-446E-B07D-8F31F5EDDC64}|MvcTienda.Aplicacion\\MvcTienda.Aplicacion.csproj|c:\\users\\rafael\\source\\repos\\prograavanzada\\proyectoprograavanzadalocal\\mvctienda.aplicacion\\estado\\estadoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9BE7C04B-2653-446E-B07D-8F31F5EDDC64}|MvcTienda.Aplicacion\\MvcTienda.Aplicacion.csproj|solutionrelative:mvctienda.aplicacion\\estado\\estadoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0F5B37A3-7805-484C-95DA-C9E1260BA5EC}|MvcTienda.Web\\MvcTienda.Web.csproj|c:\\users\\user\\documents\\codigos visual\\proyectoprograavanzadalocal\\mvctienda.web\\global.asax.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0F5B37A3-7805-484C-95DA-C9E1260BA5EC}|MvcTienda.Web\\MvcTienda.Web.csproj|solutionrelative:mvctienda.web\\global.asax.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9BE7C04B-2653-446E-B07D-8F31F5EDDC64}|MvcTienda.Aplicacion\\MvcTienda.Aplicacion.csproj|c:\\users\\rafael\\source\\repos\\prograavanzada\\proyectoprograavanzadalocal\\mvctienda.aplicacion\\estado\\iestadoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9BE7C04B-2653-446E-B07D-8F31F5EDDC64}|MvcTienda.Aplicacion\\MvcTienda.Aplicacion.csproj|solutionrelative:mvctienda.aplicacion\\estado\\iestadoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0F5B37A3-7805-484C-95DA-C9E1260BA5EC}|MvcTienda.Web\\MvcTienda.Web.csproj|c:\\users\\user\\documents\\codigos visual\\proyectoprograavanzadalocal\\mvctienda.web\\app_start\\unityconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0F5B37A3-7805-484C-95DA-C9E1260BA5EC}|MvcTienda.Web\\MvcTienda.Web.csproj|solutionrelative:mvctienda.web\\app_start\\unityconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0F5B37A3-7805-484C-95DA-C9E1260BA5EC}|MvcTienda.Web\\MvcTienda.Web.csproj|c:\\users\\rafael\\source\\repos\\prograavanzada\\proyectoprograavanzadalocal\\mvctienda.web\\controllers\\estadocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0F5B37A3-7805-484C-95DA-C9E1260BA5EC}|MvcTienda.Web\\MvcTienda.Web.csproj|solutionrelative:mvctienda.web\\controllers\\estadocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{39F0554E-E6FC-4D30-8A4A-15F3DA147766}|MvcTienda.Infrastructura\\MvcTienda.Infrastructura.csproj|c:\\users\\user\\documents\\codigos visual\\proyectoprograavanzadalocal\\mvctienda.infrastructura\\identity\\aplicationsignlnmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{39F0554E-E6FC-4D30-8A4A-15F3DA147766}|MvcTienda.Infrastructura\\MvcTienda.Infrastructura.csproj|solutionrelative:mvctienda.infrastructura\\identity\\aplicationsignlnmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0F5B37A3-7805-484C-95DA-C9E1260BA5EC}|MvcTienda.Web\\MvcTienda.Web.csproj|c:\\users\\rafael\\source\\repos\\prograavanzada\\proyectoprograavanzadalocal\\mvctienda.web\\views\\estado\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0F5B37A3-7805-484C-95DA-C9E1260BA5EC}|MvcTienda.Web\\MvcTienda.Web.csproj|solutionrelative:mvctienda.web\\views\\estado\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{39F0554E-E6FC-4D30-8A4A-15F3DA147766}|MvcTienda.Infrastructura\\MvcTienda.Infrastructura.csproj|c:\\users\\user\\documents\\codigos visual\\proyectoprograavanzadalocal\\mvctienda.infrastructura\\identity\\applicationusermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{39F0554E-E6FC-4D30-8A4A-15F3DA147766}|MvcTienda.Infrastructura\\MvcTienda.Infrastructura.csproj|solutionrelative:mvctienda.infrastructura\\identity\\applicationusermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0F5B37A3-7805-484C-95DA-C9E1260BA5EC}|MvcTienda.Web\\MvcTienda.Web.csproj|c:\\users\\rafael\\source\\repos\\prograavanzada\\proyectoprograavanzadalocal\\mvctienda.web\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0F5B37A3-7805-484C-95DA-C9E1260BA5EC}|MvcTienda.Web\\MvcTienda.Web.csproj|solutionrelative:mvctienda.web\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{39F0554E-E6FC-4D30-8A4A-15F3DA147766}|MvcTienda.Infrastructura\\MvcTienda.Infrastructura.csproj|c:\\users\\user\\documents\\codigos visual\\proyectoprograavanzadalocal\\mvctienda.infrastructura\\identity\\applicationuserstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{39F0554E-E6FC-4D30-8A4A-15F3DA147766}|MvcTienda.Infrastructura\\MvcTienda.Infrastructura.csproj|solutionrelative:mvctienda.infrastructura\\identity\\applicationuserstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0F5B37A3-7805-484C-95DA-C9E1260BA5EC}|MvcTienda.Web\\MvcTienda.Web.csproj|c:\\users\\rafael\\source\\repos\\prograavanzada\\proyectoprograavanzadalocal\\mvctienda.web\\controllers\\productocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0F5B37A3-7805-484C-95DA-C9E1260BA5EC}|MvcTienda.Web\\MvcTienda.Web.csproj|solutionrelative:mvctienda.web\\controllers\\productocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{39F0554E-E6FC-4D30-8A4A-15F3DA147766}|MvcTienda.Infrastructura\\MvcTienda.Infrastructura.csproj|c:\\users\\user\\documents\\codigos visual\\proyectoprograavanzadalocal\\mvctienda.infrastructura\\repositories\\estadoreposiroty.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{39F0554E-E6FC-4D30-8A4A-15F3DA147766}|MvcTienda.Infrastructura\\MvcTienda.Infrastructura.csproj|solutionrelative:mvctienda.infrastructura\\repositories\\estadoreposiroty.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9BE7C04B-2653-446E-B07D-8F31F5EDDC64}|MvcTienda.Aplicacion\\MvcTienda.Aplicacion.csproj|c:\\users\\rafael\\source\\repos\\prograavanzada\\proyectoprograavanzadalocal\\mvctienda.aplicacion\\producto\\productodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9BE7C04B-2653-446E-B07D-8F31F5EDDC64}|MvcTienda.Aplicacion\\MvcTienda.Aplicacion.csproj|solutionrelative:mvctienda.aplicacion\\producto\\productodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0F5B37A3-7805-484C-95DA-C9E1260BA5EC}|MvcTienda.Web\\MvcTienda.Web.csproj|c:\\users\\user\\documents\\codigos visual\\proyectoprograavanzadalocal\\mvctienda.web\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "AbsoluteMoniker": "D:0:0:{39F0554E-E6FC-4D30-8A4A-15F3DA147766}|MvcTienda.Infrastructura\\MvcTienda.Infrastructura.csproj|c:\\users\\rafael\\source\\repos\\prograavanzada\\proyectoprograavanzadalocal\\mvctienda.infrastructura\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{39F0554E-E6FC-4D30-8A4A-15F3DA147766}|MvcTienda.Infrastructura\\MvcTienda.Infrastructura.csproj|solutionrelative:mvctienda.infrastructura\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0F5B37A3-7805-484C-95DA-C9E1260BA5EC}|MvcTienda.Web\\MvcTienda.Web.csproj|c:\\users\\rafael\\source\\repos\\prograavanzada\\proyectoprograavanzadalocal\\mvctienda.web\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
       "RelativeMoniker": "D:0:0:{0F5B37A3-7805-484C-95DA-C9E1260BA5EC}|MvcTienda.Web\\MvcTienda.Web.csproj|solutionrelative:mvctienda.web\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4FC2F0C8-1DE0-4298-ABD7-614AD28F1CA7}|MvcTienda.Domain\\MvcTienda.Domain.csproj|c:\\users\\user\\documents\\codigos visual\\proyectoprograavanzadalocal\\mvctienda.domain\\entities\\resenna.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4FC2F0C8-1DE0-4298-ABD7-614AD28F1CA7}|MvcTienda.Domain\\MvcTienda.Domain.csproj|solutionrelative:mvctienda.domain\\entities\\resenna.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{39F0554E-E6FC-4D30-8A4A-15F3DA147766}|MvcTienda.Infrastructura\\MvcTienda.Infrastructura.csproj|c:\\users\\rafael\\source\\repos\\prograavanzada\\proyectoprograavanzadalocal\\mvctienda.infrastructura\\data\\appdbinitalizer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{39F0554E-E6FC-4D30-8A4A-15F3DA147766}|MvcTienda.Infrastructura\\MvcTienda.Infrastructura.csproj|solutionrelative:mvctienda.infrastructura\\data\\appdbinitalizer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0F5B37A3-7805-484C-95DA-C9E1260BA5EC}|MvcTienda.Web\\MvcTienda.Web.csproj|c:\\users\\rafael\\source\\repos\\prograavanzada\\proyectoprograavanzadalocal\\mvctienda.web\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0F5B37A3-7805-484C-95DA-C9E1260BA5EC}|MvcTienda.Web\\MvcTienda.Web.csproj|solutionrelative:mvctienda.web\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0F5B37A3-7805-484C-95DA-C9E1260BA5EC}|MvcTienda.Web\\MvcTienda.Web.csproj|c:\\users\\rafael\\source\\repos\\prograavanzada\\proyectoprograavanzadalocal\\mvctienda.web\\app_start\\unityconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0F5B37A3-7805-484C-95DA-C9E1260BA5EC}|MvcTienda.Web\\MvcTienda.Web.csproj|solutionrelative:mvctienda.web\\app_start\\unityconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -53,100 +65,9 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "DockedWidth": 436,
+          "SelectedChildIndex": 61,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ApplicationRoleManager.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\CODIGOS VISUAL\\ProyectoPrograAvanzadaLocal\\MvcTienda.Infrastructura\\Identity\\ApplicationRoleManager.cs",
-              "RelativeDocumentMoniker": "MvcTienda.Infrastructura\\Identity\\ApplicationRoleManager.cs",
-              "ToolTip": "C:\\Users\\User\\Documents\\CODIGOS VISUAL\\ProyectoPrograAvanzadaLocal\\MvcTienda.Infrastructura\\Identity\\ApplicationRoleManager.cs",
-              "RelativeToolTip": "MvcTienda.Infrastructura\\Identity\\ApplicationRoleManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-21T07:33:22.735Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "IdentitySeeder.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\CODIGOS VISUAL\\ProyectoPrograAvanzadaLocal\\MvcTienda.Infrastructura\\Identity\\IdentitySeeder.cs",
-              "RelativeDocumentMoniker": "MvcTienda.Infrastructura\\Identity\\IdentitySeeder.cs",
-              "ToolTip": "C:\\Users\\User\\Documents\\CODIGOS VISUAL\\ProyectoPrograAvanzadaLocal\\MvcTienda.Infrastructura\\Identity\\IdentitySeeder.cs",
-              "RelativeToolTip": "MvcTienda.Infrastructura\\Identity\\IdentitySeeder.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAgwB4AAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-21T07:31:28.346Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "AplicationSignlnManager.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\CODIGOS VISUAL\\ProyectoPrograAvanzadaLocal\\MvcTienda.Infrastructura\\Identity\\AplicationSignlnManager.cs",
-              "RelativeDocumentMoniker": "MvcTienda.Infrastructura\\Identity\\AplicationSignlnManager.cs",
-              "ToolTip": "C:\\Users\\User\\Documents\\CODIGOS VISUAL\\ProyectoPrograAvanzadaLocal\\MvcTienda.Infrastructura\\Identity\\AplicationSignlnManager.cs",
-              "RelativeToolTip": "MvcTienda.Infrastructura\\Identity\\AplicationSignlnManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-21T07:26:55.734Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ApplicationUserManager.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\CODIGOS VISUAL\\ProyectoPrograAvanzadaLocal\\MvcTienda.Infrastructura\\Identity\\ApplicationUserManager.cs",
-              "RelativeDocumentMoniker": "MvcTienda.Infrastructura\\Identity\\ApplicationUserManager.cs",
-              "ToolTip": "C:\\Users\\User\\Documents\\CODIGOS VISUAL\\ProyectoPrograAvanzadaLocal\\MvcTienda.Infrastructura\\Identity\\ApplicationUserManager.cs",
-              "RelativeToolTip": "MvcTienda.Infrastructura\\Identity\\ApplicationUserManager.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAowCMAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-21T07:26:05.706Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "ApplicationUserStore.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\CODIGOS VISUAL\\ProyectoPrograAvanzadaLocal\\MvcTienda.Infrastructura\\Identity\\ApplicationUserStore.cs",
-              "RelativeDocumentMoniker": "MvcTienda.Infrastructura\\Identity\\ApplicationUserStore.cs",
-              "ToolTip": "C:\\Users\\User\\Documents\\CODIGOS VISUAL\\ProyectoPrograAvanzadaLocal\\MvcTienda.Infrastructura\\Identity\\ApplicationUserStore.cs",
-              "RelativeToolTip": "MvcTienda.Infrastructura\\Identity\\ApplicationUserStore.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-21T07:24:43.346Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Startup.Auth.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\CODIGOS VISUAL\\ProyectoPrograAvanzadaLocal\\MvcTienda.Web\\Startup.Auth.cs",
-              "RelativeDocumentMoniker": "MvcTienda.Web\\Startup.Auth.cs",
-              "ToolTip": "C:\\Users\\User\\Documents\\CODIGOS VISUAL\\ProyectoPrograAvanzadaLocal\\MvcTienda.Web\\Startup.Auth.cs",
-              "RelativeToolTip": "MvcTienda.Web\\Startup.Auth.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-21T07:10:51.531Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Global.asax.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\CODIGOS VISUAL\\ProyectoPrograAvanzadaLocal\\MvcTienda.Web\\Global.asax.cs",
-              "RelativeDocumentMoniker": "MvcTienda.Web\\Global.asax.cs",
-              "ToolTip": "C:\\Users\\User\\Documents\\CODIGOS VISUAL\\ProyectoPrograAvanzadaLocal\\MvcTienda.Web\\Global.asax.cs",
-              "RelativeToolTip": "MvcTienda.Web\\Global.asax.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-21T07:05:40.151Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:12:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
@@ -369,60 +290,190 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "UnityConfig.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\CODIGOS VISUAL\\ProyectoPrograAvanzadaLocal\\MvcTienda.Web\\App_Start\\UnityConfig.cs",
-              "RelativeDocumentMoniker": "MvcTienda.Web\\App_Start\\UnityConfig.cs",
-              "ToolTip": "C:\\Users\\User\\Documents\\CODIGOS VISUAL\\ProyectoPrograAvanzadaLocal\\MvcTienda.Web\\App_Start\\UnityConfig.cs",
-              "RelativeToolTip": "MvcTienda.Web\\App_Start\\UnityConfig.cs",
-              "ViewState": "AgIAAD4AAAAAAAAAAAAEwFgAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "EstadoDto.cs",
+              "DocumentMoniker": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada\\ProyectoPrograAvanzadaLocal\\MvcTienda.Aplicacion\\Estado\\EstadoDto.cs",
+              "RelativeDocumentMoniker": "MvcTienda.Aplicacion\\Estado\\EstadoDto.cs",
+              "ToolTip": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada\\ProyectoPrograAvanzadaLocal\\MvcTienda.Aplicacion\\Estado\\EstadoDto.cs",
+              "RelativeToolTip": "MvcTienda.Aplicacion\\Estado\\EstadoDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-21T06:37:56.424Z",
+              "WhenOpened": "2025-11-24T21:09:31.629Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IEstadoService.cs",
+              "DocumentMoniker": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada\\ProyectoPrograAvanzadaLocal\\MvcTienda.Aplicacion\\Estado\\IEstadoService.cs",
+              "RelativeDocumentMoniker": "MvcTienda.Aplicacion\\Estado\\IEstadoService.cs",
+              "ToolTip": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada\\ProyectoPrograAvanzadaLocal\\MvcTienda.Aplicacion\\Estado\\IEstadoService.cs",
+              "RelativeToolTip": "MvcTienda.Aplicacion\\Estado\\IEstadoService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-24T21:07:37.829Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EstadoService.cs",
+              "DocumentMoniker": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada\\ProyectoPrograAvanzadaLocal\\MvcTienda.Aplicacion\\Estado\\EstadoService.cs",
+              "RelativeDocumentMoniker": "MvcTienda.Aplicacion\\Estado\\EstadoService.cs",
+              "ToolTip": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada\\ProyectoPrograAvanzadaLocal\\MvcTienda.Aplicacion\\Estado\\EstadoService.cs",
+              "RelativeToolTip": "MvcTienda.Aplicacion\\Estado\\EstadoService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-24T21:07:15.792Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "EstadoController.cs",
+              "DocumentMoniker": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada\\ProyectoPrograAvanzadaLocal\\MvcTienda.Web\\Controllers\\EstadoController.cs",
+              "RelativeDocumentMoniker": "MvcTienda.Web\\Controllers\\EstadoController.cs",
+              "ToolTip": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada\\ProyectoPrograAvanzadaLocal\\MvcTienda.Web\\Controllers\\EstadoController.cs",
+              "RelativeToolTip": "MvcTienda.Web\\Controllers\\EstadoController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-24T21:03:26.166Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada\\ProyectoPrograAvanzadaLocal\\MvcTienda.Web\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "MvcTienda.Web\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada\\ProyectoPrograAvanzadaLocal\\MvcTienda.Web\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "MvcTienda.Web\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAABEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-24T21:02:31.294Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada\\ProyectoPrograAvanzadaLocal\\MvcTienda.Web\\Views\\Estado\\Index.cshtml",
+              "RelativeDocumentMoniker": "MvcTienda.Web\\Views\\Estado\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada\\ProyectoPrograAvanzadaLocal\\MvcTienda.Web\\Views\\Estado\\Index.cshtml",
+              "RelativeToolTip": "MvcTienda.Web\\Views\\Estado\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-24T21:02:21.997Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada\\ProyectoPrograAvanzadaLocal\\MvcTienda.Web\\Views\\Estado\\Create.cshtml",
+              "RelativeDocumentMoniker": "MvcTienda.Web\\Views\\Estado\\Create.cshtml",
+              "ToolTip": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada\\ProyectoPrograAvanzadaLocal\\MvcTienda.Web\\Views\\Estado\\Create.cshtml",
+              "RelativeToolTip": "MvcTienda.Web\\Views\\Estado\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-24T21:00:28.01Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ProductoController.cs",
+              "DocumentMoniker": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada\\ProyectoPrograAvanzadaLocal\\MvcTienda.Web\\Controllers\\ProductoController.cs",
+              "RelativeDocumentMoniker": "MvcTienda.Web\\Controllers\\ProductoController.cs",
+              "ToolTip": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada\\ProyectoPrograAvanzadaLocal\\MvcTienda.Web\\Controllers\\ProductoController.cs",
+              "RelativeToolTip": "MvcTienda.Web\\Controllers\\ProductoController.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAIwAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-24T20:41:02.921Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "EstadoReposiroty.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\CODIGOS VISUAL\\ProyectoPrograAvanzadaLocal\\MvcTienda.Infrastructura\\Repositories\\EstadoReposiroty.cs",
-              "RelativeDocumentMoniker": "MvcTienda.Infrastructura\\Repositories\\EstadoReposiroty.cs",
-              "ToolTip": "C:\\Users\\User\\Documents\\CODIGOS VISUAL\\ProyectoPrograAvanzadaLocal\\MvcTienda.Infrastructura\\Repositories\\EstadoReposiroty.cs",
-              "RelativeToolTip": "MvcTienda.Infrastructura\\Repositories\\EstadoReposiroty.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "ProductoDto.cs",
+              "DocumentMoniker": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada\\ProyectoPrograAvanzadaLocal\\MvcTienda.Aplicacion\\Producto\\ProductoDto.cs",
+              "RelativeDocumentMoniker": "MvcTienda.Aplicacion\\Producto\\ProductoDto.cs",
+              "ToolTip": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada\\ProyectoPrograAvanzadaLocal\\MvcTienda.Aplicacion\\Producto\\ProductoDto.cs",
+              "RelativeToolTip": "MvcTienda.Aplicacion\\Producto\\ProductoDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-21T06:44:29.947Z",
+              "WhenOpened": "2025-11-24T20:40:36.051Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
-              "Title": "Web.config",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\CODIGOS VISUAL\\ProyectoPrograAvanzadaLocal\\MvcTienda.Web\\Web.config",
-              "RelativeDocumentMoniker": "MvcTienda.Web\\Web.config",
-              "ToolTip": "C:\\Users\\User\\Documents\\CODIGOS VISUAL\\ProyectoPrograAvanzadaLocal\\MvcTienda.Web\\Web.config",
-              "RelativeToolTip": "MvcTienda.Web\\Web.config",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAB4AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2025-11-21T06:35:32.359Z",
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada\\ProyectoPrograAvanzadaLocal\\MvcTienda.Infrastructura\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "MvcTienda.Infrastructura\\Data\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada\\ProyectoPrograAvanzadaLocal\\MvcTienda.Infrastructura\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "MvcTienda.Infrastructura\\Data\\AppDbContext.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAuwEAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-24T20:40:25.068Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada\\ProyectoPrograAvanzadaLocal\\MvcTienda.Web\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "MvcTienda.Web\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada\\ProyectoPrograAvanzadaLocal\\MvcTienda.Web\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "MvcTienda.Web\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-24T20:04:49.128Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 10,
-              "Title": "Resenna.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\CODIGOS VISUAL\\ProyectoPrograAvanzadaLocal\\MvcTienda.Domain\\Entities\\Resenna.cs",
-              "RelativeDocumentMoniker": "MvcTienda.Domain\\Entities\\Resenna.cs",
-              "ToolTip": "C:\\Users\\User\\Documents\\CODIGOS VISUAL\\ProyectoPrograAvanzadaLocal\\MvcTienda.Domain\\Entities\\Resenna.cs",
-              "RelativeToolTip": "MvcTienda.Domain\\Entities\\Resenna.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "Web.config",
+              "DocumentMoniker": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada\\ProyectoPrograAvanzadaLocal\\MvcTienda.Web\\Web.config",
+              "RelativeDocumentMoniker": "MvcTienda.Web\\Web.config",
+              "ToolTip": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada\\ProyectoPrograAvanzadaLocal\\MvcTienda.Web\\Web.config",
+              "RelativeToolTip": "MvcTienda.Web\\Web.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAB6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-11-24T20:25:06.986Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "AppDbInitalizer.cs",
+              "DocumentMoniker": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada\\ProyectoPrograAvanzadaLocal\\MvcTienda.Infrastructura\\Data\\AppDbInitalizer.cs",
+              "RelativeDocumentMoniker": "MvcTienda.Infrastructura\\Data\\AppDbInitalizer.cs",
+              "ToolTip": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada\\ProyectoPrograAvanzadaLocal\\MvcTienda.Infrastructura\\Data\\AppDbInitalizer.cs",
+              "RelativeToolTip": "MvcTienda.Infrastructura\\Data\\AppDbInitalizer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-21T06:33:29.046Z",
+              "WhenOpened": "2025-11-24T20:05:14.62Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "UnityConfig.cs",
+              "DocumentMoniker": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada\\ProyectoPrograAvanzadaLocal\\MvcTienda.Web\\App_Start\\UnityConfig.cs",
+              "RelativeDocumentMoniker": "MvcTienda.Web\\App_Start\\UnityConfig.cs",
+              "ToolTip": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada\\ProyectoPrograAvanzadaLocal\\MvcTienda.Web\\App_Start\\UnityConfig.cs",
+              "RelativeToolTip": "MvcTienda.Web\\App_Start\\UnityConfig.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAwwDoAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-24T19:38:50.589Z",
               "EditorCaption": ""
             }
           ]
         },
         {
-          "DockedWidth": 200,
+          "DockedWidth": 318,
           "SelectedChildIndex": -1,
           "Children": [
             {
