@@ -1,3 +1,4 @@
+using System.Data.Entity;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
@@ -8,6 +9,7 @@ namespace MvcTienda.Web
     {
         protected void Application_Start()
         {
+            Database.SetInitializer(new MvcTienda.Infrastructura.Data.AppDbInitalizer());
             AreaRegistration.RegisterAllAreas();
 
             UnityConfig.RegisterComponents();

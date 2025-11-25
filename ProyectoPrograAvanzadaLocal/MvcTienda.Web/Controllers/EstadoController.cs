@@ -1,4 +1,5 @@
 ﻿using MvcTienda.Aplicacion.Estados;
+using System.Collections.Generic;
 using System.Web.Mvc;
 
 namespace MvcTienda.Web.Controllers
@@ -23,7 +24,7 @@ namespace MvcTienda.Web.Controllers
             catch (System.Exception ex)
             {
                 ViewBag.Error = "Error al cargar los estados: " + ex.Message;
-                return View(new EstadoDto());
+                return View(new List<EstadoDto>());
             }
         }
 

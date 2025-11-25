@@ -11,6 +11,7 @@ namespace MvcTienda.Infrastructura.Data
     {
         public AppDbContext() : base("DefaultConnection")
         {
+            Database.SetInitializer(new AppDbInitalizer());
         }
 
         public static AppDbContext Create()
