@@ -1,4 +1,5 @@
 ﻿using MvcTienda.Aplicacion.Estados;
+using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
 
@@ -7,11 +8,13 @@ namespace MvcTienda.Web.Controllers
     public class EstadoController : Controller
     {
         private readonly IEstadoService _service;
+
         public EstadoController(IEstadoService service)
         {
             _service = service;
         }
 
+        // GET: Estado
         public ActionResult Index()
         {
             try
@@ -28,10 +31,32 @@ namespace MvcTienda.Web.Controllers
             }
         }
 
+        // GET: Estado/Details/5
+        public ActionResult Details(int id)
+        {
+            try
+            {
+                var estado = _service.GetById(id);
+                if (estado == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(estado);
+            }
+            catch (System.Exception ex)
+            {
+                ViewBag.Error = "Error al obtener el estado: " + ex.Message;
+                return RedirectToAction("Index");
+            }
+        }
+
+        // GET: Estado/Create
         public ActionResult Create()
         {
             return View(new EstadoDto());
         }
+
+        // POST: Estado/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(EstadoDto dto)
@@ -50,6 +75,84 @@ namespace MvcTienda.Web.Controllers
             {
                 ViewBag.Error = "Error al crear el estado: " + ex.Message;
                 return View(dto);
+            }
+        }
+
+        // GET: Estado/Edit/5
+        public ActionResult Edit(int id)
+        {
+            try
+            {
+                var estado = _service.GetById(id);
+                if (estado == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(estado);
+            }
+            catch (System.Exception ex)
+            {
+                ViewBag.Error = "Error al obtener el estado: " + ex.Message;
+                return RedirectToAction("Index");
+            }
+        }
+
+        // POST: Estado/Edit/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(EstadoDto dto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(dto);
+            }
+            try
+            {
+                _service.Update(dto);
+                TempData["Mensaje"] = "Estado actualizado exitosamente.";
+                return RedirectToAction("Index");
+            }
+            catch (System.Exception ex)
+            {
+                ViewBag.Error = "Error al actualizar el estado: " + ex.Message;
+                return View(dto);
+            }
+        }
+
+        // GET: Estado/Delete/5
+        public ActionResult Delete(int id)
+        {
+            try
+            {
+                var estado = _service.GetById(id); 
+                if (estado == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(estado);
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Error = "Error al obtener el estado: " + ex.Message;
+                return RedirectToAction("Index");
+            }
+        }
+
+        // POST: Estado/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            try
+            {
+                _service.Delete(id);
+                TempData["Mensaje"] = "Estado eliminado exitosamente.";
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Error = "Error al eliminar el estado: " + ex.Message;
+                return RedirectToAction("Index");
             }
         }
     }

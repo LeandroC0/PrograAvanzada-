@@ -1,0 +1,32 @@
+﻿@model MvcTienda.Aplicacion.Estados.EstadoDto
+
+@{
+    ViewBag.Title = "Detalles";
+}
+
+<h2>Detalles del Estado</h2>
+
+<div class="form-horizontal">
+    <h4>EstadoDto</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt class="col-md-2">
+            @Html.DisplayNameFor(model => model.EstadoId)
+        </dt>
+        <dd class="col-md-10">
+            @Html.DisplayFor(model => model.EstadoId)
+        </dd>
+
+        <dt class="col-md-2">
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+        <dd class="col-md-10">
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+    </dl>
+</div>
+
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.EstadoId }, new { @class = "btn btn-warning" })
+    @Html.ActionLink("Volver a la lista", "Index", null, new { @class = "btn btn-secondary ml-2" })
+</p>
