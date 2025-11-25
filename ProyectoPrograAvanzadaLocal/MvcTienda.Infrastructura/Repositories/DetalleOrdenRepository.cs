@@ -29,7 +29,7 @@ namespace MvcTienda.Infrastructura.Repositories
             return _context.DetallesOrden
                 .Include(d => d.Producto)
                 .Include(d => d.Orden)
-                .FirstOrDefault(d => d.ID_DetalleOrden == id);
+                .FirstOrDefault(d => d.DetalleOrdenId == id);
         }
 
         public void Add(DetalleOrden detalle)

@@ -19,12 +19,12 @@ namespace MvcTienda.Aplicacion.DetallesOrden
         {
             return _repo.GetAll().Select(d => new DetalleOrdenDto
             {
-                ID_DetalleOrden = d.ID_DetalleOrden,
+                DetalleOrdenId = d.DetalleOrdenId,
                 Cantidad = d.Cantidad,
                 PrecioUnitario = d.PrecioUnitario,
-                ID_Producto = d.ID_Producto,
-                ID_Orden = d.ID_Orden,
-                ID_Estado = d.ID_Estado
+                ProductoId = d.ProductoId,
+                OrdenId = d.OrdenId,
+                EstadoId = d.EstadoId
             });
         }
 
@@ -35,12 +35,12 @@ namespace MvcTienda.Aplicacion.DetallesOrden
 
             return new DetalleOrdenDto
             {
-                ID_DetalleOrden = d.ID_DetalleOrden,
+                DetalleOrdenId = d.DetalleOrdenId,
                 Cantidad = d.Cantidad,
                 PrecioUnitario = d.PrecioUnitario,
-                ID_Producto = d.ID_Producto,
-                ID_Orden = d.ID_Orden,
-                ID_Estado = d.ID_Estado
+                ProductoId = d.ProductoId,
+                OrdenId = d.OrdenId,
+                EstadoId = d.EstadoId
             };
         }
 
@@ -50,9 +50,9 @@ namespace MvcTienda.Aplicacion.DetallesOrden
             {
                 Cantidad = dto.Cantidad,
                 PrecioUnitario = dto.PrecioUnitario,
-                ID_Producto = dto.ID_Producto,
-                ID_Orden = dto.ID_Orden,
-                ID_Estado = dto.ID_Estado
+                ProductoId = dto.ProductoId,
+                OrdenId = dto.OrdenId,
+                EstadoId = dto.EstadoId
             };
 
             _repo.Add(entity);
@@ -61,14 +61,14 @@ namespace MvcTienda.Aplicacion.DetallesOrden
 
         public void Update(DetalleOrdenDto dto)
         {
-            var entity = _repo.GetById(dto.ID_DetalleOrden);
+            var entity = _repo.GetById(dto.DetalleOrdenId);
             if (entity == null) return;
 
             entity.Cantidad = dto.Cantidad;
             entity.PrecioUnitario = dto.PrecioUnitario;
-            entity.ID_Producto = dto.ID_Producto;
-            entity.ID_Orden = dto.ID_Orden;
-            entity.ID_Estado = dto.ID_Estado;
+            entity.ProductoId = dto.ProductoId;
+            entity.OrdenId = dto.OrdenId;
+            entity.EstadoId = dto.EstadoId;
 
             _repo.Update(entity);
             _repo.Save();

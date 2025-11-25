@@ -19,11 +19,11 @@ namespace MvcTienda.Aplicacion.Productos
         {
             return _repository.GetAll().Select(p => new ProductoDto
             {
-                ID_Producto = p.ID_Producto,
+                ProductoId = p.ProductoId,
                 Nombre = p.Nombre,
                 Precio = p.Precio,
                 Inventario = p.Inventario,
-                ID_Estado = p.ID_Estado
+                EstadoId = p.EstadoId
             });
         }
 
@@ -34,11 +34,11 @@ namespace MvcTienda.Aplicacion.Productos
 
             return new ProductoDto
             {
-                ID_Producto = p.ID_Producto,
+                ProductoId = p.ProductoId,
                 Nombre = p.Nombre,
                 Precio = p.Precio,
                 Inventario = p.Inventario,
-                ID_Estado = p.ID_Estado
+                EstadoId = p.EstadoId
             };
         }
 
@@ -49,7 +49,7 @@ namespace MvcTienda.Aplicacion.Productos
                 Nombre = dto.Nombre,
                 Precio = dto.Precio,
                 Inventario = dto.Inventario,
-                ID_Estado = dto.ID_Estado
+                EstadoId = dto.EstadoId
             };
             _repository.Add(entity);
             _repository.Save();
@@ -57,7 +57,7 @@ namespace MvcTienda.Aplicacion.Productos
 
         public void Update(ProductoDto dto)
         {
-            var entity = _repository.GetById(dto.ID_Producto);
+            var entity = _repository.GetById(dto.ProductoId);
             if (entity == null)
             {
                 throw new NegocioException("No se puede acutalizar el producto.");
@@ -66,7 +66,7 @@ namespace MvcTienda.Aplicacion.Productos
             entity.Nombre = dto.Nombre;
             entity.Precio = dto.Precio;
             entity.Inventario = dto.Inventario;
-            entity.ID_Estado = dto.ID_Estado;
+            entity.EstadoId = dto.EstadoId;
 
             _repository.Update(entity);
             _repository.Save();

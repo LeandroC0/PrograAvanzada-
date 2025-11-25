@@ -18,11 +18,11 @@ namespace MvcTienda.Aplicacion.Ordenes
         {
             return _repo.GetAll().Select(o => new OrdenDto
             {
-                ID_Orden = o.ID_Orden,
+                OrdenId = o.OrdenId,
                 Fecha_Orden = o.Fecha_Orden,
                 Total = o.Total,
-                ID_Usuario = o.ID_Usuario,
-                ID_Estado = o.ID_Estado
+                UsuarioId = o.UsuarioId,
+                EstadoId = o.EstadoId
             });
         }
 
@@ -33,11 +33,11 @@ namespace MvcTienda.Aplicacion.Ordenes
 
             return new OrdenDto
             {
-                ID_Orden = o.ID_Orden,
+                OrdenId = o.OrdenId,
                 Fecha_Orden = o.Fecha_Orden,
                 Total = o.Total,
-                ID_Usuario = o.ID_Usuario,
-                ID_Estado = o.ID_Estado
+                UsuarioId = o.UsuarioId,
+                EstadoId = o.EstadoId
             };
         }
 
@@ -47,8 +47,8 @@ namespace MvcTienda.Aplicacion.Ordenes
             {
                 Fecha_Orden = dto.Fecha_Orden,
                 Total = dto.Total,
-                ID_Usuario = dto.ID_Usuario,
-                ID_Estado = dto.ID_Estado
+                UsuarioId = dto.UsuarioId,
+                EstadoId = dto.EstadoId
             };
 
             _repo.Add(entity);
@@ -57,13 +57,13 @@ namespace MvcTienda.Aplicacion.Ordenes
 
         public void Update(OrdenDto dto)
         {
-            var entity = _repo.GetById(dto.ID_Orden);
+            var entity = _repo.GetById(dto.OrdenId);
             if (entity == null) return;
 
             entity.Fecha_Orden = dto.Fecha_Orden;
             entity.Total = dto.Total;
-            entity.ID_Usuario = dto.ID_Usuario;
-            entity.ID_Estado = dto.ID_Estado;
+            entity.UsuarioId = dto.UsuarioId;
+            entity.EstadoId = dto.EstadoId;
 
             _repo.Update(entity);
             _repo.Save();

@@ -18,13 +18,13 @@ namespace MvcTienda.Aplicacion.Resennas
         {
             return _repo.GetAll().Select(r => new ResennaDto
             {
-                ID_Resenna = r.ID_Reseña,
+                ResennaId = r.ResennaId,
                 Comentario = r.Comentario,
                 Calificacion = r.Calificación,
                 Fecha_Resenna = r.Fecha_Reseña,
-                ID_Producto = r.ID_Producto,
-                ID_Estado = r.ID_Estado,
-                ID_Usuario = r.ID_Usuario
+                ProductoId = r.ProductoId,
+                EstadoId = r.EstadoId,
+                UsuarioId = r.UsuarioId
             });
         }
 
@@ -35,13 +35,13 @@ namespace MvcTienda.Aplicacion.Resennas
 
             return new ResennaDto
             {
-                ID_Resenna = r.ID_Reseña,
+                ResennaId = r.ResennaId,
                 Comentario = r.Comentario,
                 Calificacion = r.Calificación,
                 Fecha_Resenna = r.Fecha_Reseña,
-                ID_Producto = r.ID_Producto,
-                ID_Estado = r.ID_Estado,
-                ID_Usuario = r.ID_Usuario
+                ProductoId = r.ProductoId,
+                EstadoId = r.EstadoId,
+                UsuarioId = r.UsuarioId
             };
         }
 
@@ -52,9 +52,9 @@ namespace MvcTienda.Aplicacion.Resennas
                 Comentario = dto.Comentario,
                 Calificación = dto.Calificacion,
                 Fecha_Reseña = dto.Fecha_Resenna,
-                ID_Producto = dto.ID_Producto,
-                ID_Estado = dto.ID_Estado,
-                ID_Usuario = dto.ID_Usuario
+                ProductoId = dto.ProductoId,
+                EstadoId = dto.EstadoId,
+                UsuarioId = dto.UsuarioId
             };
 
             _repo.Add(entity);
@@ -63,15 +63,15 @@ namespace MvcTienda.Aplicacion.Resennas
 
         public void Update(ResennaDto dto)
         {
-            var entity = _repo.GetById(dto.ID_Resenna);
+            var entity = _repo.GetById(dto.ResennaId);
             if (entity == null) return;
 
             entity.Comentario = dto.Comentario;
             entity.Calificación = dto.Calificacion;
             entity.Fecha_Reseña = dto.Fecha_Resenna;
-            entity.ID_Producto = dto.ID_Producto;
-            entity.ID_Estado = dto.ID_Estado;
-            entity.ID_Usuario = dto.ID_Usuario;
+            entity.ProductoId = dto.ProductoId;
+            entity.EstadoId = dto.EstadoId;
+            entity.UsuarioId = dto.UsuarioId;
 
             _repo.Update(entity);
             _repo.Save();

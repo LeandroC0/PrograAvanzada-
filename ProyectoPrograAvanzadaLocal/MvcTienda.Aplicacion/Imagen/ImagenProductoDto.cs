@@ -4,8 +4,8 @@
     {
         public int ImagenProductoId { get; set; }
         public byte[] RutaImagen { get; set; }
-        public int ID_Producto { get; set; }
-        public int ID_Estado { get; set; }
+        public int ProductoId { get; set; }
+        public int EstadoId { get; set; }
 
         // Opcional
         public string EstadoNombre { get; set; }

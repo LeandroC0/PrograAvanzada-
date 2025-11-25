@@ -25,7 +25,7 @@ namespace MvcTienda.Infrastructura.Repositories
         {
             return _context.Ordenes
                 .Include(o => o.Detalles)
-                .FirstOrDefault(o => o.ID_Orden == id);
+                .FirstOrDefault(o => o.OrdenId == id);
         }
 
         public void Add(Orden orden)

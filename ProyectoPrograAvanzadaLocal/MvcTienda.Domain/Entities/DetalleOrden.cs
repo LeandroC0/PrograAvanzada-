@@ -2,14 +2,14 @@
 {
     public class DetalleOrden
     {
-        public int ID_DetalleOrden { get; set; }
+        public int DetalleOrdenId { get; set; }
         public int Cantidad { get; set; }
         public decimal PrecioUnitario { get; set; }
 
         // Foreign keys
-        public int ID_Producto { get; set; }
-        public int ID_Orden { get; set; }
-        public int ID_Estado { get; set; }
+        public int ProductoId { get; set; }
+        public int OrdenId { get; set; }
+        public int EstadoId { get; set; }
 
         // Navigation properties
         public Producto Producto { get; set; }

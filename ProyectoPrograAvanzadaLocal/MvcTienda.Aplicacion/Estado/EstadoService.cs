@@ -18,7 +18,7 @@ namespace MvcTienda.Aplicacion.Estados
         {
             return _repo.GetAll().Select(e => new EstadoDto
             {
-                ID_Estado = e.ID_Estado,
+                EstadoId = e.EstadoId,
                 Nombre = e.Nombre
             });
         }
@@ -30,7 +30,7 @@ namespace MvcTienda.Aplicacion.Estados
 
             return new EstadoDto
             {
-                ID_Estado = e.ID_Estado,
+                EstadoId = e.EstadoId,
                 Nombre = e.Nombre
             };
         }
@@ -48,7 +48,7 @@ namespace MvcTienda.Aplicacion.Estados
 
         public void Update(EstadoDto dto)
         {
-            var entity = _repo.GetById(dto.ID_Estado);
+            var entity = _repo.GetById(dto.EstadoId);
             if (entity == null) return;
 
             entity.Nombre = dto.Nombre;

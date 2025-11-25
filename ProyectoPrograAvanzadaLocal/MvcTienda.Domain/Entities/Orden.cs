@@ -5,12 +5,12 @@ namespace MvcTienda.Domain.Entities
 {
     public class Orden
     {
-        public int ID_Orden { get; set; }
+        public int OrdenId { get; set; }
         public DateTime Fecha_Orden { get; set; }
         public decimal Total { get; set; }
 
-        public string ID_Usuario { get; set; }
-        public int ID_Estado { get; set; }
+        public string UsuarioId { get; set; }
+        public int EstadoId { get; set; }
 
         public Estado Estado { get; set; }
 

@@ -2,7 +2,7 @@
 {
     public class EstadoDto
     {
-        public int ID_Estado { get; set; }
+        public int EstadoId { get; set; }
         public string Nombre { get; set; }
     }
 }

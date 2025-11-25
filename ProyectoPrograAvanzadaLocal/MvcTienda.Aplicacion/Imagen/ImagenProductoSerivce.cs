@@ -20,8 +20,8 @@ namespace MvcTienda.Aplicacion.Imagenes
             {
                 ImagenProductoId = i.ImagenProductoId,
                 RutaImagen = i.RutaImagen,
-                ID_Producto = i.ID_Producto,
-                ID_Estado = i.ID_Estado
+                ProductoId = i.ProductoId,
+                EstadoId = i.EstadoId
             });
         }
 
@@ -34,8 +34,8 @@ namespace MvcTienda.Aplicacion.Imagenes
             {
                 ImagenProductoId = img.ImagenProductoId,
                 RutaImagen = img.RutaImagen,
-                ID_Producto = img.ID_Producto,
-                ID_Estado = img.ID_Estado
+                ProductoId = img.ProductoId,
+                EstadoId = img.EstadoId
             };
         }
 
@@ -44,8 +44,8 @@ namespace MvcTienda.Aplicacion.Imagenes
             var entity = new ImagenProducto
             {
                 RutaImagen = dto.RutaImagen,
-                ID_Producto = dto.ID_Producto,
-                ID_Estado = dto.ID_Estado
+                ProductoId = dto.ProductoId,
+                EstadoId = dto.EstadoId
             };
 
             _repo.Add(entity);
@@ -58,8 +58,8 @@ namespace MvcTienda.Aplicacion.Imagenes
             if (entity == null) return;
 
             entity.RutaImagen = dto.RutaImagen;
-            entity.ID_Producto = dto.ID_Producto;
-            entity.ID_Estado = dto.ID_Estado;
+            entity.ProductoId = dto.ProductoId;
+            entity.EstadoId = dto.EstadoId;
 
             _repo.Update(entity);
             _repo.Save();

@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace MvcTienda.Domain.Entities
 {
     public class Estado
     {
-        public int ID_Estado { get; set; }
+        public int EstadoId { get; set; }
         public string Nombre { get; set; }
 
         public ICollection<Producto> Productos { get; set; }
