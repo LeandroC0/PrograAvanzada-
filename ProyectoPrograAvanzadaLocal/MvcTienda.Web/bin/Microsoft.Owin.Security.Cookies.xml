@@ -162,11 +162,13 @@
             </summary>
         </member>
         <member name="P:Microsoft.Owin.Security.Cookies.CookieAuthenticationOptions.CookieManager">
-             <summary>
-             The component used to get cookies from the request or set them on the response.
-            
-             ChunkingCookieManager will be used by default.
-             </summary>
+            <summary>
+            The component used to get cookies from the request or set them on the response.
+            </summary>
+            <remarks>
+            The instance returned by <see cref="M:Microsoft.Owin.AppBuilderCookieExtensions.GetDefaultChunkingCookieManager(Owin.IAppBuilder)"/>
+            is used by default if no value is explicitly set.
+            </remarks>
         </member>
         <member name="P:Microsoft.Owin.Security.Cookies.CookieAuthenticationOptions.SessionStore">
             <summary>
