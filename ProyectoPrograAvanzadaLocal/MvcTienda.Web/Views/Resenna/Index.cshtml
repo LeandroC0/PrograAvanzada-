@@ -1,0 +1,47 @@
+﻿@model IEnumerable<MvcTienda.Aplicacion.Resennas.ResennaDto>
+
+@{
+    ViewBag.Title = "Lista de Reseñas";
+}
+
+<h2>Lista de Reseñas</h2>
+
+<p>
+    @Html.ActionLink("Crear Nueva Reseña", "Create", null, new { @class = "btn btn-success" })
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.ResennaId)</th>
+            <th>@Html.DisplayNameFor(model => model.Comentario)</th>
+            <th>@Html.DisplayNameFor(model => model.Calificacion)</th>
+            <th>@Html.DisplayNameFor(model => model.Fecha_Resenna)</th>
+            <th>@Html.DisplayNameFor(model => model.ProductoId)</th>
+            <th>@Html.DisplayNameFor(model => model.EstadoId)</th>
+            <th>@Html.DisplayNameFor(model => model.UsuarioId)</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.ResennaId)</td>
+                <td>@Html.DisplayFor(modelItem => item.Comentario)</td>
+                <td>@Html.DisplayFor(modelItem => item.Calificacion)</td>
+                <td>@Html.DisplayFor(modelItem => item.Fecha_Resenna)</td>
+                <td>@Html.DisplayFor(modelItem => item.ProductoId)</td>
+                <td>@Html.DisplayFor(modelItem => item.EstadoId)</td>
+                <td>@Html.DisplayFor(modelItem => item.UsuarioId)</td>
+
+                <td>
+                    @Html.ActionLink("Detalles", "Details", new { id = item.ResennaId }, new { @class = "btn btn-info btn-sm" }) |
+                    @Html.ActionLink("Editar", "Edit", new { id = item.ResennaId }, new { @class = "btn btn-warning btn-sm" }) |
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.ResennaId }, new { @class = "btn btn-danger btn-sm" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

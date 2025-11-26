@@ -1,0 +1,35 @@
+﻿@model MvcTienda.Aplicacion.Ordenes.OrdenDto
+
+@{
+    ViewBag.Title = "Detalles de Orden";
+}
+
+<h2>Detalles de Orden</h2>
+
+<div class="panel panel-default">
+    <div class="panel-heading"><strong>Información</strong></div>
+
+    <div class="panel-body">
+        <dl class="dl-horizontal">
+            <dt>ID</dt>
+            <dd>@Model.OrdenId</dd>
+
+            <dt>Fecha</dt>
+            <dd>@Model.Fecha_Orden</dd>
+
+            <dt>Total</dt>
+            <dd>@Model.Total</dd>
+
+            <dt>Usuario</dt>
+            <dd>@Model.UsuarioId</dd>
+
+            <dt>Estado</dt>
+            <dd>@Model.EstadoId</dd>
+        </dl>
+    </div>
+</div>
+
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.OrdenId }, new { @class = "btn btn-warning" }) |
+    @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-default" })
+</p>

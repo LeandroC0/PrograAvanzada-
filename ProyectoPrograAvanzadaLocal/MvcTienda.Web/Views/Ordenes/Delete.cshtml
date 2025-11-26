@@ -1,0 +1,43 @@
+﻿@model MvcTienda.Aplicacion.Ordenes.OrdenDto
+
+@{
+    ViewBag.Title = "Eliminar Orden";
+}
+
+<h2>Eliminar Orden</h2>
+
+<div class="alert alert-danger">
+    <strong>¿Está seguro que desea eliminar esta orden?</strong>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading"><strong>Información</strong></div>
+
+    <div class="panel-body">
+        <dl class="dl-horizontal">
+            <dt>ID</dt>
+            <dd>@Model.OrdenId</dd>
+
+            <dt>Fecha</dt>
+            <dd>@Model.Fecha_Orden</dd>
+
+            <dt>Total</dt>
+            <dd>@Model.Total</dd>
+
+            <dt>Usuario</dt>
+            <dd>@Model.UsuarioId</dd>
+
+            <dt>Estado</dt>
+            <dd>@Model.EstadoId</dd>
+        </dl>
+    </div>
+</div>
+
+@using (Html.BeginForm("DeleteConfirmed", "Ordenes", new { id = Model.OrdenId }, FormMethod.Post))
+
+{
+    @Html.AntiForgeryToken()
+
+    <input type="submit" value="Eliminar" class="btn btn-danger" />
+    @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-default", style = "margin-left:10px" })
+}

@@ -1,0 +1,42 @@
+﻿@model MvcTienda.Aplicacion.Resennas.ResennaDto
+
+@{
+    ViewBag.Title = "Detalles de Reseña";
+}
+
+<h2>Detalles de Reseña</h2>
+
+<div class="panel panel-default">
+    <div class="panel-heading"><strong>Información</strong></div>
+    <div class="panel-body">
+
+        <dl class="dl-horizontal">
+            <dt>ID</dt>
+            <dd>@Model.ResennaId</dd>
+
+            <dt>Comentario</dt>
+            <dd>@Model.Comentario</dd>
+
+            <dt>Calificación</dt>
+            <dd>@Model.Calificacion</dd>
+
+            <dt>Fecha</dt>
+            <dd>@Model.Fecha_Resenna</dd>
+
+            <dt>Producto</dt>
+            <dd>@Model.ProductoId</dd>
+
+            <dt>Estado</dt>
+            <dd>@Model.EstadoId</dd>
+
+            <dt>Usuario</dt>
+            <dd>@Model.UsuarioId</dd>
+        </dl>
+
+    </div>
+</div>
+
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.ResennaId }, new { @class = "btn btn-warning" }) |
+    @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-default" })
+</p>

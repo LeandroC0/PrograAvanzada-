@@ -6,6 +6,7 @@ using MvcTienda.Aplicacion.Estados;
 using MvcTienda.Aplicacion.Imagenes;
 using MvcTienda.Aplicacion.Ordenes;
 using MvcTienda.Aplicacion.Productos;
+using MvcTienda.Aplicacion.Resennas;
 using MvcTienda.Aplicacion.Seguridad;
 using MvcTienda.Auth.Services;
 using MvcTienda.Domain.Repositories;
@@ -49,6 +50,7 @@ namespace MvcTienda.Web
             container.RegisterType<IOrdenRepository, OrdenRepository>();
             container.RegisterType<IDetalleOrdenRepository, DetalleOrdenRepository>();
             container.RegisterType<IResennaRepository, ResennaRepository>();
+             container.RegisterType<IOrdenRepository, OrdenRepository>();
             container.RegisterType<IImagenProductoRepository, ImagenProductoRepository>();
 
             // Servicios de aplicación
@@ -56,6 +58,8 @@ namespace MvcTienda.Web
             container.RegisterType<IProductoService, ProductoService>();
             container.RegisterType<IImagenProductoService, ImagenProductoService>();
             container.RegisterType<IDashboardService, DashboardService>();
+            container.RegisterType<IResennaService, ResennaService>();
+            container.RegisterType<IOrdenService, OrdenService>();
             container.RegisterType<IAuthService, AuthService>(); 
             container.RegisterType<IOrdenService, OrdenService>();
             // y así con OrdenService, DetalleOrdenService, ResennaService, etc.

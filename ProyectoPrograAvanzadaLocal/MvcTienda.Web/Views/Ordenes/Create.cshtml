@@ -1,0 +1,58 @@
+﻿@model MvcTienda.Aplicacion.Ordenes.OrdenDto
+
+@{
+    ViewBag.Title = "Crear Orden";
+}
+
+<h2>Crear Orden</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Fecha_Orden, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(m => m.Fecha_Orden, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(m => m.Fecha_Orden)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Total, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(m => m.Total, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(m => m.Total)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.UsuarioId, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(m => m.UsuarioId, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(m => m.UsuarioId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.EstadoId, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(m => m.EstadoId, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(m => m.EstadoId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Crear" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}
+
+<p>
+    @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-default" })
+</p>

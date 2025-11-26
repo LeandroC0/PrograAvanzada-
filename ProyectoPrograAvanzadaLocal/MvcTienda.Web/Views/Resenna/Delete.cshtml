@@ -1,0 +1,50 @@
+﻿@model MvcTienda.Aplicacion.Resennas.ResennaDto
+
+@{
+    ViewBag.Title = "Eliminar Reseña";
+}
+
+<h2>Eliminar Reseña</h2>
+
+<div class="alert alert-danger">
+    <strong>¿Está seguro que desea eliminar esta reseña?</strong>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading"><strong>Información</strong></div>
+    <div class="panel-body">
+
+        <dl class="dl-horizontal">
+            <dt>ID</dt>
+            <dd>@Model.ResennaId</dd>
+
+            <dt>Comentario</dt>
+            <dd>@Model.Comentario</dd>
+
+            <dt>Calificación</dt>
+            <dd>@Model.Calificacion</dd>
+
+            <dt>Fecha</dt>
+            <dd>@Model.Fecha_Resenna</dd>
+
+            <dt>Producto</dt>
+            <dd>@Model.ProductoId</dd>
+
+            <dt>Estado</dt>
+            <dd>@Model.EstadoId</dd>
+
+            <dt>Usuario</dt>
+            <dd>@Model.UsuarioId</dd>
+        </dl>
+
+    </div>
+</div>
+
+@using (Html.BeginForm("Delete", "Resenna", new { id = Model.ResennaId }, FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <input type="submit" value="Eliminar" class="btn btn-danger" />
+
+    @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-default", style = "margin-left:10px" })
+}

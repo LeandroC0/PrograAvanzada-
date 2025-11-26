@@ -1,0 +1,43 @@
+﻿@model IEnumerable<MvcTienda.Aplicacion.Ordenes.OrdenDto>
+
+@{
+    ViewBag.Title = "Lista de Órdenes";
+}
+
+<h2>Lista de Órdenes</h2>
+
+<p>
+    @Html.ActionLink("Crear Nueva Orden", "Create", null, new { @class = "btn btn-success" })
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Fecha</th>
+            <th>Total</th>
+            <th>Usuario</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.OrdenId</td>
+                <td>@item.Fecha_Orden.ToString("yyyy-MM-dd")</td>
+                <td>@item.Total</td>
+                <td>@item.UsuarioId</td>
+                <td>@item.EstadoId</td>
+
+                <td>
+                    @Html.ActionLink("Detalles", "Details", new { id = item.OrdenId }, new { @class = "btn btn-info btn-sm" }) |
+                    @Html.ActionLink("Editar", "Edit", new { id = item.OrdenId }, new { @class = "btn btn-warning btn-sm" }) |
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.OrdenId }, new { @class = "btn btn-danger btn-sm" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
