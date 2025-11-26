@@ -1,0 +1,63 @@
+﻿@model MvcTienda.Aplicacion.Productos.DetalleOrdenDto
+
+@{
+    ViewBag.Title = "Detalles";
+}
+
+<h2>Detalles del Detalle de Orden</h2>
+
+<div class="form-horizontal">
+    <h4>DetalleOrdenDto</h4>
+    <hr />
+
+    <dl class="dl-horizontal">
+
+        <dt class="col-md-2">
+            @Html.DisplayNameFor(model => model.DetalleOrdenId)
+        </dt>
+        <dd class="col-md-10">
+            @Html.DisplayFor(model => model.DetalleOrdenId)
+        </dd>
+
+        <dt class="col-md-2">
+            @Html.DisplayNameFor(model => model.OrdenId)
+        </dt>
+        <dd class="col-md-10">
+            @Html.DisplayFor(model => model.OrdenId)
+        </dd>
+
+        <dt class="col-md-2">
+            @Html.DisplayNameFor(model => model.ProductoId)
+        </dt>
+        <dd class="col-md-10">
+            @Html.DisplayFor(model => model.ProductoId)
+        </dd>
+
+        <dt class="col-md-2">
+            @Html.DisplayNameFor(model => model.Cantidad)
+        </dt>
+        <dd class="col-md-10">
+            @Html.DisplayFor(model => model.Cantidad)
+        </dd>
+
+        <dt class="col-md-2">
+            @Html.DisplayNameFor(model => model.PrecioUnitario)
+        </dt>
+        <dd class="col-md-10">
+            @Html.DisplayFor(model => model.PrecioUnitario)
+        </dd>
+
+        <dt class="col-md-2">
+            @Html.DisplayNameFor(model => model.EstadoId)
+        </dt>
+        <dd class="col-md-10">
+            @Html.DisplayFor(model => model.EstadoId)
+        </dd>
+
+    </dl>
+</div>
+
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.DetalleOrdenId }, new { @class = "btn btn-warning" })
+    @Html.ActionLink("Volver a la lista", "Index", null, new { @class = "btn btn-secondary ml-2" })
+</p>

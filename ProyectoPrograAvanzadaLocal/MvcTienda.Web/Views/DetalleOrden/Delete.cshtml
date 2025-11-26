@@ -1,0 +1,46 @@
+﻿@model MvcTienda.Aplicacion.Productos.DetalleOrdenDto
+
+@{
+    ViewBag.Title = "Eliminar Detalle de Orden";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<h4>¿Está seguro de que desea eliminar este detalle de orden?</h4>
+<hr />
+
+<div class="form-horizontal">
+    <dl class="dl-horizontal">
+
+        <dt>@Html.DisplayNameFor(model => model.DetalleOrdenId)</dt>
+        <dd>@Html.DisplayFor(model => model.DetalleOrdenId)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.OrdenId)</dt>
+        <dd>@Html.DisplayFor(model => model.OrdenId)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.ProductoId)</dt>
+        <dd>@Html.DisplayFor(model => model.ProductoId)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.Cantidad)</dt>
+        <dd>@Html.DisplayFor(model => model.Cantidad)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.PrecioUnitario)</dt>
+        <dd>@Html.DisplayFor(model => model.PrecioUnitario)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.EstadoId)</dt>
+        <dd>@Html.DisplayFor(model => model.EstadoId)</dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10 pt-2 pb-2">
+                <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+                @Html.ActionLink("Volver a la lista", "Index", null, new { @class = "btn btn-secondary" })
+            </div>
+        </div>
+    }
+</div>

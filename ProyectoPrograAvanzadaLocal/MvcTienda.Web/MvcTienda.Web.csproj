@@ -167,6 +167,7 @@
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\UnityMvcActivator.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\DetalleOrdenController.cs" />
     <Compile Include="Controllers\EstadoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImagenProductoController.cs" />
@@ -256,6 +257,11 @@
     <Content Include="Views\Resenna\Details.cshtml" />
     <Content Include="Views\Resenna\Edit.cshtml" />
     <Content Include="Views\Resenna\Index.cshtml" />
+    <Content Include="Views\DetalleOrden\Create.cshtml" />
+    <Content Include="Views\DetalleOrden\Index.cshtml" />
+    <Content Include="Views\DetalleOrden\Delete.cshtml" />
+    <Content Include="Views\DetalleOrden\Edit.cshtml" />
+    <Content Include="Views\DetalleOrden\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

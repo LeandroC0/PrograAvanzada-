@@ -1,0 +1,45 @@
+﻿@model IEnumerable<MvcTienda.Aplicacion.Productos.DetalleOrdenDto>
+
+@{
+    ViewBag.Title = "Lista de Detalles de Orden";
+}
+
+<h2>Lista de Detalles de Orden</h2>
+
+<p>
+    @Html.ActionLink("Crear Nuevo Detalle", "Create", null, new { @class = "btn btn-success" })
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.DetalleOrdenId)</th>
+            <th>@Html.DisplayNameFor(model => model.OrdenId)</th>
+            <th>@Html.DisplayNameFor(model => model.ProductoId)</th>
+            <th>@Html.DisplayNameFor(model => model.Cantidad)</th>
+            <th>@Html.DisplayNameFor(model => model.PrecioUnitario)</th>
+            <th>@Html.DisplayNameFor(model => model.EstadoId)</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.DetalleOrdenId)</td>
+                <td>@Html.DisplayFor(modelItem => item.OrdenId)</td>
+                <td>@Html.DisplayFor(modelItem => item.ProductoId)</td>
+                <td>@Html.DisplayFor(modelItem => item.Cantidad)</td>
+                <td>@Html.DisplayFor(modelItem => item.PrecioUnitario)</td>
+                <td>@Html.DisplayFor(modelItem => item.EstadoId)</td>
+
+                <td>
+                    @Html.ActionLink("Detalles", "Details", new { id = item.DetalleOrdenId }, new { @class = "btn btn-info btn-sm" }) |
+                    @Html.ActionLink("Editar", "Edit", new { id = item.DetalleOrdenId }, new { @class = "btn btn-warning btn-sm" }) |
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.DetalleOrdenId }, new { @class = "btn btn-danger btn-sm" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

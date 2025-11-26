@@ -2,6 +2,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using MvcTienda.Aplicacion.Dashboard;
+using MvcTienda.Aplicacion.DetallesOrden;
 using MvcTienda.Aplicacion.Estados;
 using MvcTienda.Aplicacion.Imagenes;
 using MvcTienda.Aplicacion.Ordenes;
@@ -62,7 +63,8 @@ namespace MvcTienda.Web
             container.RegisterType<IOrdenService, OrdenService>();
             container.RegisterType<IAuthService, AuthService>(); 
             container.RegisterType<IOrdenService, OrdenService>();
-            // y así con OrdenService, DetalleOrdenService, ResennaService, etc.
+            container.RegisterType<IDetalleOrdenService, DetalleOrdenService>();
+
 
             // Identity stores
             container.RegisterType<IUserStore<ApplicationUser, int>, ApplicationUserStore>(
