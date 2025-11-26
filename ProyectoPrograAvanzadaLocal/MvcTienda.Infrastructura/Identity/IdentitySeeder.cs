@@ -1,30 +1,35 @@
 ﻿using Microsoft.AspNet.Identity;
 using MvcTienda.Infrastructura.Data;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace MvcTienda.Infrastructura.Identity
 {
     public static class IdentitySeeder
     {
-        public static void Seed(AppDbContext context,
-                                ApplicationUserManager userManager,
-                                ApplicationRoleManager roleManager)
+        public static async Task Seed(
+            RoleManager<CustomRole, int> roleManager,
+            UserManager<ApplicationUser, int> userManager)
         {
-            if (!roleManager.Roles.Any())
+            if (!await roleManager.RoleExistsAsync("Administrador"))
+                await roleManager.CreateAsync(new CustomRole { Name = "Administrador" });
+
+            if (!await roleManager.RoleExistsAsync("Asociado"))
+                await roleManager.CreateAsync(new CustomRole { Name = "Asociado" });
+
+            var admin = await userManager.FindByNameAsync("admin");
+            if (admin == null)
             {
-                roleManager.Create(new CustomRole("Administrador"));
-                roleManager.Create(new CustomRole("Asociado"));
-            }
-            if (!userManager.Users.Any(u => u.UserName == "admin"))
-            {
-                var admin = new ApplicationUser
+                var newAdmin = new ApplicationUser
                 {
                     UserName = "admin",
-                    Email = "admin@proyecto.com",
-                    Estado = 1
+                    Email = "admin@tienda.com",
+                    EstadoId = 1
                 };
-                userManager.Create(admin, "Admin123!");
-                userManager.AddToRole(admin.Id, "Administrador");
+
+                var result = await userManager.CreateAsync(newAdmin, "Admin123*");
+                if (result.Succeeded)
+                    await userManager.AddToRoleAsync(newAdmin.Id, "Administrador");
             }
         }
     }

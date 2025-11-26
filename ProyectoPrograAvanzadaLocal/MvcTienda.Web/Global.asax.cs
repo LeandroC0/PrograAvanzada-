@@ -1,3 +1,5 @@
+using MvcTienda.Infrastructura.Data;
+using MvcTienda.Infrastructura.Identity;
 using System.Data.Entity;
 using System.Web.Mvc;
 using System.Web.Optimization;
@@ -20,6 +22,20 @@ namespace MvcTienda.Web
             UnityConfig.RegisterComponents();
 
 
+            SeedIdentity();
+        }
+        private void SeedIdentity()
+        {
+            using (var context = new AppDbContext())
+            {
+                var userStore = new ApplicationUserStore(context);
+                var roleStore = new ApplicationRoleStore(context);
+
+                var userManager = new ApplicationUserManager(userStore);
+                var roleManager = new ApplicationRoleManager(roleStore);
+
+                IdentitySeeder.Seed(roleManager, userManager).Wait();
+            }
         }
     }
 }

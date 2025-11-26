@@ -9,8 +9,6 @@ namespace MvcTienda.Infrastructura.Identity
             : base(roleStore)
         {
         }
-
-
         public static ApplicationRoleManager Create(
             Microsoft.Owin.IOwinContext context)
         {

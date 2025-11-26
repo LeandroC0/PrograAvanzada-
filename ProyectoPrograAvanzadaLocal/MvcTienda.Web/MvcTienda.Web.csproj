@@ -166,6 +166,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\UnityMvcActivator.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\DetalleOrdenController.cs" />
     <Compile Include="Controllers\EstadoController.cs" />
@@ -262,6 +263,9 @@
     <Content Include="Views\DetalleOrden\Delete.cshtml" />
     <Content Include="Views\DetalleOrden\Edit.cshtml" />
     <Content Include="Views\DetalleOrden\Details.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

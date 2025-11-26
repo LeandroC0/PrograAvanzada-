@@ -1,18 +1,18 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\marjo\\OneDrive\\Documentos\\GitHub\\PrograAvanzada-\\ProyectoPrograAvanzadaLocal\\",
+  "WorkspaceRootPath": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada\\ProyectoPrograAvanzadaLocal\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0F5B37A3-7805-484C-95DA-C9E1260BA5EC}|MvcTienda.Web\\MvcTienda.Web.csproj|c:\\users\\marjo\\onedrive\\documentos\\github\\prograavanzada-\\proyectoprograavanzadalocal\\mvctienda.web\\app_start\\unityconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0F5B37A3-7805-484C-95DA-C9E1260BA5EC}|MvcTienda.Web\\MvcTienda.Web.csproj|solutionrelative:mvctienda.web\\app_start\\unityconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0F5B37A3-7805-484C-95DA-C9E1260BA5EC}|MvcTienda.Web\\MvcTienda.Web.csproj|c:\\users\\rafael\\source\\repos\\prograavanzada\\proyectoprograavanzadalocal\\mvctienda.web\\views\\shared\\_loginpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0F5B37A3-7805-484C-95DA-C9E1260BA5EC}|MvcTienda.Web\\MvcTienda.Web.csproj|solutionrelative:mvctienda.web\\views\\shared\\_loginpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0F5B37A3-7805-484C-95DA-C9E1260BA5EC}|MvcTienda.Web\\MvcTienda.Web.csproj|C:\\Users\\marjo\\OneDrive\\Documentos\\GitHub\\PrograAvanzada-\\ProyectoPrograAvanzadaLocal\\mvctienda.web\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{0F5B37A3-7805-484C-95DA-C9E1260BA5EC}|MvcTienda.Web\\MvcTienda.Web.csproj|c:\\users\\rafael\\source\\repos\\prograavanzada\\proyectoprograavanzadalocal\\mvctienda.web\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{0F5B37A3-7805-484C-95DA-C9E1260BA5EC}|MvcTienda.Web\\MvcTienda.Web.csproj|solutionrelative:mvctienda.web\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0F5B37A3-7805-484C-95DA-C9E1260BA5EC}|MvcTienda.Web\\MvcTienda.Web.csproj|c:\\users\\marjo\\onedrive\\documentos\\github\\prograavanzada-\\proyectoprograavanzadalocal\\mvctienda.web\\views\\detalleorden\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0F5B37A3-7805-484C-95DA-C9E1260BA5EC}|MvcTienda.Web\\MvcTienda.Web.csproj|solutionrelative:mvctienda.web\\views\\detalleorden\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{0F5B37A3-7805-484C-95DA-C9E1260BA5EC}|MvcTienda.Web\\MvcTienda.Web.csproj|c:\\users\\rafael\\source\\repos\\prograavanzada\\proyectoprograavanzadalocal\\mvctienda.web\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0F5B37A3-7805-484C-95DA-C9E1260BA5EC}|MvcTienda.Web\\MvcTienda.Web.csproj|solutionrelative:mvctienda.web\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -21,8 +21,8 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 436,
-          "SelectedChildIndex": 55,
+          "DockedWidth": 374,
+          "SelectedChildIndex": 56,
           "Children": [
             {
               "$type": "Bookmark",
@@ -246,47 +246,47 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "UnityConfig.cs",
-              "DocumentMoniker": "C:\\Users\\marjo\\OneDrive\\Documentos\\GitHub\\PrograAvanzada-\\ProyectoPrograAvanzadaLocal\\MvcTienda.Web\\App_Start\\UnityConfig.cs",
-              "RelativeDocumentMoniker": "MvcTienda.Web\\App_Start\\UnityConfig.cs",
-              "ToolTip": "C:\\Users\\marjo\\OneDrive\\Documentos\\GitHub\\PrograAvanzada-\\ProyectoPrograAvanzadaLocal\\MvcTienda.Web\\App_Start\\UnityConfig.cs",
-              "RelativeToolTip": "MvcTienda.Web\\App_Start\\UnityConfig.cs",
-              "ViewState": "AgIAACwAAAAAAAAAAAAQwDEAAAAUAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada\\ProyectoPrograAvanzadaLocal\\MvcTienda.Web\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "MvcTienda.Web\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada\\ProyectoPrograAvanzadaLocal\\MvcTienda.Web\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "MvcTienda.Web\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAIwDsAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-26T16:16:54.736Z",
+              "WhenOpened": "2025-11-26T19:50:14.684Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Details.cshtml",
-              "DocumentMoniker": "C:\\Users\\marjo\\OneDrive\\Documentos\\GitHub\\PrograAvanzada-\\ProyectoPrograAvanzadaLocal\\MvcTienda.Web\\Views\\DetalleOrden\\Details.cshtml",
-              "RelativeDocumentMoniker": "MvcTienda.Web\\Views\\DetalleOrden\\Details.cshtml",
-              "ToolTip": "C:\\Users\\marjo\\OneDrive\\Documentos\\GitHub\\PrograAvanzada-\\ProyectoPrograAvanzadaLocal\\MvcTienda.Web\\Views\\DetalleOrden\\Details.cshtml",
-              "RelativeToolTip": "MvcTienda.Web\\Views\\DetalleOrden\\Details.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAKAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "_LoginPartial.cshtml",
+              "DocumentMoniker": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada\\ProyectoPrograAvanzadaLocal\\MvcTienda.Web\\Views\\Shared\\_LoginPartial.cshtml",
+              "RelativeDocumentMoniker": "MvcTienda.Web\\Views\\Shared\\_LoginPartial.cshtml",
+              "ToolTip": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada\\ProyectoPrograAvanzadaLocal\\MvcTienda.Web\\Views\\Shared\\_LoginPartial.cshtml",
+              "RelativeToolTip": "MvcTienda.Web\\Views\\Shared\\_LoginPartial.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-26T16:07:17.53Z",
+              "WhenOpened": "2025-11-26T19:49:27.911Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\marjo\\OneDrive\\Documentos\\GitHub\\PrograAvanzada-\\ProyectoPrograAvanzadaLocal\\MvcTienda.Web\\Views\\Shared\\_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada\\ProyectoPrograAvanzadaLocal\\MvcTienda.Web\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "MvcTienda.Web\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\marjo\\OneDrive\\Documentos\\GitHub\\PrograAvanzada-\\ProyectoPrograAvanzadaLocal\\MvcTienda.Web\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\Rafael\\source\\repos\\PrograAvanzada\\ProyectoPrograAvanzadaLocal\\MvcTienda.Web\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "MvcTienda.Web\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAwwBwAAAAsAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAwCcAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-26T07:12:24.292Z",
+              "WhenOpened": "2025-11-26T19:45:45.037Z",
               "EditorCaption": ""
             }
           ]
         },
         {
-          "DockedWidth": 436,
+          "DockedWidth": 583,
           "SelectedChildIndex": -1,
           "Children": [
             {
