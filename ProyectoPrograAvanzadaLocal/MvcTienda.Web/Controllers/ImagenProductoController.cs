@@ -1,0 +1,131 @@
+﻿using MvcTienda.Aplicacion.Imagenes;
+using System;
+using System.Collections.Generic;
+using System.Web.Mvc;
+
+namespace MvcTienda.Web.Controllers
+{
+    public class ImagenProductoController : Controller
+    {
+        private readonly IImagenProductoService _service;
+
+        public ImagenProductoController(IImagenProductoService service)
+        {
+            _service = service;
+        }
+
+        // GET: ImagenProducto
+        public ActionResult Index()
+        {
+            try
+            {
+                var imagenes = _service.GetAll();
+                return View(imagenes);
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Error = "Error al cargar las imágenes: " + ex.Message;
+                return View(new List<ImagenProductoDto>());
+            }
+        }
+
+        // GET: ImagenProducto/Create
+        public ActionResult Create()
+        {
+            return View(new ImagenProductoDto());
+        }
+
+        // POST: ImagenProducto/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(ImagenProductoDto dto)
+        {
+            if (!ModelState.IsValid)
+                return View(dto);
+
+            try
+            {
+                _service.Create(dto);
+                TempData["Mensaje"] = "Imagen creada correctamente.";
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Error = "Error al crear la imagen: " + ex.Message;
+                return View(dto);
+            }
+        }
+
+        // GET: ImagenProducto/Edit/5
+        public ActionResult Edit(int id)
+        {
+            var imagen = _service.GetById(id);
+
+            if (imagen == null)
+                return HttpNotFound();
+
+            return View(imagen);
+        }
+
+        // POST: ImagenProducto/Edit
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(ImagenProductoDto dto)
+        {
+            if (!ModelState.IsValid)
+                return View(dto);
+
+            try
+            {
+                _service.Update(dto);
+                TempData["Mensaje"] = "Imagen actualizada correctamente.";
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Error = "Error al actualizar la imagen: " + ex.Message;
+                return View(dto);
+            }
+        }
+
+        // GET: ImagenProducto/Details/5
+        public ActionResult Details(int id)
+        {
+            var imagen = _service.GetById(id);
+
+            if (imagen == null)
+                return HttpNotFound();
+
+            return View(imagen);
+        }
+
+        // GET: ImagenProducto/Delete/5
+        public ActionResult Delete(int id)
+        {
+            var imagen = _service.GetById(id);
+
+            if (imagen == null)
+                return HttpNotFound();
+
+            return View(imagen);
+        }
+
+        // POST: ImagenProducto/Delete
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            try
+            {
+                _service.Delete(id);
+                TempData["Mensaje"] = "Imagen eliminada correctamente.";
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Error = "Error al eliminar la imagen: " + ex.Message;
+                return RedirectToAction("Delete", new { id });
+            }
+        }
+    }
+}

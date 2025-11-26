@@ -1,0 +1,45 @@
+﻿@model IEnumerable<MvcTienda.Aplicacion.Imagenes.ImagenProductoDto>
+
+@{
+    ViewBag.Title = "Listado de Imágenes";
+}
+
+<h2 class="text-center mb-4">@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink("Agregar Imagen", "Create", null, new { @class = "btn btn-primary mb-3" })
+</p>
+
+<table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th>ID</th>
+            <th>Producto</th>
+            <th>Estado</th>
+            <th>Vista Previa</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ImagenProductoId</td>
+                <td>@item.ProductoNombre</td>
+                <td>@item.EstadoNombre</td>
+                <td>
+                    @if (item.RutaImagen != null)
+                    {
+                        <img src="data:image/png;base64,@Convert.ToBase64String(item.RutaImagen)" width="80" />
+                    }
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.ImagenProductoId }, new { @class = "btn btn-warning btn-sm" })
+                    @Html.ActionLink("Detalles", "Details", new { id = item.ImagenProductoId }, new { @class = "btn btn-info btn-sm mx-1" })
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.ImagenProductoId }, new { @class = "btn btn-danger btn-sm" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

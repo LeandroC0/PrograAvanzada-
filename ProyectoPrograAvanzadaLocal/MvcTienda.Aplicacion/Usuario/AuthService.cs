@@ -42,7 +42,7 @@ namespace MvcTienda.Auth.Services
 
             return result == SignInStatus.Success;
         }
-        //acá me da la advertencia -dani
+        
         public async Task Logout()
         {
             _signInManager.AuthenticationManager.SignOut();

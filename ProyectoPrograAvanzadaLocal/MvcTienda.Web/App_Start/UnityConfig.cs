@@ -1,5 +1,6 @@
 using Microsoft.AspNet.Identity;
 using MvcTienda.Aplicacion.Estados;
+using MvcTienda.Aplicacion.Imagenes;
 using MvcTienda.Aplicacion.Productos;
 using MvcTienda.Domain.Repositories;
 using MvcTienda.Infrastructura.Data;
@@ -45,6 +46,7 @@ namespace MvcTienda.Web
             // Servicios de aplicación
             container.RegisterType<IEstadoService, EstadoService>();
             container.RegisterType<IProductoService, ProductoService>();
+            container.RegisterType<IImagenProductoService, ImagenProductoService>();
             // y así con OrdenService, DetalleOrdenService, ResennaService, etc.
 
             // Identity stores

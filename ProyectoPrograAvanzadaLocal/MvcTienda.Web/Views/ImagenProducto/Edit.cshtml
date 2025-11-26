@@ -1,0 +1,41 @@
+﻿@model MvcTienda.Aplicacion.Imagenes.ImagenProductoDto
+
+@{
+    ViewBag.Title = "Editar Imagen";
+}
+
+<h2 class="mb-4">@ViewBag.Title</h2>
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.HiddenFor(m => m.ImagenProductoId)
+
+    <div class="form-group">
+        <label>Imagen Actual:</label><br />
+
+        @if (Model.RutaImagen != null)
+        {
+            <img src="data:image/png;base64,@Convert.ToBase64String(Model.RutaImagen)" width="150" class="mb-3" />
+        }
+    </div>
+
+    <div class="form-group">
+        <label>Nueva Imagen (opcional)</label>
+        <input type="file" name="imagenArchivo" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.ProductoId)
+        @Html.TextBoxFor(m => m.ProductoId, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.EstadoId)
+        @Html.TextBoxFor(m => m.EstadoId, new { @class = "form-control" })
+    </div>
+
+    <button type="submit" class="btn btn-success">Guardar</button>
+    @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-secondary ml-2" })
+}
