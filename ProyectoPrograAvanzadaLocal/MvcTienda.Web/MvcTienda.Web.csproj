@@ -166,6 +166,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\UnityMvcActivator.cs" />
+    <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\EstadoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImagenProductoController.cs" />
@@ -243,6 +244,7 @@
     <Content Include="Views\ImagenProducto\Edit.cshtml" />
     <Content Include="Views\ImagenProducto\Details.cshtml" />
     <Content Include="Views\ImagenProducto\Delete.cshtml" />
+    <Content Include="Views\Dashboard\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

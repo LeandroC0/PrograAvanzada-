@@ -1,15 +1,23 @@
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security;
+using MvcTienda.Aplicacion.Dashboard;
 using MvcTienda.Aplicacion.Estados;
 using MvcTienda.Aplicacion.Imagenes;
+using MvcTienda.Aplicacion.Ordenes;
 using MvcTienda.Aplicacion.Productos;
+using MvcTienda.Aplicacion.Seguridad;
+using MvcTienda.Auth.Services;
 using MvcTienda.Domain.Repositories;
 using MvcTienda.Infrastructura.Data;
 using MvcTienda.Infrastructura.Identity;
 using MvcTienda.Infrastructura.Repositories;
 using System;
+using System.Web;
 using System.Web.Mvc;
 using Unity;
 using Unity.AspNet.Mvc;
+using Unity.Injection;
 
 namespace MvcTienda.Web
 {
@@ -47,6 +55,9 @@ namespace MvcTienda.Web
             container.RegisterType<IEstadoService, EstadoService>();
             container.RegisterType<IProductoService, ProductoService>();
             container.RegisterType<IImagenProductoService, ImagenProductoService>();
+            container.RegisterType<IDashboardService, DashboardService>();
+            container.RegisterType<IAuthService, AuthService>(); 
+            container.RegisterType<IOrdenService, OrdenService>();
             // y así con OrdenService, DetalleOrdenService, ResennaService, etc.
 
             // Identity stores
@@ -59,6 +70,23 @@ namespace MvcTienda.Web
             container.RegisterType<ApplicationUserManager>(new PerRequestLifetimeManager());
             container.RegisterType<ApplicationSignInManager>(new PerRequestLifetimeManager());
             container.RegisterType<ApplicationRoleManager>(new PerRequestLifetimeManager());
+
+            //prueba dashboard
+            container.RegisterType<IAuthenticationManager>(
+                new InjectionFactory(o => HttpContext.Current.GetOwinContext().Authentication));
+
+            container.RegisterType<UserManager<ApplicationUser, int>>(
+                new PerRequestLifetimeManager(),
+                new InjectionFactory(o => HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>()));
+
+            container.RegisterType<SignInManager<ApplicationUser, int>>(
+                new PerRequestLifetimeManager(),
+                new InjectionFactory(o => HttpContext.Current.GetOwinContext().Get<ApplicationSignInManager>()));
+
+          
+
+          
         }
     }
 }
+

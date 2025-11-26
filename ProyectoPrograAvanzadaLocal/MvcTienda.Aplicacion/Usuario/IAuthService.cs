@@ -7,5 +7,10 @@ namespace MvcTienda.Aplicacion.Seguridad
         Task<bool> Register(string usuario, string password, string rol);
         Task<bool> Login(string usuario, string password);
         Task Logout();
+
+
+        int ObtenerTotalUsuarios();
+        int ObtenerUsuariosActivos();
+        int ObtenerUsuariosInactivos();
     }
 }

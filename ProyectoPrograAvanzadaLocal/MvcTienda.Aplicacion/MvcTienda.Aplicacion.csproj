@@ -80,6 +80,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\NegocioException.cs" />
+    <Compile Include="Dashboard\DashboardDto.cs" />
+    <Compile Include="Dashboard\DashboardService.cs" />
+    <Compile Include="Dashboard\IDashboardService.cs" />
     <Compile Include="Usuario\AuthService.cs" />
     <Compile Include="DetalleOrden\DetalleOrdenDto.cs" />
     <Compile Include="DetalleOrden\DetalleOrdenService.cs" />

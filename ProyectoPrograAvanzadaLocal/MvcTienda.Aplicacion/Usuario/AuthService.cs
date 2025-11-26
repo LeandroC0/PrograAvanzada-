@@ -2,6 +2,7 @@
 using Microsoft.AspNet.Identity.Owin;
 using MvcTienda.Aplicacion.Seguridad;
 using MvcTienda.Infrastructura.Identity;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace MvcTienda.Auth.Services
@@ -46,6 +47,23 @@ namespace MvcTienda.Auth.Services
         public async Task Logout()
         {
             _signInManager.AuthenticationManager.SignOut();
+        }
+
+
+        public int ObtenerTotalUsuarios()
+        {
+            return _userManager.Users.Count();
+        }
+
+        public int ObtenerUsuariosActivos()
+        {
+            
+            return _userManager.Users.Count(u => u.Estado == 1);
+        }
+
+        public int ObtenerUsuariosInactivos()
+        {
+            return _userManager.Users.Count(u => u.Estado != 1);
         }
     }
 }

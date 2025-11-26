@@ -1,0 +1,292 @@
+﻿@{
+    ViewBag.Title = "Dashboard Administrador";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <h2>Dashboard Administrador</h2>
+    <hr />
+
+    <!-- Loading Spinner -->
+    <div id="loadingSpinner" class="text-center">
+        <div class="spinner-border text-primary" role="status">
+            <span class="sr-only">Cargando...</span>
+        </div>
+        <p>Cargando estadísticas...</p>
+    </div>
+
+    <!-- Estadísticas Container -->
+    <div id="estadisticasContainer" style="display: none;">
+        <!-- Tarjetas de Estadísticas -->
+        <div class="row">
+            <!-- Total Usuarios -->
+            <div class="col-md-3 mb-4">
+                <div class="card text-white bg-primary">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <h4 id="totalUsuarios">0</h4>
+                                <p class="card-text">Total Usuarios</p>
+                            </div>
+                            <div class="align-self-center">
+                                <i class="fas fa-users fa-2x"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Usuarios Activos -->
+            <div class="col-md-3 mb-4">
+                <div class="card text-white bg-success">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <h4 id="usuariosActivos">0</h4>
+                                <p class="card-text">Usuarios Activos</p>
+                            </div>
+                            <div class="align-self-center">
+                                <i class="fas fa-user-check fa-2x"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Total Productos -->
+            <div class="col-md-3 mb-4">
+                <div class="card text-white bg-info">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <h4 id="totalProductos">0</h4>
+                                <p class="card-text">Total Productos</p>
+                            </div>
+                            <div class="align-self-center">
+                                <i class="fas fa-boxes fa-2x"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Productos Bajo Inventario -->
+            <div class="col-md-3 mb-4">
+                <div class="card text-white bg-warning">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <h4 id="productosBajoInventario">0</h4>
+                                <p class="card-text">Bajo Inventario</p>
+                            </div>
+                            <div class="align-self-center">
+                                <i class="fas fa-exclamation-triangle fa-2x"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Segunda Fila de Tarjetas -->
+        <div class="row">
+            <!-- Ventas Totales -->
+            <div class="col-md-4 mb-4">
+                <div class="card text-white bg-dark">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <h4 id="ventasTotales">₡0</h4>
+                                <p class="card-text">Ventas Totales</p>
+                            </div>
+                            <div class="align-self-center">
+                                <i class="fas fa-money-bill-wave fa-2x"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Usuarios Inactivos -->
+            <div class="col-md-4 mb-4">
+                <div class="card text-white bg-secondary">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <h4 id="usuariosInactivos">0</h4>
+                                <p class="card-text">Usuarios Inactivos</p>
+                            </div>
+                            <div class="align-self-center">
+                                <i class="fas fa-user-times fa-2x"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Espacio para futuras métricas -->
+            <div class="col-md-4 mb-4">
+                <div class="card text-white bg-danger">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <h4 id="metricasExtra">-</h4>
+                                <p class="card-text">Métricas Adicionales</p>
+                            </div>
+                            <div class="align-self-center">
+                                <i class="fas fa-chart-line fa-2x"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gráfico de Ventas -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Ventas de la Última Semana</h5>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="ventasChart" width="400" height="150"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            cargarEstadisticas();
+        });
+
+        function cargarEstadisticas() {
+            $.ajax({
+                url: '@Url.Action("GetEstadisticas", "Dashboard")',
+                type: 'GET',
+                dataType: 'json',
+                beforeSend: function() {
+                    
+                    $('#loadingSpinner').show();
+                    $('#estadisticasContainer').hide();
+                },
+                success: function (data) {
+                    
+                    $('#loadingSpinner').hide();
+                    $('#estadisticasContainer').fadeIn(500);
+
+                    
+                    $('#totalUsuarios').text(data.TotalUsuarios.toLocaleString());
+                    $('#usuariosActivos').text(data.UsuariosActivos.toLocaleString());
+                    $('#usuariosInactivos').text(data.UsuariosInactivos.toLocaleString());
+                    $('#totalProductos').text(data.TotalProductos.toLocaleString());
+                    $('#productosBajoInventario').text(data.ProductosBajoInventario.toLocaleString());
+
+                   
+                    $('#ventasTotales').text('₡' + data.VentasTotales.toLocaleString('es-CR', {
+                        minimumFractionDigits: 2,
+                        maximumFractionDigits: 2
+                    }));
+
+                   
+                    crearGraficoVentas(data.VentasUltimaSemana);
+
+                    
+                    $('.card').addClass('animate__animated animate__fadeInUp');
+                },
+                error: function (xhr, status, error) {
+                    $('#loadingSpinner').html(
+                        '<div class="alert alert-danger animate__animated animate__shakeX">' +
+                        '<h5>Error cargando estadísticas</h5>' +
+                        '<p>Detalle: ' + error + '</p>' +
+                        '<button class="btn btn-sm btn-outline-danger mt-2" onclick="cargarEstadisticas()">Reintentar</button>' +
+                        '</div>'
+                    );
+                },
+                complete: function() {
+                    
+                    console.log('Carga de estadísticas completada');
+                }
+            });
+        }
+
+        function crearGraficoVentas(ventasSemana) {
+            var ctx = document.getElementById('ventasChart').getContext('2d');
+
+            
+            if (window.ventasChartInstance) {
+                window.ventasChartInstance.destroy();
+            }
+
+            window.ventasChartInstance = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ventasSemana.map(function (v) { return v.Dia; }),
+                    datasets: [{
+                        label: 'Ventas por Día (₡)',
+                        data: ventasSemana.map(function (v) { return v.TotalVentas; }),
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.5)',
+                            'rgba(54, 162, 235, 0.5)',
+                            'rgba(255, 206, 86, 0.5)',
+                            'rgba(75, 192, 192, 0.5)',
+                            'rgba(153, 102, 255, 0.5)',
+                            'rgba(255, 159, 64, 0.5)',
+                            'rgba(199, 199, 199, 0.5)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)',
+                            'rgba(199, 199, 199, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Ventas de la Última Semana',
+                            font: {
+                                size: 16
+                            }
+                        },
+                        legend: {
+                            display: true,
+                            position: 'top'
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function (value) {
+                                    return '₡' + value.toLocaleString('es-CR', {
+                                        minimumFractionDigits: 0,
+                                        maximumFractionDigits: 0
+                                    });
+                                }
+                            }
+                        }
+                    },
+                    animation: {
+                        duration: 2000,
+                        easing: 'easeOutQuart'
+                    }
+                }
+            });
+        }
+    </script>
+}
