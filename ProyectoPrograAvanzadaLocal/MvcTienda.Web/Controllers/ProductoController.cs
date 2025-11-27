@@ -50,12 +50,14 @@ namespace MvcTienda.Web.Controllers
         }
 
         // GET: Producto/Create
+        [Authorize(Roles = "Administrador")]
         public ActionResult Create()
         {
             return View(new ProductoDto());
         }
 
         // POST: Producto/Create
+        [Authorize(Roles = "Administrador")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(ProductoDto dto)
@@ -78,6 +80,7 @@ namespace MvcTienda.Web.Controllers
         }
 
         // GET: Producto/Edit/5
+        [Authorize(Roles = "Administrador")]
         public ActionResult Edit(int id)
         {
             try
@@ -99,6 +102,7 @@ namespace MvcTienda.Web.Controllers
         // POST: Producto/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrador")]
         public ActionResult Edit(ProductoDto dto)
         {
             if (!ModelState.IsValid)
@@ -119,6 +123,7 @@ namespace MvcTienda.Web.Controllers
         }
 
         // GET: Producto/Delete/5
+        [Authorize(Roles = "Administrador")]
         public ActionResult Delete(int id)
         {
             try
@@ -140,6 +145,7 @@ namespace MvcTienda.Web.Controllers
         // POST: Producto/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrador")]
         public ActionResult DeleteConfirmed(int id)
         {
             try

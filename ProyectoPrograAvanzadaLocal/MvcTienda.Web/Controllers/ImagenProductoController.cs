@@ -1,6 +1,8 @@
 ﻿using MvcTienda.Aplicacion.Imagenes;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Web;
 using System.Web.Mvc;
 
 namespace MvcTienda.Web.Controllers
@@ -30,6 +32,7 @@ namespace MvcTienda.Web.Controllers
         }
 
         // GET: ImagenProducto/Create
+        [Authorize(Roles = "Administrador")]
         public ActionResult Create()
         {
             return View(new ImagenProductoDto());
@@ -38,13 +41,21 @@ namespace MvcTienda.Web.Controllers
         // POST: ImagenProducto/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(ImagenProductoDto dto)
+        [Authorize(Roles = "Administrador")]
+        public ActionResult Create(HttpPostedFileBase RutaImagen, [Bind(Exclude = "RutaImagen")] ImagenProductoDto dto)
         {
             if (!ModelState.IsValid)
                 return View(dto);
 
             try
             {
+                if (RutaImagen != null && RutaImagen.ContentLength > 0)
+                {
+                    using (var binaryReader = new BinaryReader(RutaImagen.InputStream))
+                    {
+                        dto.RutaImagen = binaryReader.ReadBytes(RutaImagen.ContentLength);
+                    }
+                }
                 _service.Create(dto);
                 TempData["Mensaje"] = "Imagen creada correctamente.";
                 return RedirectToAction("Index");
@@ -57,6 +68,7 @@ namespace MvcTienda.Web.Controllers
         }
 
         // GET: ImagenProducto/Edit/5
+        [Authorize(Roles = "Administrador")]
         public ActionResult Edit(int id)
         {
             var imagen = _service.GetById(id);
@@ -70,6 +82,7 @@ namespace MvcTienda.Web.Controllers
         // POST: ImagenProducto/Edit
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrador")]
         public ActionResult Edit(ImagenProductoDto dto)
         {
             if (!ModelState.IsValid)
@@ -89,6 +102,7 @@ namespace MvcTienda.Web.Controllers
         }
 
         // GET: ImagenProducto/Details/5
+        [Authorize(Roles = "Administrador")]
         public ActionResult Details(int id)
         {
             var imagen = _service.GetById(id);
@@ -100,6 +114,7 @@ namespace MvcTienda.Web.Controllers
         }
 
         // GET: ImagenProducto/Delete/5
+        [Authorize(Roles = "Administrador")]
         public ActionResult Delete(int id)
         {
             var imagen = _service.GetById(id);
@@ -113,6 +128,7 @@ namespace MvcTienda.Web.Controllers
         // POST: ImagenProducto/Delete
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrador")]
         public ActionResult DeleteConfirmed(int id)
         {
             try
