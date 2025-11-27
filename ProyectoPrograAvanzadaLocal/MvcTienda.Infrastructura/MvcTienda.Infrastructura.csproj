@@ -89,9 +89,9 @@
     <Compile Include="Identity\ApplicationUserStore.cs" />
     <Compile Include="Identity\CustomRole.cs" />
     <Compile Include="Identity\IdentitySeeder.cs" />
-    <Compile Include="Migrations\202511261942563_UpdateUsuario.cs" />
-    <Compile Include="Migrations\202511261942563_UpdateUsuario.Designer.cs">
-      <DependentUpon>202511261942563_UpdateUsuario.cs</DependentUpon>
+    <Compile Include="Migrations\202511270336500_Prueba.cs" />
+    <Compile Include="Migrations\202511270336500_Prueba.Designer.cs">
+      <DependentUpon>202511270336500_Prueba.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -113,8 +113,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202511261942563_UpdateUsuario.resx">
-      <DependentUpon>202511261942563_UpdateUsuario.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202511270336500_Prueba.resx">
+      <DependentUpon>202511270336500_Prueba.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -13,10 +13,9 @@ namespace MvcTienda.Infrastructura.Data
         : IdentityDbContext<ApplicationUser, CustomRole, int,
                             CustomUserLogin, CustomUserRole, CustomUserClaim>
     {
-        public AppDbContext() : base("DefaultConnection")
+        public AppDbContext() : base("MvcTiendaProyectoG4Db")
         {
-            //Database.SetInitializer(new CreateDatabaseIfNotExists<AppDbContext>());
-            //this.Database.Initialize(force: true);
+
         }
 
         public static AppDbContext Create()

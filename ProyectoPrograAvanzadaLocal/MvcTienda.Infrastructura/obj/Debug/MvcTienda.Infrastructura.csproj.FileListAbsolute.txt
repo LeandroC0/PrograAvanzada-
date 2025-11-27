@@ -140,5 +140,5 @@ C:\Users\marjo\OneDrive\Documentos\GitHub\PrograAvanzada-\ProyectoPrograAvanzada
 C:\Users\marjo\OneDrive\Documentos\GitHub\PrograAvanzada-\ProyectoPrograAvanzadaLocal\MvcTienda.Infrastructura\obj\Debug\MvcTiend.E953833B.Up2Date
 C:\Users\marjo\OneDrive\Documentos\GitHub\PrograAvanzada-\ProyectoPrograAvanzadaLocal\MvcTienda.Infrastructura\obj\Debug\MvcTienda.Infrastructura.dll
 C:\Users\marjo\OneDrive\Documentos\GitHub\PrograAvanzada-\ProyectoPrograAvanzadaLocal\MvcTienda.Infrastructura\obj\Debug\MvcTienda.Infrastructura.pdb
-C:\Users\Rafael\source\repos\PrograAvanzada\ProyectoPrograAvanzadaLocal\MvcTienda.Infrastructura\obj\Debug\MvcTienda.Infrastructura.Migrations.UpdateUsuario.resources
+C:\Users\Rafael\source\repos\PrograAvanzada\ProyectoPrograAvanzadaLocal\MvcTienda.Infrastructura\obj\Debug\MvcTienda.Infrastructura.Migrations.Prueba.resources
 C:\Users\Rafael\source\repos\PrograAvanzada\ProyectoPrograAvanzadaLocal\MvcTienda.Infrastructura\obj\Debug\MvcTienda.Infrastructura.csproj.GenerateResource.cache

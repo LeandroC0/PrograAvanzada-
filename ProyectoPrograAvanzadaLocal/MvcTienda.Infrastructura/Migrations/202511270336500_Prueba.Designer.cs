@@ -7,13 +7,13 @@ namespace MvcTienda.Infrastructura.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.5.1")]
-    public sealed partial class UpdateUsuario : IMigrationMetadata
+    public sealed partial class Prueba : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(UpdateUsuario));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Prueba));
         
         string IMigrationMetadata.Id
         {
-            get { return "202511261942563_UpdateUsuario"; }
+            get { return "202511270336500_Prueba"; }
         }
         
         string IMigrationMetadata.Source
