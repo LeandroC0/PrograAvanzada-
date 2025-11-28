@@ -15,7 +15,7 @@ namespace MvcTienda.Infrastructura.Data
     {
         public AppDbContext() : base("MvcTiendaProyectoG4Db")
         {
-
+            Database.SetInitializer<AppDbContext>(null);
         }
 
         public static AppDbContext Create()
