@@ -15,9 +15,32 @@ namespace MvcTienda.Aplicacion.Productos
             _repository = repository;
         }
 
+        public IEnumerable<ProductoDto> Search(string searchTerm, int? estadoId)
+        {
+            var query = _repository.GetAll();
+
+            if (!string.IsNullOrEmpty(searchTerm))
+            {
+                query = query.Where(p => p.Nombre.Contains(searchTerm));
+            }
+
+            if (estadoId.HasValue)
+            {
+                query = query.Where(p => p.EstadoId == estadoId.Value);
+            }
+
+            return MapToDto(query);
+        }
+
         public IEnumerable<ProductoDto> GetAll()
         {
-            return _repository.GetAll().Select(p => new ProductoDto
+            var query = _repository.GetAll();
+            return MapToDto(query);
+        }
+
+        private IEnumerable<ProductoDto> MapToDto(IEnumerable<Producto> productos)
+        {
+            return productos.Select(p => new ProductoDto
             {
                 ProductoId = p.ProductoId,
                 Nombre = p.Nombre,
@@ -49,7 +72,7 @@ namespace MvcTienda.Aplicacion.Productos
                 Nombre = dto.Nombre,
                 Precio = dto.Precio,
                 Inventario = dto.Inventario,
-                EstadoId = dto.EstadoId
+                EstadoId = 1
             };
             _repository.Add(entity);
             _repository.Save();
@@ -60,7 +83,7 @@ namespace MvcTienda.Aplicacion.Productos
             var entity = _repository.GetById(dto.ProductoId);
             if (entity == null)
             {
-                throw new NegocioException("No se puede acutalizar el producto.");
+                throw new NegocioException("No se puede actualizar el producto.");
             }
 
             entity.Nombre = dto.Nombre;
@@ -72,14 +95,16 @@ namespace MvcTienda.Aplicacion.Productos
             _repository.Save();
         }
 
-        public void Delete(int id)
+        public void ChangeStatus(int id, int estadoId)
         {
             var entity = _repository.GetById(id);
             if (entity == null)
             {
-                throw new NegocioException("No se puede eliminar el producto.");
+                throw new NegocioException("No se puede cambiar el estado del producto.");
             }
-            _repository.Delete(id);
+
+            entity.EstadoId = estadoId;
+            _repository.Update(entity);
             _repository.Save();
         }
     }

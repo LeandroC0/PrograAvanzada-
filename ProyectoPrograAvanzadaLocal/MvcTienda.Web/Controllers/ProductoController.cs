@@ -1,5 +1,6 @@
 ﻿using MvcTienda.Aplicacion.Productos;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 
 namespace MvcTienda.Web.Controllers
@@ -13,14 +14,32 @@ namespace MvcTienda.Web.Controllers
             _service = service;
         }
 
-        // GET: Producto
-        public ActionResult Index()
+        public ActionResult Index(string searchTerm = "", int? estadoId = null)
         {
             try
             {
-                ViewData["TituloPagina"] = "Lista de productos";
+                ViewData["TituloPagina"] = "Catálogo de Productos";
                 ViewBag.Mensaje = TempData["Mensaje"];
-                var productos = _service.GetAll();
+                ViewBag.SearchTerm = searchTerm;
+                ViewBag.EstadoId = estadoId;
+                ViewBag.IsAdmin = User.IsInRole("Administrador");
+
+                IEnumerable<ProductoDto> productos;
+
+                if (User.IsInRole("Administrador") && (!string.IsNullOrEmpty(searchTerm) || estadoId.HasValue))
+                {
+                    productos = _service.Search(searchTerm, estadoId);
+                }
+                else
+                {
+                    productos = _service.GetAll();
+
+                    if (!User.IsInRole("Administrador"))
+                    {
+                        productos = productos.Where(p => p.EstadoId == 1);
+                    }
+                }
+
                 return View(productos);
             }
             catch (System.Exception ex)
@@ -30,13 +49,12 @@ namespace MvcTienda.Web.Controllers
             }
         }
 
-        // GET: Producto/Details/5
         public ActionResult Details(int id)
         {
             try
             {
                 var producto = _service.GetById(id);
-                if (producto == null)
+                if (producto == null || (producto.EstadoId != 1 && !User.IsInRole("Administrador")))
                 {
                     return HttpNotFound();
                 }
@@ -49,14 +67,13 @@ namespace MvcTienda.Web.Controllers
             }
         }
 
-        // GET: Producto/Create
         [Authorize(Roles = "Administrador")]
         public ActionResult Create()
         {
-            return View(new ProductoDto());
+            var dto = new ProductoDto { EstadoId = 1 }; 
+            return View(dto);
         }
 
-        // POST: Producto/Create
         [Authorize(Roles = "Administrador")]
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -79,7 +96,6 @@ namespace MvcTienda.Web.Controllers
             }
         }
 
-        // GET: Producto/Edit/5
         [Authorize(Roles = "Administrador")]
         public ActionResult Edit(int id)
         {
@@ -99,7 +115,6 @@ namespace MvcTienda.Web.Controllers
             }
         }
 
-        // POST: Producto/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Administrador")]
@@ -122,7 +137,29 @@ namespace MvcTienda.Web.Controllers
             }
         }
 
-        // GET: Producto/Delete/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrador")]
+        public ActionResult ChangeStatus(int id, int estadoId)
+        {
+            try
+            {
+                _service.ChangeStatus(id, estadoId);
+
+                var mensaje = estadoId == 1
+                    ? "Producto activado exitosamente."
+                    : "Producto desactivado exitosamente.";
+
+                TempData["Mensaje"] = mensaje;
+                return RedirectToAction("Index");
+            }
+            catch (System.Exception ex)
+            {
+                ViewBag.Error = "Error al cambiar el estado del producto: " + ex.Message;
+                return RedirectToAction("Index");
+            }
+        }
+
         [Authorize(Roles = "Administrador")]
         public ActionResult Delete(int id)
         {
@@ -142,23 +179,12 @@ namespace MvcTienda.Web.Controllers
             }
         }
 
-        // POST: Producto/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Administrador")]
         public ActionResult DeleteConfirmed(int id)
         {
-            try
-            {
-                _service.Delete(id);
-                TempData["Mensaje"] = "Producto eliminado exitosamente.";
-                return RedirectToAction("Index");
-            }
-            catch (System.Exception ex)
-            {
-                ViewBag.Error = "Error al eliminar el producto: " + ex.Message;
-                return RedirectToAction("Index");
-            }
+            return ChangeStatus(id, 2); 
         }
     }
 }
