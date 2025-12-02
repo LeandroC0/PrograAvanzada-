@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
 using MvcTienda.Domain.Entities;
 using System;
+using System.Collections.Generic;
 
 namespace MvcTienda.Infrastructura.Identity
 {
@@ -10,6 +11,10 @@ namespace MvcTienda.Infrastructura.Identity
         public DateTime? FechaUltimaConexion { get; set; }
         public int EstadoId { get; set; }
         public virtual Estado Estado { get; set; }
+
+
+        public virtual ICollection<Orden> Ordenes { get; set; }
+
 
     }
 

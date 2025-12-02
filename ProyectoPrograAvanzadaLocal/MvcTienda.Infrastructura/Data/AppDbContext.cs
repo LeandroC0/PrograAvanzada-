@@ -4,6 +4,7 @@ using MvcTienda.Domain.Entities;
 using MvcTienda.Infrastructura.Identity;
 using System;
 using System.Data.Entity;
+using System.Reflection;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
@@ -44,6 +45,14 @@ namespace MvcTienda.Infrastructura.Data
                 .WithMany(e => e.Ordenes)
                 .HasForeignKey(o => o.EstadoId)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<ApplicationUser>()
+            .HasMany(u => u.Ordenes)
+            .WithRequired() 
+            .HasForeignKey(o => o.UsuarioId)
+            .WillCascadeOnDelete(false);
+
+
 
             modelBuilder.Entity<DetalleOrden>()
                 .HasRequired(d => d.Estado)
