@@ -42,8 +42,11 @@
         <div class="form-group">
             @Html.LabelFor(model => model.EstadoId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.EstadoId, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.EstadoId, "", new { @class = "text-danger" })
+                <select name="estadoId" class="form-control">
+                    <option value="">Estados</option>
+                    <option value="1" @(ViewBag.EstadoId == 1 ? "selected" : "")>Activos</option>
+                    <option value="2" @(ViewBag.EstadoId == 2 ? "selected" : "")>Inactivos</option>
+                </select>
             </div>
         </div>
 

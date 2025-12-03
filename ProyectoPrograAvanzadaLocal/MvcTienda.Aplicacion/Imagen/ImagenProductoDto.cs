@@ -1,4 +1,7 @@
-﻿namespace MvcTienda.Aplicacion.Imagenes
+﻿using System.ComponentModel.DataAnnotations;
+using System.Web;
+
+namespace MvcTienda.Aplicacion.Imagenes
 {
     public class ImagenProductoDto
     {
@@ -6,6 +9,9 @@
         public byte[] RutaImagen { get; set; }
         public int ProductoId { get; set; }
         public int EstadoId { get; set; }
+
+        [DataType(DataType.Upload)]
+        public HttpPostedFileBase ArchivoImagen { get; set; }
 
         // Opcional
         public string EstadoNombre { get; set; }

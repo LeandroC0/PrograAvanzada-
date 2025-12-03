@@ -1,4 +1,5 @@
 ﻿using MvcTienda.Aplicacion.Resennas;
+using MvcTienda.Aplicacion.Productos;
 using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
@@ -8,10 +9,11 @@ namespace MvcTienda.Web.Controllers
     public class ResennaController : Controller
     {
         private readonly IResennaService _service;
-
-        public ResennaController(IResennaService service)
+        private readonly IProductoService _productoService;
+        public ResennaController(IResennaService service, IProductoService productoService)
         {
             _service = service;
+            _productoService = productoService;
         }
 
         // GET: Resenna
@@ -50,6 +52,7 @@ namespace MvcTienda.Web.Controllers
         // GET: Resenna/Create
         public ActionResult Create()
         {
+            ViewBag.ListaProductos = new SelectList(_productoService.GetAll(), "ProductoId", "Nombre");
             return View(new ResennaDto());
         }
 
@@ -58,7 +61,11 @@ namespace MvcTienda.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(ResennaDto dto)
         {
-            if (!ModelState.IsValid) return View(dto);
+            if (!ModelState.IsValid)
+            {
+                ViewBag.ListaProductos = new SelectList(_productoService.GetAll(), "ProductoId", "Nombre");
+                return View(dto);
+            }
 
             try
             {
@@ -78,6 +85,7 @@ namespace MvcTienda.Web.Controllers
         {
             try
             {
+                ViewBag.ListaProductos = new SelectList(_productoService.GetAll(), "ProductoId", "Nombre");
                 var resenna = _service.GetById(id);
                 if (resenna == null) return HttpNotFound();
                 return View(resenna);
@@ -94,8 +102,11 @@ namespace MvcTienda.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(ResennaDto dto)
         {
-            if (!ModelState.IsValid) return View(dto);
-
+            if (!ModelState.IsValid)
+            {
+                ViewBag.ListaProductos = new SelectList(_productoService.GetAll(), "ProductoId", "Nombre");
+                return View(dto);
+            }
             try
             {
                 _service.Update(dto);

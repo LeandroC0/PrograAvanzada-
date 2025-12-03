@@ -2,40 +2,51 @@
 
 @{
     ViewBag.Title = "Editar Imagen";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2 class="mb-4">@ViewBag.Title</h2>
+<h2>@ViewBag.Title</h2>
 
-@using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("Edit", "ImagenProducto", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
-
-    @Html.HiddenFor(m => m.ImagenProductoId)
+    @Html.HiddenFor(model => model.ImagenProductoId)
 
     <div class="form-group">
         <label>Imagen Actual:</label><br />
-
-        @if (Model.RutaImagen != null)
+        @if (Model.RutaImagen != null && Model.RutaImagen.Length > 0)
         {
-            <img src="data:image/png;base64,@Convert.ToBase64String(Model.RutaImagen)" width="150" class="mb-3" />
+            <img src="data:image/jpeg;base64,@Convert.ToBase64String(Model.RutaImagen)"
+                 width="200" class="img-thumbnail mb-3" />
         }
     </div>
 
     <div class="form-group">
-        <label>Nueva Imagen (opcional)</label>
-        <input type="file" name="imagenArchivo" class="form-control" />
+        <label>Nueva Imagen (opcional):</label>
+        @Html.TextBoxFor(model => model.ArchivoImagen, new { type = "file", @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.ArchivoImagen)
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(m => m.ProductoId)
-        @Html.TextBoxFor(m => m.ProductoId, new { @class = "form-control" })
+        <label>Producto:</label>
+        @Html.DropDownListFor(model => model.ProductoId,
+            (SelectList)ViewBag.ListaProductos,
+            "-- Seleccione --",
+            new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.ProductoId)
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(m => m.EstadoId)
-        @Html.TextBoxFor(m => m.EstadoId, new { @class = "form-control" })
+        <label>Estado:</label>
+        <select name="EstadoId" class="form-control">
+            <option value="">-- Seleccione --</option>
+            <option value="1" @(ViewBag.EstadoId != null && (int)ViewBag.EstadoId == 1 ? "selected" : "")>Activo</option>
+            <option value="2" @(ViewBag.EstadoId != null && (int)ViewBag.EstadoId == 2 ? "selected" : "")>Inactivo</option>
+            <option value="3" @(ViewBag.EstadoId != null && (int)ViewBag.EstadoId == 3 ? "selected" : "")>Pendiente</option>
+        </select>
+        @Html.ValidationMessageFor(model => model.EstadoId)
     </div>
 
-    <button type="submit" class="btn btn-success">Guardar</button>
-    @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-secondary ml-2" })
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-secondary" })
 }
