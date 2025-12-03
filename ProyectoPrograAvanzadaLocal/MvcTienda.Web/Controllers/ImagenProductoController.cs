@@ -1,4 +1,5 @@
 ﻿using MvcTienda.Aplicacion.Imagenes;
+using MvcTienda.Aplicacion.Productos;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -10,10 +11,12 @@ namespace MvcTienda.Web.Controllers
     public class ImagenProductoController : Controller
     {
         private readonly IImagenProductoService _service;
+        private readonly IProductoService _productoService;
 
-        public ImagenProductoController(IImagenProductoService service)
+        public ImagenProductoController(IImagenProductoService service, IProductoService productoService)
         {
             _service = service;
+            _productoService = productoService;
         }
 
         // GET: ImagenProducto
@@ -35,6 +38,8 @@ namespace MvcTienda.Web.Controllers
         [Authorize(Roles = "Administrador")]
         public ActionResult Create()
         {
+            ViewBag.ListaProductos = new SelectList(_productoService.GetAll(), "ProductoId", "Nombre");
+
             return View(new ImagenProductoDto());
         }
 
@@ -45,8 +50,11 @@ namespace MvcTienda.Web.Controllers
         public ActionResult Create(HttpPostedFileBase RutaImagen, [Bind(Exclude = "RutaImagen")] ImagenProductoDto dto)
         {
             if (!ModelState.IsValid)
-                return View(dto);
+            {
+                ViewBag.ListaProductos = new SelectList(_productoService.GetAll(), "ProductoId", "Nombre");
 
+                return View(dto);
+            }
             try
             {
                 if (RutaImagen != null && RutaImagen.ContentLength > 0)
@@ -69,10 +77,25 @@ namespace MvcTienda.Web.Controllers
 
         // GET: ImagenProducto/Edit/5
         [Authorize(Roles = "Administrador")]
-        public ActionResult Edit(int id)
+        public ActionResult Edit(HttpPostedFileBase RutaImagen, [Bind(Exclude = "RutaImagen")] int id)
         {
             var imagen = _service.GetById(id);
+            try
+            {
+                ViewBag.ListaProductos = new SelectList(_productoService.GetAll(), "ProductoId", "Nombre");
 
+                if (RutaImagen != null && RutaImagen.ContentLength > 0)
+                {
+                    using (var binaryReader = new BinaryReader(RutaImagen.InputStream))
+                    {
+                        imagen.RutaImagen = binaryReader.ReadBytes(RutaImagen.ContentLength);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Error = "Error al cargar la imagen: " + ex.Message;
+            }
             if (imagen == null)
                 return HttpNotFound();
 
@@ -86,7 +109,11 @@ namespace MvcTienda.Web.Controllers
         public ActionResult Edit(ImagenProductoDto dto)
         {
             if (!ModelState.IsValid)
+            {
+                ViewBag.ListaProductos = new SelectList(_productoService.GetAll(), "ProductoId", "Nombre");
+
                 return View(dto);
+            }
 
             try
             {

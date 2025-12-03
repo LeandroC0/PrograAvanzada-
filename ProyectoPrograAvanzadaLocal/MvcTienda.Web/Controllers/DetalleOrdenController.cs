@@ -9,10 +9,12 @@ namespace MvcTienda.Web.Controllers
     public class DetalleOrdenController : Controller
     {
         private readonly IDetalleOrdenService _service;
+        private readonly IProductoService _productoService;
 
-        public DetalleOrdenController(IDetalleOrdenService service)
+        public DetalleOrdenController(IDetalleOrdenService service, IProductoService productoService)
         {
             _service = service;
+                _productoService = productoService;
         }
 
         // GET: DetalleOrden
@@ -55,6 +57,8 @@ namespace MvcTienda.Web.Controllers
         // GET: DetalleOrden/Create
         public ActionResult Create()
         {
+            ViewBag.ListaProductos = new SelectList(_productoService.GetAll(), "ProductoId", "Nombre");
+
             return View(new DetalleOrdenDto());
         }
 
@@ -65,6 +69,8 @@ namespace MvcTienda.Web.Controllers
         {
             if (!ModelState.IsValid)
             {
+                ViewBag.ListaProductos = new SelectList(_productoService.GetAll(), "ProductoId", "Nombre");
+
                 return View(dto);
             }
 

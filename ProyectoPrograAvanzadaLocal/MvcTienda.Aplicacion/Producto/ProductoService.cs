@@ -95,6 +95,7 @@ namespace MvcTienda.Aplicacion.Productos
             _repository.Save();
         }
 
+
         public void ChangeStatus(int id, int estadoId)
         {
             var entity = _repository.GetById(id);

@@ -70,6 +70,8 @@ namespace MvcTienda.Web.Controllers
         [Authorize(Roles = "Administrador")]
         public ActionResult Create()
         {
+            ViewBag.ListaProductos = new SelectList(_service.GetAll(), "Id", "Nombre");
+
             var dto = new ProductoDto { EstadoId = 1 }; 
             return View(dto);
         }
@@ -81,6 +83,7 @@ namespace MvcTienda.Web.Controllers
         {
             if (!ModelState.IsValid)
             {
+                ViewBag.ListaProductos = new SelectList(_service.GetAll(), "Id", "Nombre");
                 return View(dto);
             }
             try

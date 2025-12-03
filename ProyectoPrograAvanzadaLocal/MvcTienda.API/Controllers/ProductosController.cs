@@ -118,11 +118,11 @@ namespace MvcTienda.API.Controllers
         // DELETE api/productos/5
         [HttpDelete]
         [Route("{id:int}")]
-        public IHttpActionResult Delete(int id)
+        public IHttpActionResult ChangeStatus(int id, int estadoId)
         {
             try
             {
-                _service.Delete(id);
+                _service.ChangeStatus(id, estadoId);
                 return StatusCode(HttpStatusCode.NoContent);
             }
             catch (NegocioException ex)
