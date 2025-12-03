@@ -179,3 +179,5 @@ C:\Users\User\Documents\GitHub\PrograAvanzada-\ProyectoPrograAvanzadaLocal\MvcTi
 C:\Users\User\Documents\GitHub\PrograAvanzada-\ProyectoPrograAvanzadaLocal\MvcTienda.Infrastructura\obj\Debug\MvcTiend.E953833B.Up2Date
 C:\Users\User\Documents\GitHub\PrograAvanzada-\ProyectoPrograAvanzadaLocal\MvcTienda.Infrastructura\obj\Debug\MvcTienda.Infrastructura.dll
 C:\Users\User\Documents\GitHub\PrograAvanzada-\ProyectoPrograAvanzadaLocal\MvcTienda.Infrastructura\obj\Debug\MvcTienda.Infrastructura.pdb
+C:\Github\PrograAvanzada-\ProyectoPrograAvanzadaLocal\MvcTienda.Infrastructura\obj\Debug\MvcTienda.Infrastructura.Migrations.Prueba.resources
+C:\Github\PrograAvanzada-\ProyectoPrograAvanzadaLocal\MvcTienda.Infrastructura\obj\Debug\MvcTienda.Infrastructura.csproj.GenerateResource.cache
