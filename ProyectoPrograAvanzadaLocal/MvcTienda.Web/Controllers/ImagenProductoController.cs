@@ -3,6 +3,7 @@ using MvcTienda.Aplicacion.Productos;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
@@ -77,29 +78,32 @@ namespace MvcTienda.Web.Controllers
 
         // GET: ImagenProducto/Edit/5
         [Authorize(Roles = "Administrador")]
-        public ActionResult Edit(HttpPostedFileBase RutaImagen, [Bind(Exclude = "RutaImagen")] int id)
+        public ActionResult Edit(int id)
         {
-            var imagen = _service.GetById(id);
             try
             {
-                ViewBag.ListaProductos = new SelectList(_productoService.GetAll(), "ProductoId", "Nombre");
-
-                if (RutaImagen != null && RutaImagen.ContentLength > 0)
+                var imagen = _service.GetById(id);
+                if (imagen == null)
                 {
-                    using (var binaryReader = new BinaryReader(RutaImagen.InputStream))
-                    {
-                        imagen.RutaImagen = binaryReader.ReadBytes(RutaImagen.ContentLength);
-                    }
+                    TempData["Error"] = "No se encontró la imagen solicitada.";
+                    return RedirectToAction("Index");
                 }
+                ViewBag.ListaProductos = new SelectList(
+                    _productoService.GetAll(),
+                    "ProductoId",
+                    "Nombre",
+                    imagen.ProductoId
+                );
+
+                ViewBag.EstadoId = imagen.EstadoId;
+
+                return View(imagen);
             }
             catch (Exception ex)
             {
-                ViewBag.Error = "Error al cargar la imagen: " + ex.Message;
+                TempData["Error"] = $"Error al cargar la imagen: {ex.Message}";
+                return RedirectToAction("Index");
             }
-            if (imagen == null)
-                return HttpNotFound();
-
-            return View(imagen);
         }
 
         // POST: ImagenProducto/Edit
@@ -108,25 +112,79 @@ namespace MvcTienda.Web.Controllers
         [Authorize(Roles = "Administrador")]
         public ActionResult Edit(ImagenProductoDto dto)
         {
-            if (!ModelState.IsValid)
-            {
-                ViewBag.ListaProductos = new SelectList(_productoService.GetAll(), "ProductoId", "Nombre");
-
-                return View(dto);
-            }
-
             try
             {
+                if (!ModelState.IsValid)
+                {
+                    ViewBag.ListaProductos = new SelectList(
+                        _productoService.GetAll(),
+                        "ProductoId",
+                        "Nombre",
+                        dto.ProductoId
+                    );
+                    ViewBag.EstadoId = dto.EstadoId;
+
+                    return View(dto);
+                }
+
+                var imagenExistente = _service.GetById(dto.ImagenProductoId);
+                if (imagenExistente == null)
+                {
+                    TempData["Error"] = "La imagen ya no existe en el sistema.";
+                    return RedirectToAction("Index");
+                }
+
+                if (dto.ArchivoImagen != null && dto.ArchivoImagen.ContentLength > 0)
+                {
+                    var extension = Path.GetExtension(dto.ArchivoImagen.FileName).ToLower();
+                    var extensionesPermitidas = new[] { ".jpg", ".jpeg", ".png", ".gif", ".bmp" };
+
+                    if (!extensionesPermitidas.Contains(extension))
+                    {
+                        ModelState.AddModelError("ArchivoImagen", "Formato de imagen no válido. Use JPG, PNG o GIF.");
+                        ViewBag.ListaProductos = new SelectList(_productoService.GetAll(), "ProductoId", "Nombre", dto.ProductoId);
+                        ViewBag.EstadoId = dto.EstadoId;
+                        return View(dto);
+                    }
+
+                    if (dto.ArchivoImagen.ContentLength > 5 * 1024 * 1024)
+                    {
+                        ModelState.AddModelError("ArchivoImagen", "La imagen es demasiado grande. Máximo 5MB.");
+                        ViewBag.ListaProductos = new SelectList(_productoService.GetAll(), "ProductoId", "Nombre", dto.ProductoId);
+                        ViewBag.EstadoId = dto.EstadoId;
+                        return View(dto);
+                    }
+
+                    using (var binaryReader = new BinaryReader(dto.ArchivoImagen.InputStream))
+                    {
+                        dto.RutaImagen = binaryReader.ReadBytes(dto.ArchivoImagen.ContentLength);
+                    }
+                }
+                else
+                {
+                    dto.RutaImagen = imagenExistente.RutaImagen;
+                }
+
                 _service.Update(dto);
-                TempData["Mensaje"] = "Imagen actualizada correctamente.";
+
+                TempData["Mensaje"] = "¡Imagen actualizada correctamente!";
                 return RedirectToAction("Index");
             }
             catch (Exception ex)
             {
-                ViewBag.Error = "Error al actualizar la imagen: " + ex.Message;
+                ViewBag.ListaProductos = new SelectList(
+                    _productoService.GetAll(),
+                    "ProductoId",
+                    "Nombre",
+                    dto.ProductoId
+                );
+                ViewBag.EstadoId = dto.EstadoId;
+                ViewBag.Error = $"Error al actualizar la imagen: {ex.Message}";
+
                 return View(dto);
             }
         }
+
 
         // GET: ImagenProducto/Details/5
         [Authorize(Roles = "Administrador")]

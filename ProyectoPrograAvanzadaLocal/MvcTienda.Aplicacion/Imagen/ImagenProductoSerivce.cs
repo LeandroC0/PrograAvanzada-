@@ -1,5 +1,6 @@
 ﻿using MvcTienda.Domain.Entities;
 using MvcTienda.Domain.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -55,15 +56,21 @@ namespace MvcTienda.Aplicacion.Imagenes
         public void Update(ImagenProductoDto dto)
         {
             var entity = _repo.GetById(dto.ImagenProductoId);
-            if (entity == null) return;
+            if (entity == null)
+                throw new Exception($"No se encontró la imagen con ID: {dto.ImagenProductoId}");
 
-            entity.RutaImagen = dto.RutaImagen;
+            if (dto.RutaImagen != null && dto.RutaImagen.Length > 0)
+            {
+                entity.RutaImagen = dto.RutaImagen;
+            }
+
             entity.ProductoId = dto.ProductoId;
             entity.EstadoId = dto.EstadoId;
 
             _repo.Update(entity);
             _repo.Save();
         }
+
 
         public void Delete(int id)
         {
