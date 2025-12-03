@@ -7,7 +7,10 @@
 <h2>Lista de Estados</h2>
 
 <p>
-    @Html.ActionLink("Crear Nuevo Estado", "Create", null, new { @class = "btn btn-success" })
+    @if (User.IsInRole("Administrador"))
+    {
+     @Html.ActionLink("Crear Nuevo Estado", "Create", null, new { @class = "btn btn-success" })
+    }
 </p>
 
 <table class="table table-striped">
@@ -33,9 +36,16 @@
                     @Html.DisplayFor(modelItem => item.Nombre)
                 </td>
                 <td>
-                    @Html.ActionLink("Detalles", "Details", new { id = item.EstadoId }, new { @class = "btn btn-info btn-sm" }) |
-                    @Html.ActionLink("Editar", "Edit", new { id = item.EstadoId }, new { @class = "btn btn-warning btn-sm" }) |
-                    @Html.ActionLink("Eliminar", "Delete", new { id = item.EstadoId }, new { @class = "btn btn-danger btn-sm" })
+
+                    @if (User.IsInRole("Administrador"))
+                    {
+                       @Html.ActionLink("Detalles", "Details", new { id = item.EstadoId }, new { @class = "btn btn-info btn-sm mx-1" }) 
+                       @Html.ActionLink("Editar", "Edit", new { id = item.EstadoId }, new { @class = "btn btn-warning btn-sm mx-1" }) 
+                       @Html.ActionLink("Eliminar", "Delete", new { id = item.EstadoId }, new { @class = "btn btn-danger btn-sm" })
+                }
+
+
+
                 </td>
             </tr>
         }

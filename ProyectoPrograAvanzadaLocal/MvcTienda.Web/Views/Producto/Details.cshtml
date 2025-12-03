@@ -28,6 +28,9 @@
 </div>
 
 <p>
+    @if (User.IsInRole("Administrados")){
     @Html.ActionLink("Editar", "Edit", new { id = Model.ProductoId }, new { @class = "btn btn-warning" })
+    }
+
     @Html.ActionLink("Volver a la lista", "Index", null, new { @class = "btn btn-secondary ml-2" })
 </p>

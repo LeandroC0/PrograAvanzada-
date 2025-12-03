@@ -4,7 +4,7 @@ using MvcTienda.Aplicacion.Dashboard;
 
 namespace MvcTienda.Web.Controllers
 {
-    [AllowAnonymous] // esto e stemporal para que funcione sin rol 
+    [Authorize(Roles = "Administrador")]
     public class DashboardController : Controller
     {
         private readonly IDashboardService _dashboardService;

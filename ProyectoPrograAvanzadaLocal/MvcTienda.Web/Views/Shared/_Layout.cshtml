@@ -20,17 +20,20 @@
                 <ul class="navbar-nav flex-grow-1">
                     <li>@Html.ActionLink("Inicio", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                     @*<li>@Html.ActionLink("Acerca de", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                        <li>@Html.ActionLink("Contacto", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>*@
+        <li>@Html.ActionLink("Contacto", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>*@
                     @*@if (User.Identity.IsAuthenticated)
-                    {*@
+        {*@
+                    <li>@Html.ActionLink("Productos", "Index", "Producto", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Resenna", "Index", "Resenna", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Ordenes", "Index", "Ordenes", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Detalle Ordenes", "Index", "DetalleOrden", new { area = "" }, new { @class = "nav-link" })</li>
+                    @if (User.IsInRole("Administrador"))
+                    {
                         <li>@Html.ActionLink("Estados", "Index", "Estado", new { area = "" }, new { @class = "nav-link" })</li>
-                        <li>@Html.ActionLink("Productos", "Index", "Producto", new { area = "" }, new { @class = "nav-link" })</li>
                         <li>@Html.ActionLink("ImagenProducto", "Index", "ImagenProducto", new { area = "" }, new { @class = "nav-link" })</li>
-                        <li>@Html.ActionLink("Resenna", "Index", "Resenna", new { area = "" }, new { @class = "nav-link" })</li>
-                        <li>@Html.ActionLink("Ordenes", "Index", "Ordenes", new { area = "" }, new { @class = "nav-link" })</li>
                         <li>@Html.ActionLink("Dashboard", "Index", "Dashboard", new { area = "" }, new { @class = "nav-link" })</li>
-                        <li>@Html.ActionLink("Detalle Ordenes", "Index", "DetalleOrden", new { area = "" }, new { @class = "nav-link" })</li>
-                    @*  }*@
+                    }
+
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
