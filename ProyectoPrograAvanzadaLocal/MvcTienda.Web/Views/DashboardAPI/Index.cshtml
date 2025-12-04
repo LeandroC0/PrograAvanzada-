@@ -1,0 +1,200 @@
+﻿@{
+    ViewBag.Title = "Dashboard Administrador";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid mt-4">
+    <h2 class="text-center">Dashboard Administrador</h2>
+    <hr />
+
+
+    <div id="loadingSpinner" class="text-center">
+        <div>
+            <i class="fas fa-sync fa-3x text-primary spinner-icono"></i>
+        </div>
+        <p class="mt-2 fw-bold texto-fijo">Cargando estadísticas...</p>
+    </div>
+
+
+
+
+
+    <div id="estadisticasContainer" style="display: none;">
+
+
+        <div class="row">
+
+            <div class="col-md-3 mb-4">
+                <div class="card text-white bg-primary shadow">
+                    <div class="card-body text-center">
+                        <h4 id="totalUsuarios">0</h4>
+                        <p>Total Usuarios</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 mb-4">
+                <div class="card text-white bg-success shadow">
+                    <div class="card-body text-center">
+                        <h4 id="usuariosActivos">0</h4>
+                        <p>Usuarios Activos</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 mb-4">
+                <div class="card text-white bg-secondary shadow">
+                    <div class="card-body text-center">
+                        <h4 id="usuariosInactivos">0</h4>
+                        <p>Usuarios Inactivos</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 mb-4">
+                <div class="card text-white bg-info shadow">
+                    <div class="card-body text-center">
+                        <h4 id="totalProductos">0</h4>
+                        <p>Total Productos</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="row">
+
+            <div class="col-md-4 mb-4">
+                <div class="card text-white bg-warning shadow">
+                    <div class="card-body text-center">
+                        <h4 id="productosBajoInventario">0</h4>
+                        <p>Bajo Inventario</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card text-white bg-dark shadow">
+                    <div class="card-body text-center">
+                        <h4 id="ventasTotales">₡0</h4>
+                        <p>Ventas Totales</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card text-white bg-danger shadow">
+                    <div class="card-body text-center">
+                        <h4 id="metricasExtra">-</h4>
+                        <p>Métricas Extra</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card shadow">
+                    <div class="card-header text-center">
+                        <h5>Ventas de la Última Semana</h5>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="ventasChart" height="120"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+@section Scripts {
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+
+
+        const API_BASE_URL = "https://localhost:44318";
+
+        $(document).ready(function () {
+            cargarEstadisticas();
+        });
+
+        function cargarEstadisticas() {
+            $.ajax({
+                url: API_BASE_URL + "/api/dashboard/estadisticas",
+                type: "GET",
+                dataType: "json",
+
+                beforeSend: function () {
+                    $("#loadingSpinner").show();
+                    $("#estadisticasContainer").hide();
+                },
+
+                success: function (data) {
+
+                    $("#loadingSpinner").hide();
+                    $("#estadisticasContainer").fadeIn(400);
+
+                    $("#totalUsuarios").text(data.TotalUsuarios);
+                    $("#usuariosActivos").text(data.UsuariosActivos);
+                    $("#usuariosInactivos").text(data.UsuariosInactivos);
+                    $("#totalProductos").text(data.TotalProductos);
+                    $("#productosBajoInventario").text(data.ProductosBajoInventario);
+
+                    $("#ventasTotales").text("₡" + data.VentasTotales.toLocaleString("es-CR"));
+
+                    crearGraficoVentas(data.VentasUltimaSemana);
+                },
+
+                error: function () {
+                    $("#loadingSpinner").html(
+                        "<div class='alert alert-danger'>Error cargando el Dashboard desde el API</div>"
+                    );
+                }
+            });
+        }
+
+        function crearGraficoVentas(ventasSemana) {
+
+            const ctx = document.getElementById("ventasChart");
+
+            if (window.graficoVentas) {
+                window.graficoVentas.destroy();
+            }
+
+            window.graficoVentas = new Chart(ctx, {
+                type: "bar",
+                data: {
+                    labels: ventasSemana.map(v => v.Dia),
+                    datasets: [{
+                        label: "Ventas ₡",
+                        data: ventasSemana.map(v => v.TotalVentas),
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: { display: true }
+                    },
+                    scales: {
+                        y: { beginAtZero: true }
+                    }
+                }
+            });
+        }
+
+    </script>
+}

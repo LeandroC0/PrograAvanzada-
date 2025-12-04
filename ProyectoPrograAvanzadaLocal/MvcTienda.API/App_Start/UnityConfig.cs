@@ -1,3 +1,4 @@
+using MvcTienda.Aplicacion.Dashboard;
 using MvcTienda.Aplicacion.Productos;
 using MvcTienda.Aplicacion.Resennas;
 using MvcTienda.Domain.Repositories;
@@ -22,10 +23,12 @@ namespace MvcTienda.API
             // Repositorios
             container.RegisterType<IProductoRepository, ProductRepository>();
             container.RegisterType<IResennaRepository, ResennaRepository>();
+            
 
             // Servicios
             container.RegisterType<IProductoService, ProductoService>();
             container.RegisterType<IResennaService, ResennaService>();
+            container.RegisterType<IDashboardService,DashboardService >();
 
             // Conectar Unity a Web API
             GlobalConfiguration.Configuration.DependencyResolver =
