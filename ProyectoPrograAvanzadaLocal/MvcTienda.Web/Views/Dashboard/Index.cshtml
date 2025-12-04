@@ -8,12 +8,11 @@
     <hr />
 
     <!-- Loading Spinner -->
-    <div id="loadingSpinner" class="text-center">
-        <div class="spinner-border text-primary" role="status">
-            <span class="sr-only">Cargando...</span>
-        </div>
-        <p>Cargando estadísticas...</p>
+    <div id="loadingSpinner" class="text-center spinner-container">
+        <div class="spinner-icono"></div>
+        <p class="mt-3 texto-loading">Cargando estadísticas...</p>
     </div>
+
 
     <!-- Estadísticas Container -->
     <div id="estadisticasContainer" style="display: none;">
@@ -38,7 +37,7 @@
 
             <!-- Usuarios Activos -->
             <div class="col-md-3 mb-4">
-                <div class="card text-white bg-success">
+                <div class="card text-white bg-info ">
                     <div class="card-body">
                         <div class="d-flex justify-content-between">
                             <div>
@@ -55,7 +54,7 @@
 
             <!-- Total Productos -->
             <div class="col-md-3 mb-4">
-                <div class="card text-white bg-info">
+                <div class="card text-white bg-primary">
                     <div class="card-body">
                         <div class="d-flex justify-content-between">
                             <div>
@@ -72,7 +71,7 @@
 
             <!-- Productos Bajo Inventario -->
             <div class="col-md-3 mb-4">
-                <div class="card text-white bg-warning">
+                <div class="card text-white bg-secondary">
                     <div class="card-body">
                         <div class="d-flex justify-content-between">
                             <div>
@@ -126,7 +125,7 @@
 
             <!-- Espacio para futuras métricas -->
             <div class="col-md-4 mb-4">
-                <div class="card text-white bg-danger">
+                <div class="card text-white bg-info">
                     <div class="card-body">
                         <div class="d-flex justify-content-between">
                             <div>
@@ -157,6 +156,81 @@
         </div>
     </div>
 </div>
+<style>
+/* Fondo del dashboard */
+.container-fluid {
+    background: linear-gradient(to right, #f8f9fa, #eef1f5);
+    border-radius: 15px;
+    padding: 25px;
+}
+
+/* Título principal */
+h2 {
+    font-weight: 800;
+    color: #1f2937;
+}
+
+/* Tarjetas */
+.card {
+    border-radius: 18px;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+
+/* Números grandes */
+.card h4 {
+    font-size: 2.1rem;
+    font-weight: 700;
+}
+
+/* Subtítulos */
+.card p {
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    opacity: 0.9;
+}
+
+/* CONTENEDOR DEL SPINNER */
+.spinner-container {
+    margin-top: 120px;
+}
+
+/* SPINNER BONITO */
+.spinner-icono {
+    width: 65px;
+    height: 65px;
+    border: 6px solid #ddd;
+    border-top: 6px solid #0d6efd;
+    border-radius: 50%;
+    animation: girar 1s linear infinite;
+    margin: auto;
+}
+
+/* ANIMACIÓN */
+@@keyframes girar {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* TEXTO FIJO (NO GIRA JAMÁS) */
+.texto-loading {
+    font-weight: 600;
+    color: #374151;
+    font-size: 1rem;
+    animation: none !important;
+    transform: none !important;
+}
+
+/* Gráfico */
+canvas {
+    border-radius: 15px;
+}
+</style>
 
 @section Scripts {
     <!-- Chart.js -->
@@ -173,32 +247,32 @@
                 type: 'GET',
                 dataType: 'json',
                 beforeSend: function() {
-                    
+
                     $('#loadingSpinner').show();
                     $('#estadisticasContainer').hide();
                 },
                 success: function (data) {
-                    
+
                     $('#loadingSpinner').hide();
                     $('#estadisticasContainer').fadeIn(500);
 
-                    
+
                     $('#totalUsuarios').text(data.TotalUsuarios.toLocaleString());
                     $('#usuariosActivos').text(data.UsuariosActivos.toLocaleString());
                     $('#usuariosInactivos').text(data.UsuariosInactivos.toLocaleString());
                     $('#totalProductos').text(data.TotalProductos.toLocaleString());
                     $('#productosBajoInventario').text(data.ProductosBajoInventario.toLocaleString());
 
-                   
+
                     $('#ventasTotales').text('₡' + data.VentasTotales.toLocaleString('es-CR', {
                         minimumFractionDigits: 2,
                         maximumFractionDigits: 2
                     }));
 
-                   
+
                     crearGraficoVentas(data.VentasUltimaSemana);
 
-                    
+
                     $('.card').addClass('animate__animated animate__fadeInUp');
                 },
                 error: function (xhr, status, error) {
@@ -211,7 +285,7 @@
                     );
                 },
                 complete: function() {
-                    
+
                     console.log('Carga de estadísticas completada');
                 }
             });
@@ -220,7 +294,7 @@
         function crearGraficoVentas(ventasSemana) {
             var ctx = document.getElementById('ventasChart').getContext('2d');
 
-            
+
             if (window.ventasChartInstance) {
                 window.ventasChartInstance.destroy();
             }
