@@ -3,6 +3,7 @@ using MvcTienda.Aplicacion.Carrito;
 using MvcTienda.Aplicacion.Ordenes;
 using MvcTienda.Aplicacion.Productos;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -12,7 +13,8 @@ using System.Web.Http.Cors;
 namespace MvcTienda.Web.Api
 {
     [EnableCors(origins: "*", headers: "*", methods: "*")]
-    [Authorize(Roles = "Asociado")]
+    //[Authorize(Roles = "Asociado")]
+    [AllowAnonymous]
     [RoutePrefix("api/carrito")]
     public class CarritoApiController : ApiController
     {
@@ -20,6 +22,9 @@ namespace MvcTienda.Web.Api
 
         private readonly IProductoService _productoService;
         private readonly IOrdenService _ordenService;
+
+        private static readonly Dictionary<string, CarritoDto> _carritos =
+            new Dictionary<string, CarritoDto>();
 
         public CarritoApiController(
             IProductoService productoService,
@@ -29,138 +34,87 @@ namespace MvcTienda.Web.Api
             _ordenService = ordenService;
         }
 
-        private CarritoDto GetCarrito()
+        private CarritoDto GetOrCreateCarrito(string carritoId)
         {
-            var ctx = HttpContext.Current;
-            var carrito = ctx.Session[SESSION_KEY] as CarritoDto;
-
-            if (carrito == null)
+            if (string.IsNullOrEmpty(carritoId))
+                throw new ArgumentException("carritoId no puede ser nulo o vacío.");
+            if (!_carritos.ContainsKey(carritoId))
             {
-                carrito = new CarritoDto();
-                ctx.Session[SESSION_KEY] = carrito;
+                _carritos[carritoId] = new CarritoDto
+                {
+                    Items = new List<ItemCarritoDto>()
+                };
             }
-
-            return carrito;
-        }
-
-        private void SaveCarrito(CarritoDto carrito)
-        {
-            HttpContext.Current.Session[SESSION_KEY] = carrito;
-        }
-
-        [HttpGet]
-        [Route("")]
-        public IHttpActionResult Get()
-        {
-            return Ok(GetCarrito());
+            return _carritos[carritoId];
         }
 
         [HttpPost]
         [Route("agregar")]
-        public async Task<IHttpActionResult> Agregar(ItemCarritoDto model)
+        public async Task<IHttpActionResult> Agregar(string carritoId, ItemCarritoDto model)
         {
-            try
+            if (string.IsNullOrEmpty(carritoId))
+                return BadRequest("Se requiere el carritoId.");
+
+            var carrito = GetOrCreateCarrito(carritoId);
+
+            var prod = await _productoService.GetByIdAsync(model.ProductoId);
+            if (prod == null)
+                return BadRequest("Producto no encontrado.");
+
+            carrito.Items.Add(new ItemCarritoDto
             {
-                System.Diagnostics.Debug.WriteLine(
-                    "📌 API ENTRANDO AL MÉTODO AGREGAR");
+                ProductoId = prod.ProductoId,
+                NombreProducto = prod.Nombre,
+                PrecioUnitario = prod.Precio,
+                Cantidad = model.Cantidad
+            });
 
-                if (HttpContext.Current == null)
-                    throw new Exception("HttpContext es NULL");
-
-                if (HttpContext.Current.Session == null)
-                    throw new Exception("Session es NULL en Web API");
-
-                var carrito = GetCarrito();
-
-                System.Diagnostics.Debug.WriteLine("📌 Sesión OK");
-
-                var prod = await _productoService.GetByIdAsync(model.ProductoId);
-                if (prod == null)
-                    throw new Exception("ProductoService devolvió NULL");
-
-                System.Diagnostics.Debug.WriteLine("📌 Producto cargado OK: " + prod.Nombre);
-
-                carrito.Items.Add(new ItemCarritoDto
-                {
-                    ProductoId = prod.ProductoId,
-                    NombreProducto = prod.Nombre,
-                    PrecioUnitario = prod.Precio,
-                    Cantidad = model.Cantidad
-                });
-
-                SaveCarrito(carrito);
-
-                return Ok(carrito);
-            }
-            catch (Exception ex)
-            {
-                return InternalServerError(ex);
-            }
+            return Ok(carrito);
         }
-
 
 
         [HttpPut]
         [Route("actualizar")]
-        public IHttpActionResult Actualizar(ItemCarritoDto model)
+        public IHttpActionResult Actualizar(string carritoId, ItemCarritoDto model)
         {
-            var carrito = GetCarrito();
-            var item = carrito.Items.FirstOrDefault(i => i.ProductoId == model.ProductoId);
+            var carrito = GetOrCreateCarrito(carritoId);
 
+            var item = carrito.Items.FirstOrDefault(i => i.ProductoId == model.ProductoId);
             if (item == null)
                 return BadRequest("Producto no está en el carrito.");
 
-            if (model.Cantidad <= 0)
-                carrito.Items.Remove(item);
-            else
-                item.Cantidad = model.Cantidad;
+            item.Cantidad = model.Cantidad;
 
-            SaveCarrito(carrito);
             return Ok(carrito);
         }
 
         [HttpDelete]
         [Route("eliminar/{productoId:int}")]
-        public IHttpActionResult Eliminar(int productoId)
+        public IHttpActionResult Eliminar(string carritoId, int productoId)
         {
-            var carrito = GetCarrito();
-            var item = carrito.Items.FirstOrDefault(i => i.ProductoId == productoId);
-
-            if (item != null)
-            {
-                carrito.Items.Remove(item);
-                SaveCarrito(carrito);
-            }
-
+            var carrito = GetOrCreateCarrito(carritoId);
+            carrito.Items.RemoveAll(i => i.ProductoId == productoId);
             return Ok(carrito);
         }
 
-        [HttpDelete]
-        [Route("vaciar")]
-        public IHttpActionResult Vaciar()
-        {
-            SaveCarrito(new CarritoDto());
-            return Ok(GetCarrito());
-        }
+    //    [HttpPost]
+    //    [Route("confirmar")]
+    //    public async Task<IHttpActionResult> Confirmar()
+    //    {
+    //        var carrito = GetCarrito();
 
-        [HttpPost]
-        [Route("confirmar")]
-        public async Task<IHttpActionResult> Confirmar()
-        {
-            var carrito = GetCarrito();
+    //        if (!carrito.Items.Any())
+    //            return BadRequest("El carrito está vacío.");
 
-            if (!carrito.Items.Any())
-                return BadRequest("El carrito está vacío.");
+    //        var userId = User.Identity.GetUserId<int>();
 
-            var userId = User.Identity.GetUserId<int>();
+    //        var ordenId = await _ordenService.CrearOrdenDesdeCarritoAsync(
+    //            userId,
+    //            carrito.Items
+    //        );
 
-            var ordenId = await _ordenService.CrearOrdenDesdeCarritoAsync(
-                userId,
-                carrito.Items
-            );
-
-            Vaciar();
-            return Ok(new { mensaje = "Orden registrada", ordenId });
-        }
+    //        Vaciar();
+    //        return Ok(new { mensaje = "Orden registrada", ordenId });
+    //    }
     }
 }

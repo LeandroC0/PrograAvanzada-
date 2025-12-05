@@ -7,6 +7,7 @@ using System.Web.Mvc;
 namespace MvcTienda.Web.Controllers
 {
     [Authorize(Roles = "Asociado")]
+    [AllowAnonymous]
     public class CarritoController : Controller
     {
         public ActionResult Index()

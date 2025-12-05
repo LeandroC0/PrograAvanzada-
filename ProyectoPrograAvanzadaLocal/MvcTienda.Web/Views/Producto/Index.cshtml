@@ -201,30 +201,53 @@
                 });
             });
 
-            var API_URL = "https://localhost:44325"; 
+            var API_URL = "https://localhost:44325";
 
             $('.agregar-carrito-btn').click(function () {
+
                 console.log("CLICK DETECTADO ✔");
 
                 let productId = $(this).data('product-id');
 
                 $.ajax({
-                    url: API_URL + '/api/carrito/agregar',
+                    url: API_URL + '/api/carrito/agregar?carritoId=' + carritoId,
                     method: 'POST',
                     contentType: 'application/json',
                     data: JSON.stringify({ productoId: productId, cantidad: 1 }),
-                    success: function () {
-                        console.log("OK ✔");
+                    success: function (response) {
+                        console.log("AGREGADO ✔", response);
                         alert('Producto agregado al carrito');
                         actualizarCarritoNavbar();
                     },
                     error: function (xhr) {
-                        console.log("ERROR ❌", xhr);
+                        console.error("ERROR ❌", xhr.responseText);
                     }
                 });
             });
 
+            function actualizarCarritoNavbar() {
+                $.ajax({
+                    url: API_URL + '/api/carrito?carritoId=' + carritoId,
+                    method: 'GET',
+                    success: function (carrito) {
+                        let totalItems = carrito.items?.length ?? 0;
+                        $("#carritoCantidad").text(totalItems);
+                    }
+                });
+            }
+
+
 
         </script>
+
+        <script>
+            let carritoId = localStorage.getItem("carritoId");
+
+            if (!carritoId) {
+                carritoId = self.crypto.randomUUID();
+                localStorage.setItem("carritoId", carritoId);
+            }
+        </script>
+
     }
 }
