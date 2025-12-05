@@ -80,6 +80,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Carrito\CarritoDto.cs" />
+    <Compile Include="Carrito\ItemCarritoDto.cs" />
     <Compile Include="Common\NegocioException.cs" />
     <Compile Include="Dashboard\DashboardDto.cs" />
     <Compile Include="Dashboard\DashboardService.cs" />

@@ -3,6 +3,7 @@ using MvcTienda.Domain.Entities;
 using MvcTienda.Domain.Repositories;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace MvcTienda.Aplicacion.Productos
 {
@@ -13,6 +14,22 @@ namespace MvcTienda.Aplicacion.Productos
         public ProductoService(IProductoRepository repository)
         {
             _repository = repository;
+        }
+
+        public async Task<ProductoDto> GetByIdAsync(int id)
+        {
+
+            var p = await Task.Run(() => _repository.GetById(id));
+            if (p == null) return null;
+
+            return new ProductoDto
+            {
+                ProductoId = p.ProductoId,
+                Nombre = p.Nombre,
+                Precio = p.Precio,
+                Inventario = p.Inventario,
+                EstadoId = p.EstadoId
+            };
         }
 
         public IEnumerable<ProductoDto> Search(string searchTerm, int? estadoId)
@@ -94,7 +111,6 @@ namespace MvcTienda.Aplicacion.Productos
             _repository.Update(entity);
             _repository.Save();
         }
-
 
         public void ChangeStatus(int id, int estadoId)
         {

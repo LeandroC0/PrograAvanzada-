@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using MvcTienda.Aplicacion.Carrito;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace MvcTienda.Aplicacion.Ordenes
 {
@@ -9,6 +11,8 @@ namespace MvcTienda.Aplicacion.Ordenes
         void Create(OrdenDto dto);
         void Update(OrdenDto dto);
         void Delete(int id);
+        Task<int> CrearOrdenDesdeCarritoAsync(int usuarioId, IList<ItemCarritoDto> items);
+
     }
 }
 

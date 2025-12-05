@@ -1,0 +1,85 @@
+﻿<h2>Mi Carrito</h2>
+
+<table class="table" id="tablaCarrito">
+    <thead>
+        <tr>
+            <th>Producto</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>Subtotal</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3" class="text-end"><strong>Total:</strong></td>
+            <td id="totalCarrito"></td>
+            <td></td>
+        </tr>
+    </tfoot>
+</table>
+
+<button class="btn btn-success" id="btnConfirmar">Confirmar compra</button>
+
+@section scripts{
+    <script>
+    $(document).ready(function () {
+        cargarCarrito();
+        $('#btnConfirmar').click(confirmar);
+    });
+
+    function cargarCarrito() {
+        $.get('/api/carrito', function (c) {
+            let tbody = $('#tablaCarrito tbody');
+            tbody.empty();
+
+            c.items.forEach(i => {
+                tbody.append(`
+                    <tr>
+                        <td>${i.nombreProducto}</td>
+                        <td>${i.precioUnitario}</td>
+                        <td>
+                            <input type="number" min="1" value="${i.cantidad}"
+                                onchange="actualizar(${i.productoId}, this.value)" />
+                        </td>
+                        <td>${i.subtotal}</td>
+                        <td>
+                            <button onclick="eliminar(${i.productoId})" class="btn btn-danger btn-sm">
+                                X
+                            </button>
+                        </td>
+                    </tr>
+                `);
+            });
+
+            $('#totalCarrito').text(c.total);
+        });
+    }
+
+    function actualizar(id, cant) {
+        $.ajax({
+            url: '/api/carrito/actualizar',
+            method: 'PUT',
+            contentType: 'application/json',
+            data: JSON.stringify({ productoId: id, cantidad: parseInt(cant) }),
+            success: cargarCarrito
+        });
+    }
+
+    function eliminar(id) {
+        $.ajax({
+            url: '/api/carrito/eliminar/' + id,
+            method: 'DELETE',
+            success: cargarCarrito
+        });
+    }
+
+    function confirmar() {
+        $.post('/api/carrito/confirmar', function (res) {
+            alert(res.mensaje);
+            window.location.href = '/Ordenes/MisOrdenes';
+        });
+    }
+    </script>
+}

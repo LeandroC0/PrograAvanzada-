@@ -110,13 +110,14 @@
                             }
                             else if (item.EstadoId == 1)
                             {
-                                <button class="btn btn-primary btn-sm comprar-btn"
+
+                                <button class="btn btn-success btn-sm agregar-carrito-btn"
                                         data-product-id="@item.ProductoId"
-                                        data-product-name="@item.Nombre"
-                                        data-product-price="@item.Precio">
-                                    Comprar
+                                        data-product-name="@item.Nombre">
+                                    Agregar al carrito
                                 </button>
                             }
+
                         </div>
                     </div>
                 </div>
@@ -199,6 +200,31 @@
                     $('#compraModal').modal('hide');
                 });
             });
+
+            var API_URL = "https://localhost:44325"; 
+
+            $('.agregar-carrito-btn').click(function () {
+                console.log("CLICK DETECTADO ✔");
+
+                let productId = $(this).data('product-id');
+
+                $.ajax({
+                    url: API_URL + '/api/carrito/agregar',
+                    method: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({ productoId: productId, cantidad: 1 }),
+                    success: function () {
+                        console.log("OK ✔");
+                        alert('Producto agregado al carrito');
+                        actualizarCarritoNavbar();
+                    },
+                    error: function (xhr) {
+                        console.log("ERROR ❌", xhr);
+                    }
+                });
+            });
+
+
         </script>
     }
 }
