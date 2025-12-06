@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Detalle de Producto";
+    var id = ViewBag.Id;
+}
+
+<h2>Detalle del producto</h2>
+
+<div>
+    <strong>ID:</strong> <span id="ProductoId"></span><br />
+    <strong>Nombre:</strong> <span id="Nombre"></span><br />
+    <strong>Precio:</strong> <span id="Precio"></span><br />
+</div>
+
+<br />
+
+<a class="btn btn-secondary" href="/ProductosAPI">Volver</a>
+
+<script src="/Scripts/jquery-3.7.1.js"></script>
+
+<script>
+    const apiBaseUrl = "https://localhost:44325/api/productos";
+    const id = "@id";
+
+    // Cargar detalles
+    $(document).ready(function () {
+        $.ajax({
+            url: `${apiBaseUrl}/${id}`,
+            method: "GET",
+            success: function (p) {
+
+                $("#ProductoId").text(p.productoId ?? p.ProductoId);
+                $("#Nombre").text(p.nombre ?? p.Nombre);
+                $("#Precio").text(p.precio ?? p.Precio);
+            }
+        });
+    });
+
+</script>

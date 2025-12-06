@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "Crear Producto";
+}
+
+<h2>Crear producto</h2>
+
+<form id="formCrear">
+    <div>
+        <label>Nombre</label>
+        <input type="text" id="Nombre" class="form-control" required />
+    </div>
+
+    <div>
+        <label>Precio</label>
+        <input type="number" id="Precio" class="form-control" required />
+    </div>
+
+    <br />
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    <a href="/ProductosAPI" class="btn btn-secondary">Cancelar</a>
+</form>
+
+<script>
+    const apiBaseUrl = "https://localhost:44325/api/productos";
+
+    $("#formCrear").submit(function (e) {
+        e.preventDefault();
+
+        const data = {
+            Nombre: $("#Nombre").val(),
+            Precio: parseFloat($("#Precio").val())
+        };
+
+        $.ajax({
+            url: apiBaseUrl,
+            method: "POST",
+            contentType: "application/json",
+            data: JSON.stringify(data),
+            success: function () {
+                alert("Producto creado correctamente");
+                window.location.href = "/ProductosAPI";
+            }
+        });
+    });
+</script>

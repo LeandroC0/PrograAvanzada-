@@ -1,0 +1,257 @@
+﻿@{
+    ViewBag.Title = "Catálogo de Productos";
+    bool isAdmin = User.IsInRole("Administrador");
+}
+
+<h2>Catálogo de Productos (API)</h2>
+
+@if (isAdmin)
+{
+    <div class="mb-3">
+        <label><strong>Filtrar:</strong></label>
+        <select id="filtroEstado" class="form-control w-25">
+            <option value="0">Todos</option>
+            <option value="1">Activos</option>
+            <option value="2">Inactivos</option>
+        </select>
+    </div>
+}
+
+@Html.AntiForgeryToken()
+
+<div class="row" id="productosContainer">
+</div>
+
+@if (!isAdmin)
+{
+    <div class="modal fade" id="compraModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Comprar Producto</h5>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p id="modalProductName"></p>
+                    <p><strong>Precio: </strong><span id="modalProductPrice"></span></p>
+                    <div class="form-group">
+                        <label for="cantidad">Cantidad:</label>
+                        <input type="number" id="cantidad" class="form-control" min="1" value="1">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" id="confirmarCompra">Confirmar Compra</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<script src="/Scripts/jquery-3.7.1.js"></script>
+
+<script>
+    var apiBaseUrl = "https://localhost:44325/api/";
+    var isAdmin = @((isAdmin).ToString().ToLower());
+    var API_URL = "https://localhost:44325";
+
+    let carritoId = localStorage.getItem("carritoId");
+    if (!carritoId) {
+        carritoId = self.crypto.randomUUID();
+        localStorage.setItem("carritoId", carritoId);
+    }
+
+    $(document).ready(function () {
+        cargarProductos();
+        actualizarCarritoNavbar();
+
+        if (isAdmin) {
+            $("#filtroEstado").change(function () {
+                cargarProductos();
+            });
+        }
+    });
+
+    function cargarProductos() {
+        $.ajax({
+            url: apiBaseUrl + "productos",
+            method: "GET",
+            success: function (data) {
+
+                if (!isAdmin) {
+                    data = data.filter(x => x.EstadoId === 1);
+                }
+
+                if (isAdmin) {
+                    const estado = parseInt($("#filtroEstado").val());
+
+                    if (estado !== 0) {
+                        data = data.filter(x => x.EstadoId === estado);
+                    }
+                }
+
+                let html = "";
+
+                data.forEach(p => {
+
+                    let badge = p.EstadoId === 1
+                        ? "<span class='badge badge-success'>Activo</span>"
+                        : "<span class='badge badge-secondary'>Inactivo</span>";
+
+                    html += `
+<div class="col-md-4 col-lg-3 mb-4">
+    <div class="card h-100 ${p.EstadoId === 2 ? "border-secondary" : "border-primary"}">
+
+        ${p.EstadoId === 2 ? `
+        <div class="card-header bg-secondary text-white py-1">
+            <small class="float-right">INACTIVO</small>
+        </div>` : ""}
+
+        <img src="${p.ImagenUrl ?? "/Content/img/noimage.png"}"
+             class="card-img-top"
+             style="height:180px; object-fit:cover;" />
+
+        <div class="card-body d-flex flex-column">
+            <h5 class="card-title">${p.Nombre}</h5>
+
+            <p class="card-text flex-grow-1">
+                <strong>Precio:</strong> <span class="text-success">${p.Precio.toLocaleString()}</span><br/>
+                <strong>Disponibles:</strong> ${p.Inventario} unidades<br/>
+                ${isAdmin ? badge : ""}
+            </p>
+
+            <div class="mt-auto">
+                <div class="btn-group w-100" role="group">
+                    <a class="btn btn-outline-info btn-sm" href="/ProductosAPI/Detalle/${p.ProductoId}">Ver</a>
+
+                    ${isAdmin ? `
+                        <a class="btn btn-outline-warning btn-sm" href="/ProductosAPI/Editar/${p.ProductoId}">Editar</a>
+
+                        ${p.EstadoId === 1 ? `
+                            <button class="btn btn-outline-danger btn-sm cambiar-estado-btn"
+                                    data-product-id="${p.ProductoId}"
+                                    data-nuevo-estado="2">
+                                Desactivar
+                            </button>
+                        ` : `
+                            <button class="btn btn-outline-success btn-sm cambiar-estado-btn"
+                                    data-product-id="${p.ProductoId}"
+                                    data-nuevo-estado="1">
+                                Activar
+                            </button>
+                        `}
+                    ` : `
+                        ${p.EstadoId === 1 ? `
+                            <button class="btn btn-success btn-sm agregar-carrito-btn"
+                                    data-product-id="${p.ProductoId}"
+                                    data-product-name="${p.Nombre}"
+                                    data-product-price="${p.Precio}">
+                                Agregar al carrito
+                            </button>
+                        ` : ""}
+                    `}
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>`;
+                });
+
+                $("#productosContainer").html(html);
+            }
+        });
+    }
+
+
+    $(document).on("click", ".cambiar-estado-btn", function () {
+        let productId = $(this).data('product-id');
+        let nuevoEstado = $(this).data('nuevo-estado');
+        let accion = nuevoEstado == 1 ? "activar" : "desactivar";
+
+        if (!confirm(`¿Estás seguro que deseas ${accion} este producto?`)) {
+            return;
+        }
+
+        let token = $('input[name="__RequestVerificationToken"]').val();
+
+        $.ajax({
+            url: '/Producto/ChangeStatus/' + productId,
+            method: 'POST',
+            data: {
+                estadoId: nuevoEstado,
+                __RequestVerificationToken: token
+            },
+            success: function (response) {
+                console.log("Estado cambiado ✔", response);
+                alert(`Producto ${accion}do correctamente`);
+                cargarProductos();
+            },
+            error: function (xhr) {
+                console.error("ERROR ❌", xhr.responseText);
+                alert("No se pudo cambiar el estado del producto");
+            }
+        });
+
+    });
+
+    $(document).on("click", ".agregar-carrito-btn", function () {
+
+        console.log("CLICK DETECTADO ✔");
+
+        let productId = $(this).data('product-id');
+        let productName = $(this).data('product-name');
+        let productPrice = $(this).data('product-price');
+
+        let cantidad = 1;
+
+        $.ajax({
+            url: API_URL + '/api/carrito/agregar?carritoId=' + carritoId,
+            method: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({
+                productoId: productId,
+                cantidad: cantidad
+            }),
+            success: function (response) {
+                console.log("AGREGADO ✔", response);
+                alert('Agregado al carrito: ' + productName);
+                actualizarCarritoNavbar();
+            },
+            error: function (xhr) {
+                console.error("ERROR ❌", xhr.responseText);
+                alert("No se pudo agregar al carrito");
+            }
+        });
+
+    });
+
+    function actualizarCarritoNavbar() {
+        $.ajax({
+            url: API_URL + '/api/carrito?carritoId=' + carritoId,
+            method: 'GET',
+            success: function (carrito) {
+
+                let totalItems = 0;
+
+                if (carrito && carrito.items) {
+                    carrito.items.forEach(i => {
+                        totalItems += i.cantidad;
+                    });
+                }
+
+                if ($("#carritoCantidad").length) {
+                    $("#carritoCantidad").text(totalItems);
+                }
+            },
+            error: function(xhr) {
+                console.log("Carrito vacío o no existe aún");
+                if ($("#carritoCantidad").length) {
+                    $("#carritoCantidad").text("0");
+                }
+            }
+        });
+    }
+</script>

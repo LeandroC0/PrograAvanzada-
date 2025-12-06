@@ -1,0 +1,79 @@
+﻿@{
+    ViewBag.Title = "Editar Producto";
+    var id = ViewBag.Id;
+}
+
+<h2>Editar producto</h2>
+
+<form id="formEditar">
+    <input type="hidden" id="ProductoId" value="@id" />
+
+    <div>
+        <label>Nombre</label>
+        <input type="text" id="Nombre" class="form-control" required />
+    </div>
+
+    <div>
+        <label>Precio</label>
+        <input type="number" id="Precio" class="form-control" required />
+    </div>
+
+    <br />
+    <button type="submit" class="btn btn-primary">Guardar cambios</button>
+    <a href="/ProductosAPI" class="btn btn-secondary">Cancelar</a>
+</form>
+
+<script src="/Scripts/jquery-3.7.1.js"></script>
+
+<script>
+    const apiBaseUrl = "https://localhost:44325/api/productos";
+    const id = $("#ProductoId").val();
+
+    // Aquí guardaremos el producto completo original
+    let productoOriginal = null;
+
+    // Cargar datos
+    $(document).ready(function () {
+        $.ajax({
+            url: `${apiBaseUrl}/${id}`,
+            method: "GET",
+            success: function (p) {
+                productoOriginal = p; // 🔥 Guardamos el objeto completo tal cual viene
+
+                $("#Nombre").val(p.Nombre);
+                $("#Precio").val(p.Precio);
+            }
+        });
+    });
+
+    // Guardar cambios
+    $("#formEditar").submit(function (e) {
+        e.preventDefault();
+
+        // Crear copia del original para NO perder campos necesarios
+        const data = {
+            ProductoId: productoOriginal.ProductoId,
+            Nombre: $("#Nombre").val(),
+            Precio: parseFloat($("#Precio").val()),
+            Inventario: productoOriginal.Inventario,
+            EstadoId: productoOriginal.EstadoId,
+            EstadoTexto: productoOriginal.EstadoTexto,
+            EstaActivo: productoOriginal.EstaActivo
+        };
+
+        $.ajax({
+            url: `${apiBaseUrl}/${id}`,
+            method: "PUT",
+            contentType: "application/json",
+            data: JSON.stringify(data),
+            success: function () {
+                alert("Producto actualizado");
+                window.location.href = "/ProductosAPI";
+            },
+            error: function (xhr) {
+                console.error("Error al actualizar:", xhr.responseText);
+                alert("Error al actualizar el producto");
+            }
+        });
+    });
+</script>

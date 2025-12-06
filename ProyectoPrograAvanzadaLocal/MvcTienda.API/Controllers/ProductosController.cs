@@ -115,19 +115,25 @@ namespace MvcTienda.API.Controllers
             }
         }
 
-        // DELETE api/productos/5
-        [HttpDelete]
-        [Route("{id:int}")]
-        public IHttpActionResult ChangeStatus(int id, int estadoId)
+        [HttpPut]
+        [Route("{id:int}/estado")]
+        public IHttpActionResult CambiarEstado(int id, [FromBody] ProductoDto dto)
         {
             try
             {
-                _service.ChangeStatus(id, estadoId);
-                return StatusCode(HttpStatusCode.NoContent);
+                var producto = _service.GetById(id);
+
+                if (producto == null)
+                    return NotFound();
+
+                producto.EstadoId = dto.EstadoId;
+
+                _service.Update(producto);
+
+                return Ok(new { mensaje = "Estado actualizado correctamente" });
             }
             catch (NegocioException ex)
             {
-                // Podrías usar 404 si el mensaje es "no existe", o 400 si es regla de negocio
                 return Content(HttpStatusCode.BadRequest, ex.Message);
             }
             catch (Exception)
@@ -135,5 +141,16 @@ namespace MvcTienda.API.Controllers
                 return InternalServerError();
             }
         }
+
+        [HttpGet]
+        [Route("producto/{productoId:int}")]
+        public IHttpActionResult GetImagenesPorProducto(int productoId)
+        {
+            var imagenes = _service.GetAll().Where(i => i.ProductoId == productoId && i.EstadoId == 1);
+
+            return Ok(imagenes);
+        }
+
+
     }
 }
