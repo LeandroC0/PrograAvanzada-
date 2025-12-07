@@ -13,7 +13,6 @@ namespace MvcTienda.Aplicacion.Imagenes
         [DataType(DataType.Upload)]
         public HttpPostedFileBase ArchivoImagen { get; set; }
 
-        // Opcional
         public string EstadoNombre { get; set; }
         public string ProductoNombre { get; set; }
     }

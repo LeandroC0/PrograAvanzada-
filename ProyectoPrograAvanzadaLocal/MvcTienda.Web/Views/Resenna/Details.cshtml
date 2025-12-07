@@ -4,39 +4,27 @@
     ViewBag.Title = "Detalles de Reseña";
 }
 
-<h2>Detalles de Reseña</h2>
+<h2 class="mb-4">Detalles de Reseña</h2>
 
-<div class="panel panel-default">
-    <div class="panel-heading"><strong>Información</strong></div>
-    <div class="panel-body">
+<div class="card">
+    <div class="card-body">
 
-        <dl class="dl-horizontal">
-            <dt>ID</dt>
-            <dd>@Model.ResennaId</dd>
+        <h5 class="card-title">Información General</h5>
 
-            <dt>Comentario</dt>
-            <dd>@Model.Comentario</dd>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>ID:</strong> @Model.ResennaId</li>
+            <li class="list-group-item"><strong>Comentario:</strong> @Model.Comentario</li>
+            <li class="list-group-item"><strong>Calificación:</strong> @Model.Calificacion</li>
+            <li class="list-group-item"><strong>Fecha:</strong> @Model.Fecha_Resenna.ToString("yyyy-MM-dd")</li>
+            <li class="list-group-item"><strong>Producto:</strong> @Model.ProductoNombre</li>
+            <li class="list-group-item"><strong>Estado:</strong> @Model.EstadoNombre</li>
+            <li class="list-group-item"><strong>Usuario:</strong> @Model.UsuarioNombre</li>
+        </ul>
 
-            <dt>Calificación</dt>
-            <dd>@Model.Calificacion</dd>
-
-            <dt>Fecha</dt>
-            <dd>@Model.Fecha_Resenna</dd>
-
-            <dt>Producto</dt>
-            <dd>@Model.ProductoId</dd>
-
-            <dt>Estado</dt>
-            <dd>@Model.EstadoId</dd>
-
-            <dt>Usuario</dt>
-            <dd>@Model.UsuarioId</dd>
-        </dl>
+        <div class="mt-3">
+            @Html.ActionLink("Editar", "Edit", new { id = Model.ResennaId }, new { @class = "btn btn-warning" })
+            @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-secondary ms-2" })
+        </div>
 
     </div>
 </div>
-
-<p>
-    @Html.ActionLink("Editar", "Edit", new { id = Model.ResennaId }, new { @class = "btn btn-warning" }) |
-    @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-default" })
-</p>

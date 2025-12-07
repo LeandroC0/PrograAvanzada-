@@ -11,15 +11,10 @@ namespace MvcTienda.Domain.Entities
         public int OrdenId { get; set; }
         public DateTime Fecha_Orden { get; set; }
         public decimal Total { get; set; }
-
         public int UsuarioId { get; set; }
-
         public int EstadoId { get; set; }
-
         public Estado Estado { get; set; }
-
         public ICollection<DetalleOrden> Detalles { get; set; }
-
 
     }
 }

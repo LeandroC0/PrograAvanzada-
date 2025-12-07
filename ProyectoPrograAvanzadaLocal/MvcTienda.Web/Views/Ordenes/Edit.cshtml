@@ -4,58 +4,46 @@
     ViewBag.Title = "Editar Orden";
 }
 
-<h2>Editar Orden</h2>
+<h2 class="mb-4">Editar Orden</h2>
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
+<div class="card">
+    <div class="card-body">
 
-    @Html.HiddenFor(m => m.OrdenId)
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(m => m.OrdenId)
 
-<div class="form-horizontal">
-    <hr />
+            <div class="mb-3">
+                @Html.LabelFor(m => m.Fecha_Orden, new { @class = "form-label" })
+                @Html.EditorFor(m => m.Fecha_Orden, new { htmlAttributes = new { @class = "form-control", type = "date" } })
+            </div>
 
-    <div class="form-group">
-        @Html.LabelFor(m => m.Fecha_Orden, new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(m => m.Fecha_Orden, new { htmlAttributes = new { @class = "form-control" } })
-        </div>
-    </div>
+            <div class="mb-3">
+                @Html.LabelFor(m => m.Total, new { @class = "form-label" })
+                @Html.EditorFor(m => m.Total, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
 
-    <div class="form-group">
-        @Html.LabelFor(m => m.Total, new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(m => m.Total, new { htmlAttributes = new { @class = "form-control" } })
-        </div>
-    </div>
+            <div class="mb-3">
+                @Html.Label("Usuario", new { @class = "form-label" })
+                @Html.EditorFor(m => m.UsuarioId, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
 
-    <div class="form-group">
-        @Html.LabelFor(m => m.UsuarioId, new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(m => m.UsuarioId, new { htmlAttributes = new { @class = "form-control" } })
-        </div>
-    </div>
+            <div class="mb-3">
+                @Html.Label("Estado", new { @class = "form-label" })
+                <select name="EstadoId" class="form-control">
+                    <option value="1" @(Model.EstadoId == 1 ? "selected" : "")>Activo</option>
+                    <option value="2" @(Model.EstadoId == 2 ? "selected" : "")>Inactivo</option>
+                    <option value="3" @(Model.EstadoId == 3 ? "selected" : "")>Pendiente</option>
+                </select>
+            </div>
 
-    <div class="form-group">
-        @Html.LabelFor(m => m.EstadoId, new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            <select name="estadoId" class="form-control">
-                <option value="">Estados</option>
-                <option value="1" @(ViewBag.EstadoId == 1 ? "selected" : "")>Activos</option>
-                <option value="2" @(ViewBag.EstadoId == 2 ? "selected" : "")>Inactivos</option>
-                <option value="3" @(ViewBag.EstadoId == 3 ? "selected" : "")>Pendiente</option>
-            </select>
-        </div>
-    </div>
+            <button type="submit" class="btn btn-warning w-100">Guardar Cambios</button>
+        }
 
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Guardar Cambios" class="btn btn-warning" />
-        </div>
     </div>
 </div>
-}
 
-<p>
-    @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-default" })
+<p class="mt-3">
+    @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-secondary" })
 </p>

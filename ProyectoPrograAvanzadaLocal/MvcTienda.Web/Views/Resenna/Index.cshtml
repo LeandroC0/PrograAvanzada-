@@ -4,44 +4,38 @@
     ViewBag.Title = "Lista de Reseñas";
 }
 
-<h2>Lista de Reseñas</h2>
+<h2 class="mb-4">Lista de Reseñas</h2>
 
 <p>
-    @Html.ActionLink("Crear Nueva Reseña", "Create", null, new { @class = "btn btn-success" })
+    @Html.ActionLink("Crear Nueva Reseña", "Create", null, new { @class = "btn btn-success mb-3" })
 </p>
 
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>@Html.DisplayNameFor(model => model.ResennaId)</th>
-            <th>@Html.DisplayNameFor(model => model.Comentario)</th>
-            <th>@Html.DisplayNameFor(model => model.Calificacion)</th>
-            <th>@Html.DisplayNameFor(model => model.Fecha_Resenna)</th>
-            <th>@Html.DisplayNameFor(model => model.ProductoId)</th>
-            <th>@Html.DisplayNameFor(model => model.EstadoId)</th>
-            <th>@Html.DisplayNameFor(model => model.UsuarioId)</th>
-            <th>Acciones</th>
-        </tr>
-    </thead>
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
 
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@Html.DisplayFor(modelItem => item.ResennaId)</td>
-                <td>@Html.DisplayFor(modelItem => item.Comentario)</td>
-                <td>@Html.DisplayFor(modelItem => item.Calificacion)</td>
-                <td>@Html.DisplayFor(modelItem => item.Fecha_Resenna)</td>
-                <td>@Html.DisplayFor(modelItem => item.ProductoId)</td>
-                <td>@Html.DisplayFor(modelItem => item.EstadoId)</td>
-                <td>@Html.DisplayFor(modelItem => item.UsuarioId)</td>
+                <div class="card-body">
+                    <h5 class="card-title">Reseña #@item.ResennaId</h5>
 
-                <td>
-                    @Html.ActionLink("Detalles", "Details", new { id = item.ResennaId }, new { @class = "btn btn-info btn-sm" }) |
-                    @Html.ActionLink("Editar", "Edit", new { id = item.ResennaId }, new { @class = "btn btn-warning btn-sm" }) |
-                    @Html.ActionLink("Eliminar", "Delete", new { id = item.ResennaId }, new { @class = "btn btn-danger btn-sm" })
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+                    <p class="card-text">
+                        <strong>Comentario:</strong> @item.Comentario <br />
+                        <strong>Calificación:</strong> @item.Calificacion⭐<br />
+                        <strong>Fecha:</strong> @item.Fecha_Resenna.ToString("yyyy-MM-dd") <br />
+                        <strong>Producto:</strong> @item.ProductoNombre <br />
+                        <strong>Estado:</strong> @item.EstadoNombre <br />
+                        <strong>Usuario:</strong> @item.UsuarioNombre
+                    </p>
+
+                    <div class="d-flex justify-content-between">
+                        @Html.ActionLink("Detalles", "Details", new { id = item.ResennaId }, new { @class = "btn btn-info btn-sm" })
+                        @Html.ActionLink("Editar", "Edit", new { id = item.ResennaId }, new { @class = "btn btn-warning btn-sm" })
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.ResennaId }, new { @class = "btn btn-danger btn-sm" })
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    }
+</div>

@@ -4,32 +4,25 @@
     ViewBag.Title = "Detalles de Orden";
 }
 
-<h2>Detalles de Orden</h2>
+<h2 class="mb-4">Detalles de Orden</h2>
 
-<div class="panel panel-default">
-    <div class="panel-heading"><strong>Información</strong></div>
+<div class="card">
+    <div class="card-body">
 
-    <div class="panel-body">
-        <dl class="dl-horizontal">
-            <dt>ID</dt>
-            <dd>@Model.OrdenId</dd>
+        <h5 class="card-title">Información General</h5>
 
-            <dt>Fecha</dt>
-            <dd>@Model.Fecha_Orden</dd>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>ID:</strong> @Model.OrdenId</li>
+            <li class="list-group-item"><strong>Fecha:</strong> @Model.Fecha_Orden.ToString("yyyy-MM-dd")</li>
+            <li class="list-group-item"><strong>Total:</strong> ₡@Model.Total</li>
+            <li class="list-group-item"><strong>Usuario:</strong> @Model.UsuarioNombre</li>
+            <li class="list-group-item"><strong>Estado:</strong> @Model.EstadoNombre</li>
+        </ul>
 
-            <dt>Total</dt>
-            <dd>@Model.Total</dd>
+        <div class="mt-3">
+            @Html.ActionLink("Editar", "Edit", new { id = Model.OrdenId }, new { @class = "btn btn-warning" })
+            @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-secondary ms-2" })
+        </div>
 
-            <dt>Usuario</dt>
-            <dd>@Model.UsuarioId</dd>
-
-            <dt>Estado</dt>
-            <dd>@Model.EstadoId</dd>
-        </dl>
     </div>
 </div>
-
-<p>
-    @Html.ActionLink("Editar", "Edit", new { id = Model.OrdenId }, new { @class = "btn btn-warning" }) |
-    @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-default" })
-</p>

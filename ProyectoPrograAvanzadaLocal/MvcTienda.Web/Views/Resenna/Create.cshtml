@@ -4,82 +4,62 @@
     ViewBag.Title = "Crear Reseña";
 }
 
-<h2>Crear Reseña</h2>
+<h2 class="mb-4">Crear Reseña</h2>
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
+<div class="card">
+    <div class="card-body">
 
-<div class="form-horizontal">
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @using (Html.BeginForm("Create", "Resenna", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Comentario, new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Comentario, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Comentario, "", new { @class = "text-danger" })
-        </div>
-    </div>
+            <div class="mb-3">
+                @Html.LabelFor(model => model.Comentario, new { @class = "form-label" })
+                @Html.EditorFor(model => model.Comentario, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Calificacion, new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Calificacion, new { htmlAttributes = new { @class = "form-control", @min = "1", @max = "5" } })
-            @Html.ValidationMessageFor(model => model.Calificacion, "", new { @class = "text-danger" })
-        </div>
-    </div>
+            <div class="mb-3">
+                @Html.LabelFor(model => model.Calificacion, new { @class = "form-label" })
+                @Html.EditorFor(model => model.Calificacion, new { htmlAttributes = new { @class = "form-control", min = "1", max = "5" } })
+            </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Fecha_Resenna, new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Fecha_Resenna, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Fecha_Resenna, "", new { @class = "text-danger" })
-        </div>
-    </div>
+            <div class="mb-3">
+                @Html.LabelFor(model => model.Fecha_Resenna, new { @class = "form-label" })
+                @Html.EditorFor(model => model.Fecha_Resenna, new { htmlAttributes = new { @class = "form-control", type = "date" } })
+            </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.ProductoId, new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownListFor(
-                m => m.ProductoId,
-                (IEnumerable<SelectListItem>)ViewBag.ListaProductos,
-                "--- Seleccione un producto ---",
-                new { @class = "form-control" }
-            )
-            @Html.ValidationMessageFor(model => model.ProductoId, "", new { @class = "text-danger" })
-        </div>
-    </div>
+            <div class="mb-3">
+                @Html.LabelFor(model => model.ProductoId, new { @class = "form-label" })
+                @Html.DropDownListFor(
+                    m => m.ProductoId,
+                    (IEnumerable<SelectListItem>)ViewBag.ListaProductos,
+                    "--- Seleccione un producto ---",
+                    new { @class = "form-control" }
+                )
+            </div>
 
+            <div class="mb-3">
+                @Html.Label("Estado", new { @class = "form-label" })
+                <select name="EstadoId" class="form-control">
+                    <option value="">Seleccione</option>
+                    <option value="1">Activo</option>
+                    <option value="2">Inactivo</option>
+                    <option value="3">Pendiente</option>
+                </select>
+            </div>
 
-    <div class="form-group">
-        @Html.LabelFor(m => m.EstadoId, new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            <select name="estadoId" class="form-control">
-                <option value="">Estados</option>
-                <option value="1" @(ViewBag.EstadoId == 1 ? "selected" : "")>Activos</option>
-                <option value="2" @(ViewBag.EstadoId == 2 ? "selected" : "")>Inactivos</option>
-                <option value="3" @(ViewBag.EstadoId == 3 ? "selected" : "")>Pendiente</option>
-            </select>
-        </div>
-    </div>
+            <div class="mb-3">
+                @Html.LabelFor(model => model.UsuarioId, new { @class = "form-label" })
+                @Html.EditorFor(model => model.UsuarioId, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.UsuarioId, new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.UsuarioId, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.UsuarioId, "", new { @class = "text-danger" })
-        </div>
-    </div>
+            <button type="submit" class="btn btn-success w-100">Crear Reseña</button>
+        }
 
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Crear" class="btn btn-success" />
-        </div>
     </div>
 </div>
-}
 
-<p>
-    @Html.ActionLink("Volver a la lista", "Index", null, new { @class = "btn btn-default" })
+<p class="mt-3">
+    @Html.ActionLink("Volver a la lista", "Index", null, new { @class = "btn btn-secondary" })
 </p>

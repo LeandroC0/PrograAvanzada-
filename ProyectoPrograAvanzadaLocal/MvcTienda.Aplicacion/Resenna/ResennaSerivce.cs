@@ -1,5 +1,7 @@
-﻿using MvcTienda.Domain.Entities;
+﻿using Microsoft.AspNet.Identity;
+using MvcTienda.Domain.Entities;
 using MvcTienda.Domain.Repositories;
+using MvcTienda.Infrastructura.Identity;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -8,10 +10,13 @@ namespace MvcTienda.Aplicacion.Resennas
     public class ResennaService : IResennaService
     {
         private readonly IResennaRepository _repo;
+        private readonly UserManager<ApplicationUser, int> _userManager;
 
-        public ResennaService(IResennaRepository repo)
+        public ResennaService(IResennaRepository repo,
+            UserManager<ApplicationUser, int> userManager)
         {
             _repo = repo;
+            _userManager = userManager;
         }
 
         public IEnumerable<ResennaDto> GetAll()
@@ -23,8 +28,11 @@ namespace MvcTienda.Aplicacion.Resennas
                 Calificacion = r.Calificación,
                 Fecha_Resenna = r.Fecha_Reseña,
                 ProductoId = r.ProductoId,
+                ProductoNombre = r.Producto?.Nombre,
                 EstadoId = r.EstadoId,
-                UsuarioId = r.UsuarioId
+                EstadoNombre = r.Estado?.Nombre,
+                UsuarioId = r.UsuarioId,
+                UsuarioNombre = _userManager.FindByIdAsync(r.UsuarioId).Result?.UserName ?? "Desconocido",
             });
         }
 
@@ -40,8 +48,11 @@ namespace MvcTienda.Aplicacion.Resennas
                 Calificacion = r.Calificación,
                 Fecha_Resenna = r.Fecha_Reseña,
                 ProductoId = r.ProductoId,
+                ProductoNombre = r.Producto?.Nombre,
                 EstadoId = r.EstadoId,
-                UsuarioId = r.UsuarioId
+                EstadoNombre = r.Estado?.Nombre,
+                UsuarioId = r.UsuarioId,
+                UsuarioNombre = _userManager.FindByIdAsync(r.UsuarioId).Result?.UserName ?? "Desconocido",
             };
         }
 

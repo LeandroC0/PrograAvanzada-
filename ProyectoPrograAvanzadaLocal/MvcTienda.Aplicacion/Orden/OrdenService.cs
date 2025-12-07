@@ -1,6 +1,8 @@
-﻿using MvcTienda.Aplicacion.Carrito;
+﻿using Microsoft.AspNet.Identity;
+using MvcTienda.Aplicacion.Carrito;
 using MvcTienda.Domain.Entities;
 using MvcTienda.Domain.Repositories;
+using MvcTienda.Infrastructura.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,15 +15,18 @@ namespace MvcTienda.Aplicacion.Ordenes
         private readonly IOrdenRepository _ordenRepo;
         private readonly IDetalleOrdenRepository _detalleRepo;
         private readonly IProductoRepository _productoRepo;
+        private readonly UserManager<ApplicationUser, int> _userManager;
 
         public OrdenService(
             IOrdenRepository ordenRepo,
             IDetalleOrdenRepository detalleRepo,
-            IProductoRepository productoRepo)
+            IProductoRepository productoRepo,
+            UserManager<ApplicationUser, int> userManager)
         {
             _ordenRepo = ordenRepo;
             _detalleRepo = detalleRepo;
             _productoRepo = productoRepo;
+            _userManager = userManager;
         }
 
         public IEnumerable<OrdenDto> GetAll()
@@ -32,7 +37,9 @@ namespace MvcTienda.Aplicacion.Ordenes
                 Fecha_Orden = o.Fecha_Orden,
                 Total = o.Total,
                 UsuarioId = o.UsuarioId,
-                EstadoId = o.EstadoId
+                UsuarioNombre = _userManager.FindById(o.UsuarioId)?.UserName ?? "Desconocido",
+                EstadoId = o.EstadoId,
+                EstadoNombre = o.Estado != null ? o.Estado.Nombre : "Sin Estado"
             });
         }
 
@@ -47,7 +54,10 @@ namespace MvcTienda.Aplicacion.Ordenes
                 Fecha_Orden = o.Fecha_Orden,
                 Total = o.Total,
                 UsuarioId = o.UsuarioId,
-                EstadoId = o.EstadoId
+                UsuarioNombre = _userManager.FindById(o.UsuarioId)?.UserName,
+                EstadoId = o.EstadoId,
+                EstadoNombre = o.Estado?.Nombre
+
             };
         }
 

@@ -11,7 +11,7 @@ namespace MvcTienda.Domain.Entities
 
         public int ProductoId { get; set; }
         public int EstadoId { get; set; }
-        public string UsuarioId { get; set; }
+        public int UsuarioId { get; set; }
 
         public Producto Producto { get; set; }
         public Estado Estado { get; set; }

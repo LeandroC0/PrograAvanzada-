@@ -15,7 +15,10 @@ namespace MvcTienda.Infrastructura.Identity
 
         public virtual ICollection<Orden> Ordenes { get; set; }
 
-
+        public static string ReferenceEquals(int usuarioId)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public class CustomUserLogin : IdentityUserLogin<int> { }

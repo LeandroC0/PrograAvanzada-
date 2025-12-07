@@ -22,7 +22,9 @@ namespace MvcTienda.Aplicacion.Imagenes
                 ImagenProductoId = i.ImagenProductoId,
                 RutaImagen = i.RutaImagen,
                 ProductoId = i.ProductoId,
-                EstadoId = i.EstadoId
+                ProductoNombre = i.Producto?.Nombre,
+                EstadoId = i.EstadoId,
+                EstadoNombre = i.Estado != null ? i.Estado.Nombre : "Sin Estado"
             });
         }
 
@@ -36,7 +38,9 @@ namespace MvcTienda.Aplicacion.Imagenes
                 ImagenProductoId = img.ImagenProductoId,
                 RutaImagen = img.RutaImagen,
                 ProductoId = img.ProductoId,
-                EstadoId = img.EstadoId
+                ProductoNombre = img.Producto?.Nombre,
+                EstadoId = img.EstadoId,
+                EstadoNombre = img.Estado != null ? img.Estado.Nombre : "Sin Estado"
             };
         }
 

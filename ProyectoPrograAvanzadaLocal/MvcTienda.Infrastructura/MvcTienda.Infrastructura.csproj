@@ -97,6 +97,10 @@
     <Compile Include="Migrations\202512022340249_UpdateDaBaseOrdenes.Designer.cs">
       <DependentUpon>202512022340249_UpdateDaBaseOrdenes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202512071840524_UpdateResenna.cs" />
+    <Compile Include="Migrations\202512071840524_UpdateResenna.Designer.cs">
+      <DependentUpon>202512071840524_UpdateResenna.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\DetalleOrdenRepository.cs" />
@@ -122,6 +126,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202512022340249_UpdateDaBaseOrdenes.resx">
       <DependentUpon>202512022340249_UpdateDaBaseOrdenes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202512071840524_UpdateResenna.resx">
+      <DependentUpon>202512071840524_UpdateResenna.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

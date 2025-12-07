@@ -20,12 +20,15 @@ namespace MvcTienda.Infrastructura.Repositories
         {
             return _context.Resennas
                 .Include(r => r.Producto)
+                .Include(r => r.Estado)
                 .ToList();
         }
 
         public Resenna GetById(int id)
         {
-            return _context.Resennas.Find(id);
+            return _context.Resennas.Include(r => r.Producto)
+                                   .Include(r => r.Estado)
+                                   .FirstOrDefault(r => r.ResennaId == id);
         }
 
         public void Add(Resenna resenna)
