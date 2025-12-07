@@ -28,11 +28,11 @@
         {
             <tr>
                 <td>@Html.DisplayFor(modelItem => item.DetalleOrdenId)</td>
-                <td>@Html.DisplayFor(modelItem => item.OrdenId)</td>
-                <td>@Html.DisplayFor(modelItem => item.ProductoId)</td>
+                <td>@Html.DisplayFor(modelItem => item.OrdenNombre)</td>
+                <td>@Html.DisplayFor(modelItem => item.ProductoNombre)</td>
                 <td>@Html.DisplayFor(modelItem => item.Cantidad)</td>
                 <td>@Html.DisplayFor(modelItem => item.PrecioUnitario)</td>
-                <td>@Html.DisplayFor(modelItem => item.EstadoId)</td>
+                <td>@Html.DisplayFor(modelItem => item.EstadoNombre)</td>
 
                 <td>
                     @Html.ActionLink("Detalles", "Details", new { id = item.DetalleOrdenId }, new { @class = "btn btn-info btn-sm" }) |

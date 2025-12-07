@@ -21,6 +21,7 @@ namespace MvcTienda.Infrastructura.Repositories
             return _context.DetallesOrden
                 .Include(d => d.Producto)
                 .Include(d => d.Orden)
+                .Include(d => d.Estado)
                 .ToList();
         }
 
@@ -29,6 +30,7 @@ namespace MvcTienda.Infrastructura.Repositories
             return _context.DetallesOrden
                 .Include(d => d.Producto)
                 .Include(d => d.Orden)
+                .Include(d => d.Estado)
                 .FirstOrDefault(d => d.DetalleOrdenId == id);
         }
 

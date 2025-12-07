@@ -23,8 +23,11 @@ namespace MvcTienda.Aplicacion.DetallesOrden
                 Cantidad = d.Cantidad,
                 PrecioUnitario = d.PrecioUnitario,
                 ProductoId = d.ProductoId,
+                ProductoNombre = d.Producto?.Nombre,
                 OrdenId = d.OrdenId,
-                EstadoId = d.EstadoId
+                OrdenNombre = d.Orden?.OrdenId.ToString(),
+                EstadoId = d.EstadoId,
+                EstadoNombre = d.Estado?.Nombre
             });
         }
 
@@ -39,8 +42,11 @@ namespace MvcTienda.Aplicacion.DetallesOrden
                 Cantidad = d.Cantidad,
                 PrecioUnitario = d.PrecioUnitario,
                 ProductoId = d.ProductoId,
+                ProductoNombre = d.Producto?.Nombre,
                 OrdenId = d.OrdenId,
-                EstadoId = d.EstadoId
+                OrdenNombre = d.Orden?.OrdenId.ToString(),
+                EstadoId = d.EstadoId,
+                EstadoNombre = d.Estado?.Nombre
             };
         }
 

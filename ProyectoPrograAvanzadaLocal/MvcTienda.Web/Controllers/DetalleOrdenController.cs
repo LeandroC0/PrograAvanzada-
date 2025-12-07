@@ -1,5 +1,6 @@
 ﻿using MvcTienda.Aplicacion.DetallesOrden;
 using MvcTienda.Aplicacion.Productos;
+using MvcTienda.Domain.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
@@ -10,11 +11,14 @@ namespace MvcTienda.Web.Controllers
     {
         private readonly IDetalleOrdenService _service;
         private readonly IProductoService _productoService;
+        private readonly IOrdenRepository _ordenService;
 
-        public DetalleOrdenController(IDetalleOrdenService service, IProductoService productoService)
+        public DetalleOrdenController(IDetalleOrdenService service, IProductoService productoService, 
+            IOrdenRepository ordenService)
         {
             _service = service;
-                _productoService = productoService;
+            _productoService = productoService;
+            _ordenService = ordenService;
         }
 
         // GET: DetalleOrden
@@ -58,6 +62,7 @@ namespace MvcTienda.Web.Controllers
         public ActionResult Create()
         {
             ViewBag.ListaProductos = new SelectList(_productoService.GetAll(), "ProductoId", "Nombre");
+            ViewBag.ListaOrdenes = new SelectList(_ordenService.GetAll(), "OrdenId", "OrdenId");
 
             return View(new DetalleOrdenDto());
         }
@@ -70,6 +75,7 @@ namespace MvcTienda.Web.Controllers
             if (!ModelState.IsValid)
             {
                 ViewBag.ListaProductos = new SelectList(_productoService.GetAll(), "ProductoId", "Nombre");
+                ViewBag.ListaOrdenes = new SelectList(_ordenService.GetAll(), "OrdenId", "OrdenId");
 
                 return View(dto);
             }
