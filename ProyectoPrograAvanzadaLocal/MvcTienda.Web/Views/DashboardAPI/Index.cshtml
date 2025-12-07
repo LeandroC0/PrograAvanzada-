@@ -7,7 +7,6 @@
     <h2 class="text-center">Dashboard Administrador</h2>
     <hr />
 
-
     <div id="loadingSpinner" class="text-center">
         <div>
             <i class="fas fa-sync fa-3x text-primary spinner-icono"></i>
@@ -15,12 +14,7 @@
         <p class="mt-2 fw-bold texto-fijo">Cargando estadísticas...</p>
     </div>
 
-
-
-
-
     <div id="estadisticasContainer" style="display: none;">
-
 
         <div class="row">
 
@@ -62,7 +56,6 @@
 
         </div>
 
-
         <div class="row">
 
             <div class="col-md-4 mb-4">
@@ -94,7 +87,6 @@
 
         </div>
 
-
         <div class="row">
             <div class="col-12">
                 <div class="card shadow">
@@ -111,21 +103,14 @@
     </div>
 </div>
 
-
-
-
-
-
-
 @section Scripts {
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script>
-
-
-        const API_BASE_URL = "https://localhost:44318";
+        // ✅ URL BASE CORRECTA DE TU API
+        var apiBaseUrl = "https://localhost:44325/api/";
 
         $(document).ready(function () {
             cargarEstadisticas();
@@ -133,7 +118,7 @@
 
         function cargarEstadisticas() {
             $.ajax({
-                url: API_BASE_URL + "/api/dashboard/estadisticas",
+                url: apiBaseUrl + "dashboard/estadisticas",
                 type: "GET",
                 dataType: "json",
 
@@ -148,8 +133,6 @@
                     $("#estadisticasContainer").fadeIn(400);
 
                     $("#totalUsuarios").text(data.TotalUsuarios);
-                    $("#usuariosActivos").text(data.UsuariosActivos);
-                    $("#usuariosInactivos").text(data.UsuariosInactivos);
                     $("#totalProductos").text(data.TotalProductos);
                     $("#productosBajoInventario").text(data.ProductosBajoInventario);
 
@@ -158,7 +141,8 @@
                     crearGraficoVentas(data.VentasUltimaSemana);
                 },
 
-                error: function () {
+                error: function (err) {
+                    console.error("ERROR API:", err);
                     $("#loadingSpinner").html(
                         "<div class='alert alert-danger'>Error cargando el Dashboard desde el API</div>"
                     );

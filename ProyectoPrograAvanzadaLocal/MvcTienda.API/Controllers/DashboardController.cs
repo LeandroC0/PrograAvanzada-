@@ -1,47 +1,70 @@
-﻿using MvcTienda.Aplicacion.Dashboard;
+﻿using MvcTienda.Infrastructura.Data;
 using System;
+using System.Linq;
 using System.Web.Http;
+using System.Data.Entity; // ✅ IMPORTANTE para DbFunctions
 
-[RoutePrefix("api/dashboard")]
-[Authorize(Roles = "Administrador")]
-public class DashboardController : ApiController
+namespace MvcTienda.API.Controllers
 {
-    private readonly IDashboardService _dashboardService;
-
-    public DashboardController(IDashboardService dashboardService)
+    [RoutePrefix("api/dashboard")]
+    public class DashboardController : ApiController
     {
-        _dashboardService = dashboardService;
-    }
+        [HttpGet]
+        [Route("estadisticas")]
+        public IHttpActionResult Estadisticas()
+        {
+            try
+            {
+                using (var db = new AppDbContext())
+                {
+                    // ✅ TOTAL USUARIOS
+                    var totalUsuarios = db.Users.Count();
 
-    // GET api/dashboard/estadisticas
-    [HttpGet]
-    [Route("estadisticas")]
-    public IHttpActionResult GetEstadisticas()
-    {
-        try
-        {
-            var estadisticas = _dashboardService.ObtenerEstadisticas();
-            return Ok(estadisticas);
-        }
-        catch (Exception ex)
-        {
-            return InternalServerError(ex);
-        }
-    }
+                    // ✅ TOTAL PRODUCTOS
+                    var totalProductos = db.Productos.Count();
 
-    // GET api/dashboard/estadisticas/detalladas
-    [HttpGet]
-    [Route("estadisticas/detalladas")]
-    public IHttpActionResult GetEstadisticasDetalladas()
-    {
-        try
-        {
-            var estadisticas = _dashboardService.ObtenerEstadisticas();
-            return Ok(estadisticas);
-        }
-        catch (Exception ex)
-        {
-            return InternalServerError(ex);
+                    // ✅ PRODUCTOS CON BAJO INVENTARIO
+                    var productosBajoInventario = db.Productos
+                        .Count(p => p.Inventario < 5);
+
+                    // ✅ FECHA HACE 7 DÍAS (usando tu Fecha_Orden)
+                    var hace7Dias = DateTime.Now.AddDays(-7);
+
+                    // ✅ VENTAS ÚLTIMA SEMANA (FORMA COMPATIBLE CON EF)
+                    var ventasUltimaSemana = db.Ordenes
+                        .Where(o => o.Fecha_Orden >= hace7Dias)
+                        .GroupBy(o => DbFunctions.TruncateTime(o.Fecha_Orden))
+                        .Select(g => new
+                        {
+                            Dia = g.Key,
+                            TotalVentas = g.Sum(x => x.Total)
+                        })
+                        .OrderBy(x => x.Dia)
+                        .ToList()
+                        .Select(x => new
+                        {
+                            Dia = x.Dia.Value.ToString("dd/MM"), // ✅ AQUÍ SÍ se convierte
+                            TotalVentas = x.TotalVentas
+                        })
+                        .ToList();
+
+                    // ✅ TOTAL VENTAS
+                    var ventasTotales = db.Ordenes.Sum(o => (decimal?)o.Total) ?? 0;
+
+                    return Ok(new
+                    {
+                        TotalUsuarios = totalUsuarios,
+                        TotalProductos = totalProductos,
+                        ProductosBajoInventario = productosBajoInventario,
+                        VentasTotales = ventasTotales,
+                        VentasUltimaSemana = ventasUltimaSemana
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(ex);
+            }
         }
     }
 }

@@ -5,6 +5,8 @@ using MvcTienda.Aplicacion.Imagenes;
 using MvcTienda.Aplicacion.Ordenes;
 using MvcTienda.Aplicacion.Productos;
 using MvcTienda.Aplicacion.Resennas;
+using MvcTienda.Aplicacion.Seguridad;
+using MvcTienda.Auth.Services;
 using MvcTienda.Domain.Repositories;
 using MvcTienda.Infrastructura.Data;
 using MvcTienda.Infrastructura.Repositories;
@@ -40,6 +42,8 @@ namespace MvcTienda.API
             container.RegisterType<IDetalleOrdenService, DetalleOrdenService>();
             container.RegisterType<IEstadoService, EstadoService>();
             container.RegisterType<IImagenProductoService, ImagenProductoService>();
+            container.RegisterType<IAuthService, AuthService>();
+
 
             // Conectar Unity a Web API
             GlobalConfiguration.Configuration.DependencyResolver =
