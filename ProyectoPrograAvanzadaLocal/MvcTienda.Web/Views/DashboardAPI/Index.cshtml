@@ -3,105 +3,148 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="container-fluid mt-4">
+<div class="container-fluid">
     <h2 class="text-center">Dashboard Administrador</h2>
     <hr />
 
-    <div id="loadingSpinner" class="text-center">
-        <div>
-            <i class="fas fa-sync fa-3x text-primary spinner-icono"></i>
-        </div>
-        <p class="mt-2 fw-bold texto-fijo">Cargando estadísticas...</p>
+    <!-- Loading Spinner -->
+    <div id="loadingSpinner" class="text-center spinner-container">
+        <div class="spinner-icono"></div>
+        <p class="mt-3 texto-loading">Cargando estadísticas...</p>
     </div>
 
-    <div id="estadisticasContainer" style="display: none;">
+    <!-- Estadísticas -->
+    <div id="estadisticasContainer" style="display:none;">
 
         <div class="row">
 
+            <!-- Total Usuarios -->
             <div class="col-md-3 mb-4">
-                <div class="card text-white bg-primary shadow">
-                    <div class="card-body text-center">
-                        <h4 id="totalUsuarios">0</h4>
-                        <p>Total Usuarios</p>
+                <div class="card text-white bg-primary">
+                    <div class="card-body d-flex justify-content-between">
+                        <div>
+                            <h4 id="totalUsuarios">0</h4>
+                            <p>Total Usuarios</p>
+                        </div>
+                        <i class="fas fa-users fa-2x"></i>
                     </div>
                 </div>
             </div>
 
+            <!-- Total Productos -->
             <div class="col-md-3 mb-4">
-                <div class="card text-white bg-success shadow">
-                    <div class="card-body text-center">
-                        <h4 id="usuariosActivos">0</h4>
-                        <p>Usuarios Activos</p>
+                <div class="card text-white bg-success">
+                    <div class="card-body d-flex justify-content-between">
+                        <div>
+                            <h4 id="totalProductos">0</h4>
+                            <p>Total Productos</p>
+                        </div>
+                        <i class="fas fa-boxes fa-2x"></i>
                     </div>
                 </div>
             </div>
 
+            <!-- Bajo Inventario -->
             <div class="col-md-3 mb-4">
-                <div class="card text-white bg-secondary shadow">
-                    <div class="card-body text-center">
-                        <h4 id="usuariosInactivos">0</h4>
-                        <p>Usuarios Inactivos</p>
+                <div class="card text-white bg-warning">
+                    <div class="card-body d-flex justify-content-between">
+                        <div>
+                            <h4 id="productosBajoInventario">0</h4>
+                            <p>Bajo Inventario</p>
+                        </div>
+                        <i class="fas fa-exclamation-triangle fa-2x"></i>
                     </div>
                 </div>
             </div>
 
+            <!-- Ventas Totales -->
             <div class="col-md-3 mb-4">
-                <div class="card text-white bg-info shadow">
-                    <div class="card-body text-center">
-                        <h4 id="totalProductos">0</h4>
-                        <p>Total Productos</p>
+                <div class="card text-white bg-dark">
+                    <div class="card-body d-flex justify-content-between">
+                        <div>
+                            <h4 id="ventasTotales">₡0</h4>
+                            <p>Ventas Totales</p>
+                        </div>
+                        <i class="fas fa-money-bill-wave fa-2x"></i>
                     </div>
                 </div>
             </div>
 
         </div>
 
-        <div class="row">
-
-            <div class="col-md-4 mb-4">
-                <div class="card text-white bg-warning shadow">
-                    <div class="card-body text-center">
-                        <h4 id="productosBajoInventario">0</h4>
-                        <p>Bajo Inventario</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4 mb-4">
-                <div class="card text-white bg-dark shadow">
-                    <div class="card-body text-center">
-                        <h4 id="ventasTotales">₡0</h4>
-                        <p>Ventas Totales</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4 mb-4">
-                <div class="card text-white bg-danger shadow">
-                    <div class="card-body text-center">
-                        <h4 id="metricasExtra">-</h4>
-                        <p>Métricas Extra</p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
+        <!-- Gráfico -->
         <div class="row">
             <div class="col-12">
                 <div class="card shadow">
                     <div class="card-header text-center">
                         <h5>Ventas de la Última Semana</h5>
                     </div>
-                    <div class="card-body">
-                        <canvas id="ventasChart" height="120"></canvas>
+                    <div class="card-body d-flex justify-content-center">
+                        <div style="width: 85%;">
+                            <canvas id="ventasChart"></canvas>
+                        </div>
                     </div>
+
                 </div>
             </div>
         </div>
 
     </div>
 </div>
+
+<style>
+.container-fluid {
+    background: linear-gradient(to right, #f8f9fa, #eef1f5);
+    border-radius: 15px;
+    padding: 25px;
+}
+
+h2 {
+    font-weight: 800;
+    color: #1f2937;
+}
+
+.card {
+    border-radius: 18px;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+
+.card h4 {
+    font-size: 2.1rem;
+    font-weight: 700;
+}
+
+.spinner-container {
+    margin-top: 120px;
+}
+
+.spinner-icono {
+    width: 65px;
+    height: 65px;
+    border: 6px solid #ddd;
+    border-top: 6px solid #0d6efd;
+    border-radius: 50%;
+    animation: girar 1s linear infinite;
+    margin: auto;
+}
+
+@@keyframes girar {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.texto-loading {
+    font-weight: 600;
+    color: #374151;
+    font-size: 1rem;
+}
+</style>
 
 @section Scripts {
 
