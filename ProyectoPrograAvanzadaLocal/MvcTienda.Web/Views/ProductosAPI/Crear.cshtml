@@ -5,14 +5,27 @@
 <h2>Crear producto</h2>
 
 <form id="formCrear">
-    <div>
+    <div class="form-group">
         <label>Nombre</label>
         <input type="text" id="Nombre" class="form-control" required />
     </div>
 
-    <div>
+    <div class="form-group">
         <label>Precio</label>
-        <input type="number" id="Precio" class="form-control" required />
+        <input type="number" id="Precio" class="form-control" step="0.01" min="0" required />
+    </div>
+
+    <div class="form-group">
+        <label>Inventario</label>
+        <input type="number" id="Inventario" class="form-control" min="0" value="0" required />
+    </div>
+
+    <div class="form-group">
+        <label>Estado</label>
+        <select id="EstadoId" class="form-control" required>
+            <option value="1">Activo</option>
+            <option value="2">Inactivo</option>
+        </select>
     </div>
 
     <br />
@@ -20,26 +33,40 @@
     <a href="/ProductosAPI" class="btn btn-secondary">Cancelar</a>
 </form>
 
+<!-- CARGAR JQUERY PRIMERO -->
+<script src="/Scripts/jquery-3.7.1.js"></script>
+
 <script>
     const apiBaseUrl = "https://localhost:44325/api/productos";
 
-    $("#formCrear").submit(function (e) {
-        e.preventDefault();
+    $(document).ready(function () {
+        $("#formCrear").submit(function (e) {
+            e.preventDefault();
 
-        const data = {
-            Nombre: $("#Nombre").val(),
-            Precio: parseFloat($("#Precio").val())
-        };
+            const data = {
+                Nombre: $("#Nombre").val(),
+                Precio: parseFloat($("#Precio").val()),
+                Inventario: parseInt($("#Inventario").val()),
+                EstadoId: parseInt($("#EstadoId").val())
+            };
 
-        $.ajax({
-            url: apiBaseUrl,
-            method: "POST",
-            contentType: "application/json",
-            data: JSON.stringify(data),
-            success: function () {
-                alert("Producto creado correctamente");
-                window.location.href = "/ProductosAPI";
-            }
+            console.log("Enviando datos:", data); 
+
+
+            $.ajax({
+                url: apiBaseUrl,
+                method: "POST",
+                contentType: "application/json",
+                data: JSON.stringify(data),
+                success: function () {
+                    alert("Producto creado correctamente");
+                    window.location.href = "/ProductosAPI";
+                },
+                error: function (xhr) {
+                    console.error("Error en la petición:", xhr);
+                    alert("Error al crear el producto: " + (xhr.responseText || "Error desconocido"));
+                }
+            });
         });
     });
 </script>
