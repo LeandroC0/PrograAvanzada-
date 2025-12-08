@@ -22,7 +22,13 @@ namespace MvcTienda.API
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
+
             );
+
+            var json = config.Formatters.JsonFormatter;
+            json.SerializerSettings.Formatting = Newtonsoft.Json.Formatting.Indented;
+
+            config.Formatters.Remove(config.Formatters.XmlFormatter);
         }
     }
 }

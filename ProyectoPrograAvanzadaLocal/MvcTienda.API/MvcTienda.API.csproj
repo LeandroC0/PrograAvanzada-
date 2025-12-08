@@ -208,6 +208,7 @@
     <Compile Include="Controllers\CarritoApiController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ImagenProductoApiController.cs" />
     <Compile Include="Controllers\ProductosController.cs" />
     <Compile Include="Controllers\ResennaController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
@@ -286,6 +287,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
     <Folder Include="Views\CarritoApi\" />
+    <Folder Include="Views\ImagenProductoApi\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\bootstrap.min.js.map" />

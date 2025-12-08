@@ -1,52 +1,99 @@
-﻿@model IEnumerable<MvcTienda.Aplicacion.Imagenes.ImagenProductoDto>
-
-@{
+﻿@{
     ViewBag.Title = "Listado de Imágenes";
 }
 
 <h2 class="text-center mb-4">@ViewBag.Title</h2>
 
-<p>
-    @if (User.IsInRole("Administrador"))
-    {
+@if (User.IsInRole("Administrador"))
+{
+    <p>
         @Html.ActionLink("Agregar Imagen", "Create", null, new { @class = "btn btn-primary mb-3" })
-    }
+    </p>
+}
 
-</p>
-
-<table class="table table-striped table-bordered">
+<table id="tablaImagenes" class="table table-striped table-bordered">
     <thead class="thead-dark">
         <tr>
             <th>ID</th>
-            <th>Producto</th>
-            <th>Estado</th>
+            <th>Producto (ID)</th>
+            <th>Estado (ID)</th>
             <th>Vista Previa</th>
             <th>Acciones</th>
         </tr>
     </thead>
 
     <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@item.ImagenProductoId</td>
-                <td>@item.ProductoNombre</td>
-                <td>@item.EstadoNombre</td>
-                <td>
-                    @if (item.RutaImagen != null)
-                    {
-                        <img src="data:image/png;base64,@Convert.ToBase64String(item.RutaImagen)" width="80" />
-                    }
-                </td>
-                <td>
-                    @if (User.IsInRole("Administrador"))
-                    {
-                        @Html.ActionLink("Editar", "Edit", new { id = item.ImagenProductoId }, new { @class = "btn btn-warning btn-sm" })
-                        @Html.ActionLink("Detalles", "Details", new { id = item.ImagenProductoId }, new { @class = "btn btn-info btn-sm mx-1" })
-                        @Html.ActionLink("Eliminar", "Delete", new { id = item.ImagenProductoId }, new { @class = "btn btn-danger btn-sm" })
-                    }
-                </td>
-            </tr>
-        }
+        <!-- Aquí se generan las filas dinámicamente -->
     </tbody>
 </table>
+
+
+@section scripts{
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+
+    $(document).ready(function () {
+
+        cargarImagenes();
+
+        function cargarImagenes() {
+            $.ajax({
+                url: "https://localhost:44325/api/imagenes",
+                method: "GET",
+                success: function (data) {
+
+                    console.log("📌 Datos recibidos desde la API:", data);
+
+                    let tbody = $("#tablaImagenes tbody");
+                    tbody.empty();
+
+                    data.forEach(item => {
+
+                        let fila = `
+                            <tr>
+                                <td>${item.ImagenProductoId}</td>
+                                <td>${item.ProductoId}</td>
+                                <td>${item.EstadoId}</td>
+                                <td>
+                                    ${
+                                        item.ImagenBase64
+                                        ? `<img src="data:image/png;base64,${item.ImagenBase64}" width="80" />`
+                                        : ""
+                                    }
+                                </td>
+                                <td>${renderAcciones(item.ImagenProductoId)}</td>
+                            </tr>
+                        `;
+
+                        tbody.append(fila);
+                    });
+                },
+                error: function (err) {
+                    console.log("❌ Error al consumir la API", err);
+                    alert("Error al cargar datos desde la API.");
+                }
+            });
+        }
+
+        // -----------------------------------------------
+        // GENERADOR DE BOTONES (EDITAR, DETALLES, ELIMINAR)
+        // -----------------------------------------------
+        function renderAcciones(id) {
+            var botones = "";
+
+            @if (User.IsInRole("Administrador"))
+            {
+                @:botones = ''
+                @: + '<a href="/ImagenProducto/Edit/' + id + '" class="btn btn-warning btn-sm">Editar</a>'
+                @: + '<a href="/ImagenProducto/Details/' + id + '" class="btn btn-info btn-sm mx-1">Detalles</a>'
+                @: + '<a href="/ImagenProducto/Delete/' + id + '" class="btn btn-danger btn-sm">Eliminar</a>';
+            }
+
+            return botones;
+        }
+
+    });
+
+    </script>
+}
