@@ -1,10 +1,8 @@
 ﻿using MvcTienda.Aplicacion.Common;
+using MvcTienda.Aplicacion.Estados;
 using MvcTienda.Aplicacion.Resennas;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 
 namespace MvcTienda.API.Controllers
@@ -13,6 +11,10 @@ namespace MvcTienda.API.Controllers
     public class ResennasController : ApiController
     {
         private readonly IResennaService _service;
+        public class EstadoDto
+        {
+            public int NuevoEstadoId { get; set; }
+        }
 
         public ResennasController(IResennaService service)
         {
@@ -72,7 +74,7 @@ namespace MvcTienda.API.Controllers
                 // Devolver 201 Created con Location header
                 return CreatedAtRoute(
                     "GetResennaById",
-                    new { id = dto.ResennaId },   // Ojo: si el Id se genera en BD, deberías recuperarlo
+                    new { id = dto.ResennaId },
                     dto
                 );
             }
@@ -88,30 +90,23 @@ namespace MvcTienda.API.Controllers
 
         // PUT api/resennas/5
         [HttpPut]
-        [Route("{id:int}")]
-        public IHttpActionResult Put(int id, [FromBody] ResennaDto dto)
+        [Route("{id:int}/moderar")]
+        public IHttpActionResult Moderar(int id, [FromBody] EstadoDto dto)
         {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-
-            // Garantizar consistencia id en URL y body
-            if (dto.ResennaId != 0 && dto.ResennaId != id)
-                return BadRequest("Id del body no coincide con el de la URL.");
-
-            dto.ResennaId = id;
-
             try
             {
-                _service.Update(dto);
-                return StatusCode(HttpStatusCode.NoContent); // 204
+                if(dto == null || (dto.NuevoEstadoId != 4 && dto.NuevoEstadoId != 5))
+                {
+                    return BadRequest("El estado proporcionado no es válido para moderar la reseña.");
+                }
+                _service.CambiarEstado(id, dto.NuevoEstadoId);
+                return StatusCode(HttpStatusCode.NoContent);
             }
-            catch (NegocioException ex)
+            catch (Exception ex)
             {
-                return Content(HttpStatusCode.BadRequest, ex.Message);
-            }
-            catch (Exception)
-            {
-                return InternalServerError();
+                return InternalServerError(new Exception(
+                    $"Error interno: {ex.Message} - Stack: {ex.StackTrace}"
+                ));
             }
         }
 

@@ -2,6 +2,7 @@
 using MvcTienda.Domain.Entities;
 using MvcTienda.Domain.Repositories;
 using MvcTienda.Infrastructura.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -32,8 +33,45 @@ namespace MvcTienda.Aplicacion.Resennas
                 EstadoId = r.EstadoId,
                 EstadoNombre = r.Estado?.Nombre,
                 UsuarioId = r.UsuarioId,
-                UsuarioNombre = _userManager.FindByIdAsync(r.UsuarioId).Result?.UserName ?? "Desconocido",
+                UsuarioNombre = _userManager.FindByIdAsync(r.UsuarioId).Result?.UserName ?? "Desconocido"
             });
+        }
+        public IEnumerable<ResennaDto> GetAllPendiente()
+        {
+            return _repo.GetAll()
+                .Where(r => r.EstadoId != 4)
+                .Select(r => new ResennaDto
+                {
+                    ResennaId = r.ResennaId,
+                    Comentario = r.Comentario,
+                    Calificacion = r.Calificación,
+                    Fecha_Resenna = r.Fecha_Reseña,
+                    ProductoId = r.ProductoId,
+                    ProductoNombre = r.Producto?.Nombre,
+                    EstadoId = r.EstadoId,
+                    EstadoNombre = r.Estado?.Nombre,
+                    UsuarioId = r.UsuarioId,
+                    UsuarioNombre = _userManager.FindByIdAsync(r.UsuarioId).Result?.UserName ?? "Desconocido"
+                }).ToList();
+        }
+
+        public IEnumerable<ResennaDto> GetAllPublic()
+        {
+            return _repo.GetAll()
+                .Where(r => r.EstadoId == 4)
+                .Select(r => new ResennaDto
+                {
+                    ResennaId = r.ResennaId,
+                    Comentario = r.Comentario,
+                    Calificacion = r.Calificación,
+                    Fecha_Resenna = r.Fecha_Reseña,
+                    ProductoId = r.ProductoId,
+                    ProductoNombre = r.Producto?.Nombre,
+                    EstadoId = r.EstadoId,
+                    EstadoNombre = r.Estado?.Nombre,
+                    UsuarioId = r.UsuarioId,
+                    UsuarioNombre = _userManager.FindByIdAsync(r.UsuarioId).Result?.UserName ?? "Desconocido"
+                }).ToList();
         }
 
         public ResennaDto GetById(int id)
@@ -52,7 +90,7 @@ namespace MvcTienda.Aplicacion.Resennas
                 EstadoId = r.EstadoId,
                 EstadoNombre = r.Estado?.Nombre,
                 UsuarioId = r.UsuarioId,
-                UsuarioNombre = _userManager.FindByIdAsync(r.UsuarioId).Result?.UserName ?? "Desconocido",
+                UsuarioNombre = _userManager.FindByIdAsync(r.UsuarioId).Result?.UserName ?? "Desconocido"
             };
         }
 
@@ -84,6 +122,18 @@ namespace MvcTienda.Aplicacion.Resennas
             entity.EstadoId = dto.EstadoId;
             entity.UsuarioId = dto.UsuarioId;
 
+            _repo.Update(entity);
+            _repo.Save();
+        }
+
+        public void CambiarEstado(int id, int nuevoEstadoId)
+        {
+            if (nuevoEstadoId != 4 && nuevoEstadoId != 5)
+                throw new Exception("Estado Invalido");
+
+            var entity = _repo.GetById(id);
+            if (entity == null) return;
+            entity.EstadoId = nuevoEstadoId;
             _repo.Update(entity);
             _repo.Save();
         }

@@ -23,7 +23,12 @@ namespace MvcTienda.Web.Controllers
             {
                 ViewData["TituloPagina"] = "Lista de reseñas";
                 ViewBag.Mensaje = TempData["Mensaje"];
-                var resennas = _service.GetAll();
+                var resennas = _service.GetAllPublic();
+                if (resennas == null)
+                {
+                    ViewBag.Error = "No se encontraron reseñas.";
+                    return View(new List<ResennaDto>());
+                }
                 return View(resennas);
             }
             catch (Exception ex)

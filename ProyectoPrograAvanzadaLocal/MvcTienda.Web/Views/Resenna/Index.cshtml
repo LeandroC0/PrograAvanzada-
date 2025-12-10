@@ -21,20 +21,24 @@
 
                     <p class="card-text">
                         <strong>Comentario:</strong> @item.Comentario <br />
-                        <strong>Calificación:</strong> @item.Calificacion⭐<br />
+                        <strong>Calificación:</strong> @item.Calificacion ⭐<br />
                         <strong>Fecha:</strong> @item.Fecha_Resenna.ToString("yyyy-MM-dd") <br />
                         <strong>Producto:</strong> @item.ProductoNombre <br />
-                        <strong>Estado:</strong> @item.EstadoNombre <br />
+
+                        <!-- AQUÍ SÍ EXISTE EL BADGE -->
+                        <strong>Estado:</strong>
+                        <span id="estado-@item.ResennaId" class="badge bg-primary">
+                            @item.EstadoNombre
+                        </span>
+                        <br />
+
                         <strong>Usuario:</strong> @item.UsuarioNombre
                     </p>
 
-                    <div class="d-flex justify-content-between">
+                    <div class="d-flex justify-content-between mt-3">
                         @Html.ActionLink("Detalles", "Details", new { id = item.ResennaId }, new { @class = "btn btn-info btn-sm" })
-                        @Html.ActionLink("Editar", "Edit", new { id = item.ResennaId }, new { @class = "btn btn-warning btn-sm" })
-                        @Html.ActionLink("Eliminar", "Delete", new { id = item.ResennaId }, new { @class = "btn btn-danger btn-sm" })
                     </div>
                 </div>
-
             </div>
         </div>
     }

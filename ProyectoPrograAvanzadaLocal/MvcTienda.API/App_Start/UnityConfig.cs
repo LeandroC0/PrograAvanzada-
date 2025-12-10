@@ -1,3 +1,5 @@
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using MvcTienda.Aplicacion.Dashboard;
 using MvcTienda.Aplicacion.DetallesOrden;
 using MvcTienda.Aplicacion.Estados;
@@ -8,6 +10,7 @@ using MvcTienda.Aplicacion.Resennas;
 using MvcTienda.Aplicacion.Seguridad;
 using MvcTienda.Auth.Services;
 using MvcTienda.Domain.Repositories;
+using MvcTienda.Infrastructura.Identity;
 using MvcTienda.Infrastructura.Data;
 using MvcTienda.Infrastructura.Repositories;
 using System.Web.Http;
@@ -24,7 +27,22 @@ namespace MvcTienda.API
             var container = new UnityContainer();
 
             // DbContext
-            container.RegisterType<AppDbContext, AppDbContext>(new HierarchicalLifetimeManager());
+            container.RegisterType<AppDbContext, AppDbContext>(
+                new HierarchicalLifetimeManager());
+
+            // Identity Stores
+            container.RegisterType<IUserStore<ApplicationUser, int>,
+                ApplicationUserStore>(new HierarchicalLifetimeManager());
+
+            container.RegisterType<IRoleStore<CustomRole, int>,
+                ApplicationRoleStore>(new HierarchicalLifetimeManager());
+
+            // Identity Managers
+            container.RegisterType<UserManager<ApplicationUser, int>,
+                ApplicationUserManager>(new HierarchicalLifetimeManager());
+
+            container.RegisterType<RoleManager<CustomRole, int>,
+                ApplicationRoleManager>(new HierarchicalLifetimeManager());
 
             // Repositorios
             container.RegisterType<IProductoRepository, ProductRepository>();

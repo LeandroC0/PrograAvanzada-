@@ -1,0 +1,83 @@
+﻿@model IEnumerable<MvcTienda.Aplicacion.Resennas.ResennaDto>
+
+<h2>Panel de Moderación de Reseñas (API)</h2>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        var badgeClass = "badge bg-secondary";
+
+        if (item.EstadoId == 3)
+            badgeClass = "badge bg-warning text-dark"; // Pendiente
+        else if (item.EstadoId == 4)
+            badgeClass = "badge bg-success"; // Aprobada
+        else if (item.EstadoId == 5)
+            badgeClass = "badge bg-danger"; // Rechazada
+
+        <div class="col-md-4 mb-4">
+            <div class="card shadow">
+                <div class="card-body">
+
+                    <h5>Reseña #@item.ResennaId</h5>
+
+                    <p>
+                        <strong>Comentario:</strong> @item.Comentario <br />
+                        <strong>Calificación:</strong> @item.Calificacion ⭐<br />
+                        <strong>Producto:</strong> @item.ProductoNombre <br />
+
+                        <strong>Estado:</strong>
+                        <span id="estado-@item.ResennaId" class="@badgeClass">
+                            @item.EstadoNombre
+                        </span><br />
+
+                        <strong>Usuario:</strong> @item.UsuarioNombre
+                    </p>
+
+                    <button class="btn btn-success aprobar" data-id="@item.ResennaId">Aprobar</button>
+                    <button class="btn btn-danger rechazar" data-id="@item.ResennaId">Rechazar</button>
+
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@section scripts{
+    <script>
+        $(function () {
+
+            const API_URL = "https://localhost:44325/api/resennas/";
+
+            function cambiarEstado(id, nuevoEstado) {
+
+                $.ajax({
+                    url: API_URL + id + "/moderar",
+                    method: "PUT",
+                    data: JSON.stringify(nuevoEstado),
+                    contentType: "application/json",
+                    success: function () {
+
+                        let badge = $("#estado-" + id);
+
+                        if (nuevoEstado === 4) {
+                            badge.text("Aprobado");
+                            badge.removeClass().addClass("badge bg-success");
+                        } else {
+                            badge.text("Rechazado");
+                            badge.removeClass().addClass("badge bg-danger");
+                        }
+                    }
+                });
+            }
+
+            $(".aprobar").click(function () {
+                cambiarEstado($(this).data("id"), 4);
+            });
+
+            $(".rechazar").click(function () {
+                cambiarEstado($(this).data("id"), 5);
+            });
+
+        });
+    </script>
+}
