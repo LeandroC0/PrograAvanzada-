@@ -60,27 +60,27 @@
     @RenderSection("scripts", required: false)
 
     <script>
-     const apiCarrito = "https://localhost:44325/api/carrito";
-    let carritoId = localStorage.getItem("carritoId");
+        const apiCarrito = "https://localhost:44325/api/carrito";
+        let carritoId = localStorage.getItem("carritoId");
 
-    if (!carritoId) {
-        carritoId = self.crypto.randomUUID();
-        localStorage.setItem("carritoId", carritoId);
-    }
+        if (!carritoId) {
+            carritoId = self.crypto.randomUUID();
+            localStorage.setItem("carritoId", carritoId);
+        }
 
-    function actualizarContadorCarrito() {
-        $.get(apiCarrito + "?carritoId=" + carritoId, function (c) {
-            let totalItems = c.items.length;
-            $("#contadorCarrito").text(totalItems);
-        }).fail(function () {
-            $("#contadorCarrito").text(0);
+        function actualizarContadorCarrito() {
+            $.get(apiCarrito + "?carritoId=" + carritoId, function (c) {
+                let totalItems = c.Items.length;
+                $("#contadorCarrito").text(totalItems);
+            }).fail(function () {
+                $("#contadorCarrito").text(0);
+            });
+        }
+
+        // Ejecutar al cargar la página
+        $(document).ready(function () {
+            actualizarContadorCarrito();
         });
-    }
-
-    // Ejecutar al cargar la página
-    $(document).ready(function () {
-        actualizarContadorCarrito();
-    });
     </script>
 
 </body>

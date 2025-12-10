@@ -38,56 +38,6 @@ namespace MvcTienda.API.Controllers
             }
         }
 
-        // GET api/resennas/5
-        [HttpGet]
-        [Route("{id:int}", Name = "GetResennaById")]
-        public IHttpActionResult Get(int id)
-        {
-            try
-            {
-                var resenna = _service.GetById(id);
-                return Ok(resenna);
-            }
-            catch (NegocioException ex)
-            {
-                // Reglas de negocio violadas → 400
-                return Content(HttpStatusCode.BadRequest, ex.Message);
-            }
-            catch (Exception)
-            {
-                return InternalServerError();
-            }
-        }
-
-        // POST api/resennas
-        [HttpPost]
-        [Route("")]
-        public IHttpActionResult Post([FromBody] ResennaDto dto)
-        {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-
-            try
-            {
-                _service.Create(dto);
-
-                // Devolver 201 Created con Location header
-                return CreatedAtRoute(
-                    "GetResennaById",
-                    new { id = dto.ResennaId },
-                    dto
-                );
-            }
-            catch (NegocioException ex)
-            {
-                return Content(HttpStatusCode.BadRequest, ex.Message);
-            }
-            catch (Exception)
-            {
-                return InternalServerError();
-            }
-        }
-
         // PUT api/resennas/5
         [HttpPut]
         [Route("{id:int}/moderar")]
@@ -107,27 +57,6 @@ namespace MvcTienda.API.Controllers
                 return InternalServerError(new Exception(
                     $"Error interno: {ex.Message} - Stack: {ex.StackTrace}"
                 ));
-            }
-        }
-
-        // DELETE api/resennas/5
-        [HttpDelete]
-        [Route("{id:int}")]
-        public IHttpActionResult Delete(int id)
-        {
-            try
-            {
-                _service.Delete(id);
-                return StatusCode(HttpStatusCode.NoContent);
-            }
-            catch (NegocioException ex)
-            {
-                // Podrías usar 404 si el mensaje es "no existe", o 400 si es regla de negocio
-                return Content(HttpStatusCode.BadRequest, ex.Message);
-            }
-            catch (Exception)
-            {
-                return InternalServerError();
             }
         }
     }

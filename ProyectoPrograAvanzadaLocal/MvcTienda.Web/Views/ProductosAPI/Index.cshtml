@@ -127,10 +127,10 @@
 const api = "https://localhost:44325/api/";
 const isAdmin = @isAdmin.ToString().ToLower();
 const isLogged = @isLogged.ToString().ToLower();
-const isUser = @isUser.ToString().ToLower(); // 👈 Asociado / usuario normal
+const isUser = @isUser.ToString().ToLower(); 
 
 // CARRITO LOCAL
-let carritoId = localStorage.getItem("carritoId");
+carritoId = localStorage.getItem("carritoId");
 if (!carritoId) {
     carritoId = self.crypto.randomUUID();
     localStorage.setItem("carritoId", carritoId);
