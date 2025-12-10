@@ -1,5 +1,7 @@
-﻿using System.Web.Mvc;
+﻿using Microsoft.AspNet.Identity;
 using MvcTienda.Aplicacion.Ordenes;
+using System.Linq;
+using System.Web.Mvc;
 
 namespace MvcTienda.Web.Controllers
 {
@@ -86,5 +88,19 @@ namespace MvcTienda.Web.Controllers
             _service.Delete(id);
             return RedirectToAction("Index");
         }
+        [Authorize]
+        public ActionResult MisOrdenes()
+        {
+            int usuarioId = User.Identity.GetUserId<int>();
+
+            var ordenes = _service
+                .GetAll()
+                .Where(o => o.UsuarioId == usuarioId)
+                .OrderByDescending(o => o.Fecha_Orden)
+                .ToList();
+
+            return View(ordenes);
+        }
+
     }
 }

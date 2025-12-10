@@ -12,17 +12,18 @@ public class ProductosAPIController : Controller
         ViewBag.Id = id;
         return View();
     }
-
+    [Authorize(Roles = "Administrador")]
     public ActionResult Crear()
     {
         return View();
     }
-
+    [Authorize(Roles = "Administrador")]
     public ActionResult Editar(int id)
     {
         ViewBag.Id = id;
         return View();
     }
+    [Authorize(Roles = "Administrador")]
     public ActionResult CambiarEstado(int id)
     {
         ViewBag.Id = id;

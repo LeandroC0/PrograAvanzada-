@@ -1,0 +1,39 @@
+﻿@model IEnumerable<MvcTienda.Aplicacion.Ordenes.OrdenDto>
+
+@{
+    ViewBag.Title = "Mis Órdenes";
+}
+
+<h2>Mis Órdenes</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Fecha</th>
+            <th>Total</th>
+            <th>Estado</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @if (Model != null && Model.Any())
+        {
+            foreach (var o in Model)
+            {
+                <tr>
+                    <td>@o.OrdenId</td>
+                    <td>@o.Fecha_Orden</td>
+                    <td>@o.Total</td>
+                    <td>@o.EstadoNombre</td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="4" class="text-center">No tienes órdenes registradas.</td>
+            </tr>
+        }
+    </tbody>
+</table>

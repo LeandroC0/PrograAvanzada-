@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 
 namespace MvcTienda.API.Controllers
@@ -22,97 +21,47 @@ namespace MvcTienda.API.Controllers
         // GET api/productos
         [HttpGet]
         [Route("")]
-        public IHttpActionResult Get()
+        public IHttpActionResult GetAll()
         {
-            try
-            {
-                var productos = _service.GetAll();
-                return Ok(productos);
-            }
-            catch (Exception)
-            {
-                // Aquí conviene loguear
-                return InternalServerError();
-            }
+            var productos = _service.GetAll();
+            return Ok(productos);
         }
 
         // GET api/productos/5
         [HttpGet]
-        [Route("{id:int}", Name = "GetProductoById")]
+        [Route("{id:int}")]
         public IHttpActionResult Get(int id)
         {
-            try
-            {
-                var producto = _service.GetById(id);
-                return Ok(producto);
-            }
-            catch (NegocioException ex)
-            {
-                // Reglas de negocio violadas → 400
-                return Content(HttpStatusCode.BadRequest, ex.Message);
-            }
-            catch (Exception)
-            {
-                return InternalServerError();
-            }
+            var producto = _service.GetById(id);
+            if (producto == null) return NotFound();
+
+            return Ok(producto);
         }
 
-        // POST api/productos
+        // POST api/productos (Crear)
         [HttpPost]
         [Route("")]
-        public IHttpActionResult Post([FromBody] ProductoDto dto)
+        public IHttpActionResult Create([FromBody] ProductoDto dto)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            try
-            {
-                _service.Create(dto);
-
-                // Devolver 201 Created con Location header
-                return CreatedAtRoute(
-                    "GetProductoById",
-                    new { id = dto.ProductoId },   // Ojo: si el Id se genera en BD, deberías recuperarlo
-                    dto
-                );
-            }
-            catch (NegocioException ex)
-            {
-                return Content(HttpStatusCode.BadRequest, ex.Message);
-            }
-            catch (Exception)
-            {
-                return InternalServerError();
-            }
+            _service.Create(dto);
+            return Ok(new { mensaje = "Producto creado correctamente" });
         }
 
-        // PUT api/productos/5
+        // PUT api/productos/{id} (Editar)
         [HttpPut]
         [Route("{id:int}")]
-        public IHttpActionResult Put(int id, [FromBody] ProductoDto dto)
+        public IHttpActionResult Update(int id, [FromBody] ProductoDto dto)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            // Garantizar consistencia id en URL y body
-            if (dto.ProductoId != 0 && dto.ProductoId != id)
-                return BadRequest("Id del body no coincide con el de la URL.");
-
             dto.ProductoId = id;
+            _service.Update(dto);
 
-            try
-            {
-                _service.Update(dto);
-                return StatusCode(HttpStatusCode.NoContent); // 204
-            }
-            catch (NegocioException ex)
-            {
-                return Content(HttpStatusCode.BadRequest, ex.Message);
-            }
-            catch (Exception)
-            {
-                return InternalServerError();
-            }
+            return Ok(new { mensaje = "Producto actualizado correctamente" });
         }
 
         [HttpPut]
@@ -126,9 +75,8 @@ namespace MvcTienda.API.Controllers
                 if (producto == null)
                     return NotFound();
 
-                producto.EstadoId = dto.EstadoId;
-
-                _service.Update(producto);
+                // Solo actualizar estado, sin modificar nada más
+                _service.ChangeStatus(id, dto.EstadoId);
 
                 return Ok(new { mensaje = "Estado actualizado correctamente" });
             }
@@ -136,21 +84,11 @@ namespace MvcTienda.API.Controllers
             {
                 return Content(HttpStatusCode.BadRequest, ex.Message);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return InternalServerError();
+                return InternalServerError(ex);
             }
         }
-
-        [HttpGet]
-        [Route("producto/{productoId:int}")]
-        public IHttpActionResult GetImagenesPorProducto(int productoId)
-        {
-            var imagenes = _service.GetAll().Where(i => i.ProductoId == productoId && i.EstadoId == 1);
-
-            return Ok(imagenes);
-        }
-
 
     }
 }

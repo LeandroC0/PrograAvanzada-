@@ -1,6 +1,8 @@
 ﻿@{
     ViewBag.Title = "Catálogo de Productos";
     bool isAdmin = User.IsInRole("Administrador");
+    bool isLogged = Request.IsAuthenticated;
+    bool isUser = isLogged && !isAdmin; // 👈 USUARIO NORMAL (Asociado)
 }
 
 <h2>Catálogo de Productos (API)</h2>
@@ -11,294 +13,420 @@
         <div class="d-flex justify-content-between align-items-center">
             <div>
                 <label><strong>Filtrar:</strong></label>
-                <select id="filtroEstado" class="form-control w-25 d-inline-block ml-2">
+                <select id="filtroEstado" class="form-control w-25 d-inline-block ms-2">
                     <option value="0">Todos</option>
                     <option value="1">Activos</option>
                     <option value="2">Inactivos</option>
                 </select>
             </div>
-            <a href="/ProductosAPI/Crear" class="btn btn-primary">
+
+            <button class="btn btn-primary" id="btnAbrirCrear">
                 <i class="fas fa-plus"></i> Crear Producto
-            </a>
+            </button>
         </div>
     </div>
 }
-
-@Html.AntiForgeryToken()
 
 <div class="row" id="productosContainer"></div>
 
-@if (!isAdmin)
-{
-    <div class="modal fade" id="compraModal" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Comprar Producto</h5>
-                    <button type="button" class="close" data-dismiss="modal">
-                        <span>&times;</span>
-                    </button>
+
+<!-- ============================================================
+   MODAL CREAR / EDITAR
+=============================================================== -->
+<div class="modal fade" id="modalProducto" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title" id="tituloModal"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body">
+
+                <input type="hidden" id="productoId" />
+
+                <div class="form-group mb-2">
+                    <label>Nombre:</label>
+                    <input type="text" id="nombre" class="form-control" />
                 </div>
-                <div class="modal-body">
-                    <p id="modalProductName"></p>
-                    <p><strong>Precio: </strong><span id="modalProductPrice"></span></p>
-                    <div class="form-group">
-                        <label for="cantidad">Cantidad:</label>
-                        <input type="number" id="cantidad" class="form-control" min="1" value="1">
-                    </div>
+
+                <div class="form-group mb-2">
+                    <label>Precio:</label>
+                    <input type="number" id="precio" class="form-control" />
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary" id="confirmarCompra">Confirmar Compra</button>
+
+                <div class="form-group mb-2">
+                    <label>Inventario:</label>
+                    <input type="number" id="inventario" class="form-control" />
                 </div>
+
+                <div class="form-group mb-2">
+                    <label>Estado:</label>
+                    <select id="estadoId" class="form-control">
+                        <option value="1">Activo</option>
+                        <option value="2">Inactivo</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button id="btnGuardarProducto" class="btn btn-primary">Guardar</button>
             </div>
         </div>
     </div>
-}
+</div>
+
+
+<!-- ============================================================
+   MODAL DETALLES
+=============================================================== -->
+<div class="modal fade" id="modalDetalles" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <div class="modal-header bg-info text-white">
+                <h5 class="modal-title">Detalles del Producto</h5>
+                <button class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body">
+
+                <h4 id="detNombre"></h4>
+
+                <div id="carouselDetalles" class="carousel slide mb-3">
+                    <div class="carousel-inner" id="detCarrusel"></div>
+
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselDetalles" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </button>
+
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselDetalles" data-bs-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </button>
+                </div>
+
+                <p><strong>Precio:</strong> <span id="detPrecio"></span></p>
+                <p><strong>Inventario:</strong> <span id="detInventario"></span></p>
+                <p><strong>Estado:</strong> <span id="detEstado"></span></p>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
 
 <script src="/Scripts/jquery-3.7.1.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
 
-    var apiBaseUrl = "https://localhost:44325/api/";
-    var isAdmin = @((isAdmin).ToString().ToLower());
-    var API_URL = "https://localhost:44325";
+const api = "https://localhost:44325/api/";
+const isAdmin = @isAdmin.ToString().ToLower();
+const isLogged = @isLogged.ToString().ToLower();
+const isUser = @isUser.ToString().ToLower(); // 👈 Asociado / usuario normal
 
-    let carritoId = localStorage.getItem("carritoId");
-    if (!carritoId) {
-        carritoId = self.crypto.randomUUID();
-        localStorage.setItem("carritoId", carritoId);
+// CARRITO LOCAL
+let carritoId = localStorage.getItem("carritoId");
+if (!carritoId) {
+    carritoId = self.crypto.randomUUID();
+    localStorage.setItem("carritoId", carritoId);
+}
+
+
+/* ============================================================
+   CARGAR PRODUCTOS
+=============================================================== */
+$(document).ready(function () {
+    cargarProductos();
+
+    if (isAdmin) {
+        $("#filtroEstado").change(cargarProductos);
+        $("#btnAbrirCrear").click(() => abrirModalCrear());
     }
+});
 
-    $(document).ready(function () {
-        cargarProductos();
-        actualizarCarritoNavbar();
+
+function cargarProductos() {
+
+    $.get(api + "productos", function (productos) {
+
+        if (!isAdmin)
+            productos = productos.filter(x => x.EstadoId === 1);
 
         if (isAdmin) {
-            $("#filtroEstado").change(function () {
-                cargarProductos();
-            });
+            let estado = parseInt($("#filtroEstado").val());
+            if (estado !== 0)
+                productos = productos.filter(x => x.EstadoId === estado);
         }
+
+        $.get(api + "imagenes", function (imgs) {
+
+            productos.forEach(p => {
+                let relacionadas = imgs.filter(i => i.ProductoId === p.ProductoId);
+
+                p.Imagenes = relacionadas.length > 0
+                    ? relacionadas.map(i => "data:image/png;base64," + i.ImagenBase64)
+                    : ["/Content/img/noimage.png"];
+            });
+
+            renderProductos(productos);
+
+        });
+
     });
 
-    /**************************************************
-     *     CARGAR PRODUCTOS + IMÁGENES RELACIONADAS   *
-     **************************************************/
-    function cargarProductos() {
+}
 
-        $.ajax({
-            url: apiBaseUrl + "productos",
-            method: "GET",
-            success: function (productos) {
 
-                if (!isAdmin) {
-                    productos = productos.filter(x => x.EstadoId === 1);
-                }
 
-                if (isAdmin) {
-                    const estado = parseInt($("#filtroEstado").val());
-                    if (estado !== 0) {
-                        productos = productos.filter(x => x.EstadoId === estado);
-                    }
-                }
+/* ============================================================
+   RENDER PRODUCTOS + BOTONES CORRECTOS POR ROL
+=============================================================== */
+function renderProductos(list) {
 
-                // Cargar imágenes
-                $.ajax({
-                    url: apiBaseUrl + "imagenes",
-                    method: "GET",
-                    success: function (imagenes) {
+    let html = "";
 
-                        // Unir producto ↔ imagen
-                        productos.forEach(p => {
-                            let imgs = imagenes.filter(i => i.ProductoId === p.ProductoId);
+    list.forEach(p => {
 
-                            if (imgs.length > 0) {
-                                p.Imagenes = imgs.map(i => "data:image/png;base64," + i.ImagenBase64);
-                            } else {
-                                p.Imagenes = ["/Content/img/noimage.png"];
-                            }
+        const estadoBadge = p.EstadoId === 1
+            ? `<span class='badge bg-success'>Activo</span>`
+            : `<span class='badge bg-secondary'>Inactivo</span>`;
 
-                        });
-
-                        mostrarProductos(productos);
-                    }
-                });
-            }
-        });
-    }
-
-    /**************************************************
-     *                RENDERIZAR PRODUCTOS            *
-     **************************************************/
-    function mostrarProductos(data) {
-
-        let html = "";
-
-        data.forEach(p => {
-
-            let badge = p.EstadoId === 1
-                ? "<span class='badge badge-success'>Activo</span>"
-                : "<span class='badge badge-secondary'>Inactivo</span>";
-
-            html += `
+        html += `
 <div class="col-md-4 col-lg-3 mb-4">
-    <div class="card h-100 ${p.EstadoId === 2 ? "border-secondary" : "border-primary"}">
+    <div class="card h-100 shadow">
 
-        ${p.EstadoId === 2 ? `
-        <div class="card-header bg-secondary text-white py-1">
-            <small class="float-right">INACTIVO</small>
-        </div>` : ""}
-
-        <!-- CAROUSEL Bootstrap 5 -->
-        <div id="carousel-${p.ProductoId}" class="carousel slide" data-bs-ride="carousel">
+        <div id="carousel-${p.ProductoId}" class="carousel slide">
             <div class="carousel-inner">
-                ${p.Imagenes.map((img, index) => `
-                    <div class="carousel-item ${index === 0 ? "active" : ""}">
-                        <img src="${img}" class="d-block w-100" style="height:180px; object-fit:cover;" />
-                    </div>
-                `).join("")}
+                ${p.Imagenes.map((img, idx) => `
+                    <div class="carousel-item ${idx === 0 ? "active" : ""}">
+                        <img src="${img}" class="d-block w-100" style="height:180px; object-fit:cover;">
+                    </div>`).join("")}
             </div>
-
-            ${p.Imagenes.length > 1 ? `
-            <button class="carousel-control-prev" type="button" data-bs-target="#carousel-${p.ProductoId}" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon"></span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carousel-${p.ProductoId}" data-bs-slide="next">
-                <span class="carousel-control-next-icon"></span>
-            </button>
-            ` : ""}
         </div>
 
         <div class="card-body d-flex flex-column">
-            <h5 class="card-title">${p.Nombre}</h5>
+            <h5>${p.Nombre}</h5>
 
-            <p class="card-text flex-grow-1">
-                <strong>Precio:</strong> <span class="text-success">${p.Precio.toLocaleString()}</span><br/>
-                <strong>Disponibles:</strong> ${p.Inventario} unidades<br/>
-                ${isAdmin ? badge : ""}
+            <p>
+                <strong>Precio:</strong> ${p.Precio}<br>
+                <strong>Stock:</strong> ${p.Inventario}<br>
+                ${estadoBadge}
             </p>
 
-            <div class="mt-auto">
-                <div class="btn-group w-100" role="group">
-                    <a class="btn btn-outline-info btn-sm" href="/ProductosAPI/Detalle/${p.ProductoId}">Ver</a>
+            <div class="mt-auto btn-group w-100">
 
-                    ${isAdmin
-                    ? `
-                        <a class="btn btn-outline-warning btn-sm" href="/ProductosAPI/Editar/${p.ProductoId}">Editar</a>
-                        ${p.EstadoId === 1
-                        ? `<button class="btn btn-outline-danger btn-sm cambiar-estado-btn" data-product-id="${p.ProductoId}" data-nuevo-estado="2">Desactivar</button>`
-                        : `<button class="btn btn-outline-success btn-sm cambiar-estado-btn" data-product-id="${p.ProductoId}" data-nuevo-estado="1">Activar</button>`
-                    }
-                        `
-                    : `
-                        ${p.EstadoId === 1
-                        ? `<button class="btn btn-success btn-sm agregar-carrito-btn"
-                                       data-product-id="${p.ProductoId}"
-                                       data-product-name="${p.Nombre}"
-                                       data-product-price="${p.Precio}">
-                                    Agregar al carrito
-                               </button>`
-                        : ""
-                    }
-                        `
+                <button class="btn btn-info btn-sm" onclick="verDetalles(${p.ProductoId})">Ver</button>
+
+                ${isAdmin ?
+                    ` <button class="btn btn-warning btn-sm" onclick="abrirModalEditar(${p.ProductoId})">Editar</button>
+                      <button class="btn btn-${p.EstadoId === 1 ? "danger" : "success"} btn-sm"
+                              onclick="cambiarEstado(${p.ProductoId}, ${p.EstadoId === 1 ? 2 : 1})">
+                        ${p.EstadoId === 1 ? "Desactivar" : "Activar"}
+                      </button>`
+                :
+                (isUser && p.EstadoId === 1) ?
+                    ` <button class="btn btn-success btn-sm agregar-carrito"
+                              data-id="${p.ProductoId}" data-nombre="${p.Nombre}">
+                          Agregar
+                      </button>`
+                :
+                    ""
                 }
-                </div>
-            </div>
 
+            </div>
         </div>
     </div>
 </div>`;
+    });
 
+    $("#productosContainer").html(html);
+
+    // Inicializar carruseles
+    setTimeout(() => {
+        document.querySelectorAll(".carousel").forEach(c => {
+            new bootstrap.Carousel(c, { interval: 2600 });
+        });
+    }, 100);
+}
+
+
+
+/* ============================================================
+   AGREGAR AL CARRITO → Solo usuario normal
+=============================================================== */
+    $(document).on("click", ".agregar-carrito", function () {
+
+        let id = $(this).data("id");
+        let nombre = $(this).data("nombre");
+
+        $.ajax({
+            url: api + "carrito/agregar?carritoId=" + carritoId,
+            method: "POST",
+            contentType: "application/json",
+            data: JSON.stringify({ ProductoId: id, Cantidad: 1 }),
+            success: function () {
+                alert("Agregado al carrito: " + nombre);
+                actualizarContadorCarrito(); 
+            }
         });
 
-        $("#productosContainer").html(html);
-    }
+    });
 
-    /**************************************************
-     *                BOTÓN CAMBIAR ESTADO            *
-     **************************************************/
-    $(document).on("click", ".cambiar-estado-btn", function () {
-        let productId = $(this).data('product-id');
-        let nuevoEstado = $(this).data('nuevo-estado');
-        let accion = nuevoEstado == 1 ? "activar" : "desactivar";
 
-        if (!confirm(`¿Estás seguro que deseas ${accion} este producto?`)) {
-            return;
+
+/* ============================================================
+   CREAR PRODUCTO
+=============================================================== */
+function abrirModalCrear() {
+    $("#tituloModal").text("Crear Producto");
+    $("#productoId").val("");
+    $("#nombre").val("");
+    $("#precio").val(0);
+    $("#inventario").val(0);
+    $("#estadoId").val(1);
+
+    $("#btnGuardarProducto").off().click(() => guardarProductoAPI());
+
+    $("#modalProducto").modal("show");
+}
+
+function guardarProductoAPI() {
+
+    let dto = {
+        Nombre: $("#nombre").val(),
+        Precio: parseFloat($("#precio").val()),
+        Inventario: parseInt($("#inventario").val()),
+        EstadoId: parseInt($("#estadoId").val())
+    };
+
+    $.ajax({
+        url: api + "productos",
+        method: "POST",
+        contentType: "application/json",
+        data: JSON.stringify(dto),
+        success: function () {
+            alert("Producto creado ✔");
+            $("#modalProducto").modal("hide");
+            cargarProductos();
         }
+    });
+}
 
-        let token = $('input[name="__RequestVerificationToken"]').val();
 
-        $.ajax({
-            url: '/Producto/ChangeStatus/' + productId,
-            method: 'POST',
-            data: {
-                estadoId: nuevoEstado,
-                __RequestVerificationToken: token
-            },
-            success: function () {
-                alert(`Producto ${accion}do correctamente`);
-                cargarProductos();
-            },
-            error: function () {
-                alert("No se pudo cambiar el estado del producto");
-            }
-        });
+/* ============================================================
+   EDITAR PRODUCTO
+=============================================================== */
+function abrirModalEditar(id) {
+
+    $("#tituloModal").text("Editar Producto");
+
+    $.get(api + "productos/" + id, function (p) {
+
+        $("#productoId").val(p.ProductoId);
+        $("#nombre").val(p.Nombre);
+        $("#precio").val(p.Precio);
+        $("#inventario").val(p.Inventario);
+        $("#estadoId").val(p.EstadoId);
+
+        $("#btnGuardarProducto").off().click(() => actualizarProductoAPI(id));
+
+        $("#modalProducto").modal("show");
     });
 
-    /**************************************************
-     *               AGREGAR AL CARRITO               *
-     **************************************************/
-    $(document).on("click", ".agregar-carrito-btn", function () {
+}
 
-        let productId = $(this).data('product-id');
-        let productName = $(this).data('product-name');
-        let productPrice = $(this).data('product-price');
+function actualizarProductoAPI(id) {
 
-        $.ajax({
-            url: API_URL + '/api/carrito/agregar?carritoId=' + carritoId,
-            method: 'POST',
-            contentType: 'application/json',
-            data: JSON.stringify({
-                productoId: productId,
-                cantidad: 1
-            }),
-            success: function () {
-                alert('Agregado al carrito: ' + productName);
-                actualizarCarritoNavbar();
-            },
-            error: function () {
-                alert("No se pudo agregar al carrito");
+    let dto = {
+        ProductoId: id,
+        Nombre: $("#nombre").val(),
+        Precio: parseFloat($("#precio").val()),
+        Inventario: parseInt($("#inventario").val()),
+        EstadoId: parseInt($("#estadoId").val())
+    };
+
+    $.ajax({
+        url: api + "productos/" + id,
+        method: "PUT",
+        contentType: "application/json",
+        data: JSON.stringify(dto),
+        success: function () {
+            alert("Producto actualizado ✔");
+            $("#modalProducto").modal("hide");
+            cargarProductos();
+        }
+    });
+}
+
+
+
+/* ============================================================
+   CAMBIAR ESTADO
+=============================================================== */
+function cambiarEstado(id, nuevoEstado) {
+
+    if (!confirm("¿Confirmar acción?")) return;
+
+    $.ajax({
+        url: api + "productos/" + id + "/estado",
+        method: "PUT",
+        contentType: "application/json",
+        data: JSON.stringify({ EstadoId: nuevoEstado }),
+        success: function () {
+            alert("Estado actualizado ✔");
+            cargarProductos();
+        }
+    });
+}
+
+
+/* ============================================================
+   DETALLES
+=============================================================== */
+function verDetalles(id) {
+
+    $.get(api + "productos/" + id, function (p) {
+
+        $("#detNombre").text(p.Nombre);
+        $("#detPrecio").text(p.Precio);
+        $("#detInventario").text(p.Inventario);
+        $("#detEstado").text(p.EstadoId === 1 ? "Activo" : "Inactivo");
+
+        $.get(api + "imagenes", function (imgs) {
+
+            let relacionadas = imgs.filter(x => x.ProductoId === id);
+
+            let html = "";
+
+            relacionadas.forEach((i, idx) => {
+                let src = "data:image/png;base64," + i.ImagenBase64;
+                html += `
+                    <div class="carousel-item ${idx === 0 ? "active" : ""}">
+                        <img src="${src}" class="d-block w-100" style="height:300px; object-fit:cover;">
+                    </div>`;
+            });
+
+            if (relacionadas.length === 0) {
+                html = `
+                    <div class="carousel-item active">
+                        <img src="/Content/img/noimage.png" class="d-block w-100" style="height:300px; object-fit:cover;">
+                    </div>`;
             }
+
+            $("#detCarrusel").html(html);
+
+            new bootstrap.Carousel(document.querySelector('#carouselDetalles'));
+
+            $("#modalDetalles").modal("show");
         });
+
     });
 
-    /**************************************************
-     *            ACTUALIZAR ICONO DEL CARRITO        *
-     **************************************************/
-    function actualizarCarritoNavbar() {
-        $.ajax({
-            url: API_URL + '/api/carrito?carritoId=' + carritoId,
-            method: 'GET',
-            success: function (carrito) {
-
-                let totalItems = 0;
-
-                if (carrito && carrito.items) {
-                    carrito.items.forEach(i => {
-                        totalItems += i.cantidad;
-                    });
-                }
-
-                if ($("#carritoCantidad").length) {
-                    $("#carritoCantidad").text(totalItems);
-                }
-            },
-            error: function () {
-                if ($("#carritoCantidad").length) {
-                    $("#carritoCantidad").text("0");
-                }
-            }
-        });
-    }
+}
 
 </script>

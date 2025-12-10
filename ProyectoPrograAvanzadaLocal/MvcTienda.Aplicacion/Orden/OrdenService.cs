@@ -95,20 +95,20 @@ namespace MvcTienda.Aplicacion.Ordenes
             _ordenRepo.Save();
         }
 
-        public Task<int> CrearOrdenDesdeCarritoAsync(int usuarioId, IList<ItemCarritoDto> items)
+        public async Task<int> CrearOrdenDesdeCarritoAsync(int usuarioId, IList<ItemCarritoDto> items)
         {
             if (items == null || !items.Any())
                 throw new InvalidOperationException("El carrito está vacío.");
 
-            // Obtener productos que están en el carrito
+            // Validar usuario
+            var user = await _userManager.FindByIdAsync(usuarioId);
+            if (user == null)
+                throw new Exception("Usuario no válido. Debe iniciar sesión.");
+
+            // Obtener productos
             var idsProductos = items.Select(i => i.ProductoId).ToList();
+            var productos = _productoRepo.GetAll().Where(p => idsProductos.Contains(p.ProductoId)).ToList();
 
-            var productos = _productoRepo
-                .GetAll()
-                .Where(p => idsProductos.Contains(p.ProductoId))
-                .ToList();
-
-            // Validar inventario
             foreach (var item in items)
             {
                 var prod = productos.FirstOrDefault(p => p.ProductoId == item.ProductoId);
@@ -117,50 +117,42 @@ namespace MvcTienda.Aplicacion.Ordenes
                     throw new Exception($"El producto {item.ProductoId} no existe.");
 
                 if (prod.Inventario < item.Cantidad)
-                    throw new Exception($"No hay inventario suficiente para el producto {prod.Nombre}.");
+                    throw new Exception($"No hay inventario suficiente para {prod.Nombre}.");
             }
-
-            // Calcular total de la orden
-            decimal total = items.Sum(i => i.Subtotal);
 
             var orden = new Orden
             {
                 Fecha_Orden = DateTime.Now,
-                Total = total,
+                Total = items.Sum(i => i.Subtotal),
                 UsuarioId = usuarioId,
-                EstadoId = 1 // Ej: 1 = 'Activa' o 'Procesada'
+                EstadoId = 1,
+                Detalles = new List<DetalleOrden>()
             };
 
             _ordenRepo.Add(orden);
-            _ordenRepo.Save(); 
 
-            // Crear detalles y actualizar inventario
             foreach (var item in items)
             {
                 var prod = productos.First(p => p.ProductoId == item.ProductoId);
 
-                var detalle = new DetalleOrden
+                orden.Detalles.Add(new DetalleOrden
                 {
-                    OrdenId = orden.OrdenId,
                     ProductoId = prod.ProductoId,
                     Cantidad = item.Cantidad,
                     PrecioUnitario = prod.Precio,
-                    EstadoId = 1 
-                };
+                    EstadoId = 1
+                });
 
-                _detalleRepo.Add(detalle);
-
-                // Descontar inventario
                 prod.Inventario -= item.Cantidad;
                 _productoRepo.Update(prod);
             }
 
-            // Guardar cambios de detalles e inventario
-            _detalleRepo.Save();
+            _ordenRepo.Save();
             _productoRepo.Save();
 
- 
-            return Task.FromResult(orden.OrdenId);
+            return orden.OrdenId;
         }
+
+
     }
 }

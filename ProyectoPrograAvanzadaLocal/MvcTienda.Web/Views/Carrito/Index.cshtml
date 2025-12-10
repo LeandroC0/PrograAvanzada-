@@ -1,4 +1,9 @@
-﻿<h2>Mi Carrito</h2>
+﻿@using Microsoft.AspNet.Identity
+@{
+    ViewBag.Title = "Mi Carrito";
+}
+
+<h2>Mi Carrito</h2>
 
 <table class="table" id="tablaCarrito">
     <thead>
@@ -22,65 +27,93 @@
 
 <button class="btn btn-success" id="btnConfirmar">Confirmar compra</button>
 
-
 @section scripts{
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script>
-        $(document).ready(function () {
-            cargarCarrito();
-            $('#btnConfirmar').click(confirmar);
+    const API_URL = "https://localhost:44325";
+
+    let carritoId = localStorage.getItem("carritoId");
+    if (!carritoId) {
+        carritoId = self.crypto.randomUUID();
+        localStorage.setItem("carritoId", carritoId);
+    }
+
+    // usuarioId viene desde Identity del MVC
+    var usuarioId = @(User.Identity.GetUserId<int>());
+
+    $(document).ready(function () {
+        cargarCarrito();
+        $('#btnConfirmar').click(confirmar);
+    });
+
+    function cargarCarrito() {
+        $.get(API_URL + '/api/carrito?carritoId=' + carritoId, function (c) {
+            let tbody = $('#tablaCarrito tbody');
+            tbody.empty();
+
+            if (!c || !c.Items || c.Items.length === 0) {
+                tbody.append('<tr><td colspan="5" class="text-center">El carrito está vacío</td></tr>');
+                $('#totalCarrito').text('0.00');
+                return;
+            }
+
+            c.Items.forEach(i => {
+                tbody.append(`
+                    <tr>
+                        <td>${i.NombreProducto}</td>
+                        <td>${i.PrecioUnitario.toFixed(2)}</td>
+                        <td>
+                            <input type="number" min="1" value="${i.Cantidad}"
+                                onchange="actualizar(${i.ProductoId}, this.value)" />
+                        </td>
+                        <td>${(i.PrecioUnitario * i.Cantidad).toFixed(2)}</td>
+                        <td>
+                            <button onclick="eliminar(${i.ProductoId})" class="btn btn-danger btn-sm">
+                                X
+                            </button>
+                        </td>
+                    </tr>
+                `);
+            });
+
+            $('#totalCarrito').text(c.Total.toFixed(2));
         });
+    }
 
-        function cargarCarrito() {
-            $.get('/api/carrito', function (c) {
-                let tbody = $('#tablaCarrito tbody');
-                tbody.empty();
+    function actualizar(id, cant) {
+        $.ajax({
+            url: API_URL + '/api/carrito/actualizar?carritoId=' + carritoId,
+            method: 'PUT',
+            contentType: 'application/json',
+            data: JSON.stringify({
+                ProductoId: id,
+                Cantidad: parseInt(cant)
+            }),
+            success: function () {
+                cargarCarrito();
+            }
+        });
+    }
 
-                c.items.forEach(i => {
-                    tbody.append(`
-                                <tr>
-                                    <td>${i.nombreProducto}</td>
-                                    <td>${i.precioUnitario}</td>
-                                    <td>
-                                        <input type="number" min="1" value="${i.cantidad}"
-                                            onchange="actualizar(${i.productoId}, this.value)" />
-                                    </td>
-                                    <td>${i.subtotal}</td>
-                                    <td>
-                                        <button onclick="eliminar(${i.productoId})" class="btn btn-danger btn-sm">
-                                            X
-                                        </button>
-                                    </td>
-                                </tr>
-                            `);
-                });
+    function eliminar(id) {
+        $.ajax({
+            url: API_URL + '/api/carrito/eliminar/' + id + '?carritoId=' + carritoId,
+            method: 'DELETE',
+            success: function () {
+                cargarCarrito();
+            }
+        });
+    }
 
-                $('#totalCarrito').text(c.total);
-            });
-        }
-
-        function actualizar(id, cant) {
-            $.ajax({
-                url: '/api/carrito/actualizar',
-                method: 'PUT',
-                contentType: 'application/json',
-                data: JSON.stringify({ productoId: id, cantidad: parseInt(cant) }),
-                success: cargarCarrito
-            });
-        }
-
-        function eliminar(id) {
-            $.ajax({
-                url: '/api/carrito/eliminar/' + id,
-                method: 'DELETE',
-                success: cargarCarrito
-            });
-        }
-
-        function confirmar() {
-            $.post('/api/carrito/confirmar', function (res) {
+    function confirmar() {
+        $.post(API_URL + '/api/carrito/confirmar?carritoId=' + carritoId + "&usuarioId=" + usuarioId)
+            .done(function (res) {
                 alert(res.mensaje);
                 window.location.href = '/Ordenes/MisOrdenes';
+            })
+            .fail(function (xhr) {
+                alert("No se pudo confirmar la compra: " + xhr.responseText);
             });
-        }
+    }
     </script>
 }

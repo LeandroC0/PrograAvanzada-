@@ -175,7 +175,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImagenProductoController.cs" />
     <Compile Include="Controllers\OrdenesController.cs" />
-    <Compile Include="Controllers\ProductoController.cs" />
     <Compile Include="Controllers\ProductosAPIController.cs" />
     <Compile Include="Controllers\ResennaApiController.cs" />
     <Compile Include="Controllers\ResennaController.cs" />
@@ -236,21 +235,12 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Producto\Create.cshtml" />
-    <Content Include="Views\Producto\Index.cshtml" />
-    <Content Include="Views\Producto\Edit.cshtml" />
-    <Content Include="Views\Producto\Delete.cshtml" />
-    <Content Include="Views\Producto\Details.cshtml" />
     <Content Include="Views\Estado\Index.cshtml" />
     <Content Include="Views\Estado\Edit.cshtml" />
     <Content Include="Views\Estado\Create.cshtml" />
     <Content Include="Views\Estado\Delete.cshtml" />
     <Content Include="Views\Estado\Details.cshtml" />
     <Content Include="Views\ImagenProducto\Index.cshtml" />
-    <Content Include="Views\ImagenProducto\Create.cshtml" />
-    <Content Include="Views\ImagenProducto\Edit.cshtml" />
-    <Content Include="Views\ImagenProducto\Details.cshtml" />
-    <Content Include="Views\ImagenProducto\Delete.cshtml" />
     <Content Include="Views\Dashboard\Index.cshtml" />
     <Content Include="Views\Ordenes\Create.cshtml" />
     <Content Include="Views\Ordenes\Delete.cshtml" />
@@ -273,11 +263,8 @@
     <Content Include="Views\DashboardAPI\Index.cshtml" />
     <Content Include="Views\Carrito\Index.cshtml" />
     <Content Include="Views\ProductosAPI\Index.cshtml" />
-    <Content Include="Views\ProductosAPI\Crear.cshtml" />
-    <Content Include="Views\ProductosAPI\Editar.cshtml" />
-    <Content Include="Views\ProductosAPI\Detalle.cshtml" />
-    <Content Include="Views\ProductosAPI\CambiarEstado.cshtml" />
     <Content Include="Views\ResennaApi\Index.cshtml" />
+    <Content Include="Views\Ordenes\MisOrdenes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
