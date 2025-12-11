@@ -52,20 +52,27 @@ namespace MvcTienda.Auth.Services
 
         public async Task<bool> Login(string usuario, string password)
         {
+            var user = await _userManager.FindByNameAsync(usuario);
+
+            if (user == null)
+                return false;
+
+            // Valida estado del usuario
+            if (user.EstadoId != 1)
+                return false;
+             
             var result = await _signInManager.PasswordSignInAsync(usuario, password, true, false);
 
             if (result == SignInStatus.Success)
             {
-                var user = await _userManager.FindByNameAsync(usuario);
                 user.FechaUltimaConexion = DateTime.Now;
-
                 await _userManager.UpdateAsync(user);
-
                 return true;
             }
 
             return false;
         }
+
 
         public async Task Logout()
         {
@@ -91,5 +98,30 @@ namespace MvcTienda.Auth.Services
         {
             throw new NotImplementedException();
         }
+        public async Task<ApplicationUser> BuscarUsuarioAsync(string usuario)
+        {
+            return await _userManager.FindByNameAsync(usuario);
+        }
+
+
+        public async Task<IdentityResult> RegisterConResultado(string usuario, string password)
+        {
+            var user = new ApplicationUser
+            {
+                UserName = usuario,
+                Email = usuario + "@correo.com",
+                EstadoId = 1,
+                CodigoUsuario = GenerarCodigoUsuario(usuario),
+                FechaUltimaConexion = null
+            };
+
+            var result = await _userManager.CreateAsync(user, password);
+
+            if (result.Succeeded)
+                await _userManager.AddToRoleAsync(user.Id, "Asociado");
+
+            return result;
+        }
+
     }
 }

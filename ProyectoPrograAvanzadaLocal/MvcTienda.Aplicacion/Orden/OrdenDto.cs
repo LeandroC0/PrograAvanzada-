@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MvcTienda.Aplicacion.Productos;
+using System;
+using System.Collections.Generic;
 
 namespace MvcTienda.Aplicacion.Ordenes
 {
@@ -11,5 +13,7 @@ namespace MvcTienda.Aplicacion.Ordenes
         public string UsuarioNombre { get; set; }
         public int EstadoId { get; set; }
         public string EstadoNombre { get; set; }
+
+        public List<DetalleOrdenDto> Detalles { get; set; }
     }
 }

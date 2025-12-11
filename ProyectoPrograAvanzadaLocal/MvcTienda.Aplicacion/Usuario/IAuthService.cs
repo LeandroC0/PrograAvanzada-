@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using Microsoft.AspNet.Identity;
+using MvcTienda.Infrastructura.Identity;
+using System.Threading.Tasks;
 
 namespace MvcTienda.Aplicacion.Seguridad
 {
@@ -8,6 +10,8 @@ namespace MvcTienda.Aplicacion.Seguridad
         Task<bool> Login(string usuario, string password);
         Task Logout();
 
+        Task<ApplicationUser> BuscarUsuarioAsync(string usuario);
+        Task<IdentityResult> RegisterConResultado(string usuario, string password);
 
         int ObtenerTotalUsuarios();
         int ObtenerUsuariosActivos();

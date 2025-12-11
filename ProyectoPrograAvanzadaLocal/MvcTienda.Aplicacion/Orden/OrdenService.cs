@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNet.Identity;
 using MvcTienda.Aplicacion.Carrito;
+using MvcTienda.Aplicacion.Productos;
 using MvcTienda.Domain.Entities;
 using MvcTienda.Domain.Repositories;
 using MvcTienda.Infrastructura.Identity;
@@ -56,10 +57,21 @@ namespace MvcTienda.Aplicacion.Ordenes
                 UsuarioId = o.UsuarioId,
                 UsuarioNombre = _userManager.FindById(o.UsuarioId)?.UserName,
                 EstadoId = o.EstadoId,
-                EstadoNombre = o.Estado?.Nombre
+                EstadoNombre = o.Estado?.Nombre,
 
+                //Se cargan los detalles de la orden
+                Detalles = o.Detalles.Select(d => new DetalleOrdenDto
+                {
+                    DetalleOrdenId = d.DetalleOrdenId,
+                    ProductoId = d.ProductoId,
+                    ProductoNombre = d.Producto.Nombre,
+                    Cantidad = d.Cantidad,
+                    PrecioUnitario = d.PrecioUnitario,
+                    Subtotal = d.Cantidad * d.PrecioUnitario
+                }).ToList()
             };
         }
+
 
         public void Create(OrdenDto dto)
         {

@@ -23,7 +23,7 @@ namespace MvcTienda.Infrastructura.Repositories
 
         public Orden GetById(int id)
         {
-            return _context.Ordenes.Include(o => o.Estado).Include(o => o.Detalles).FirstOrDefault(o => o.OrdenId == id);
+            return _context.Ordenes.Include(o => o.Estado).Include(o => o.Detalles.Select(d => d.Producto)).FirstOrDefault(o => o.OrdenId == id);
         }
 
         public void Add(Orden orden)

@@ -19,28 +19,28 @@
             <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
                 <ul class="navbar-nav flex-grow-1">
                     <li>@Html.ActionLink("Inicio", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    @*<li>@Html.ActionLink("Acerca de", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                        <li>@Html.ActionLink("Contacto", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>*@
-                    @*@if (User.Identity.IsAuthenticated)
-                        {*@
                     <li>@Html.ActionLink("Productos", "Index", "ProductosAPI", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("Resenna", "Index", "Resenna", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Ordenes", "Index", "Ordenes", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Detalle Ordenes", "Index", "DetalleOrden", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Ordenes", "MisOrdenes", "Ordenes", new { area = "" }, new { @class = "nav-link" })</li>
+
                     @if (User.IsInRole("Administrador"))
                     {
+                        @*<li>@Html.ActionLink("Detalle Ordenes", "Index", "DetalleOrden", new { area = "" }, new { @class = "nav-link" })</li>*@
                         <li>@Html.ActionLink("Estados", "Index", "Estado", new { area = "" }, new { @class = "nav-link" })</li>
                         <li>@Html.ActionLink("ImagenProducto", "Index", "ImagenProducto", new { area = "" }, new { @class = "nav-link" })</li>
                         <li>@Html.ActionLink("Dashboard", "Index", "DashboardAPI", new { area = "" }, new { @class = "nav-link" })</li>
                         <li>@Html.ActionLink("Moderar Reseñas", "Index", "ResennaApi", null, new { @class = "nav-link" })</li>
+                        <li>@Html.ActionLink("Moderar Usuario", "Index", "UsuarioAdmin", null, new { @class = "nav-link" })</li>
 
                     }
-                    <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("Index","Carrito")">
-                            🛒 Carrito
-                            <span id="contadorCarrito" class="badge bg-primary">0</span>
+                    @if (User.IsInRole("Asociado"))
+                    {<li class="nav-item">
+                     <a class="nav-link" href="@Url.Action("Index","Carrito")">
+                        🛒 Carrito
+                        <span id="contadorCarrito" class="badge bg-primary">0</span>
                         </a>
-                    </li>
+                    </li> }
+                        
 
                 </ul>
                 @Html.Partial("_LoginPartial")

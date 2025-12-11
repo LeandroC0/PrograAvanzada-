@@ -108,6 +108,9 @@
     <Compile Include="Resenna\ResennaDto.cs" />
     <Compile Include="Resenna\ResennaSerivce.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Usuario\IUsuarioAdminService.cs" />
+    <Compile Include="Usuario\UsuarioAdminDto.cs" />
+    <Compile Include="Usuario\UsuarioAdminService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MvcTienda.Domain\MvcTienda.Domain.csproj">

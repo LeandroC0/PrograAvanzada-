@@ -1,0 +1,45 @@
+﻿@model IEnumerable<MvcTienda.Aplicacion.Usuarios.UsuarioAdminDto>
+
+<h2>Administrar Usuarios</h2>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Usuario</th>
+            <th>Email</th>
+            <th>Estado</th>
+            <th>Acción</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var u in Model)
+        {
+            <tr>
+                <td>@u.UsuarioId</td>
+                <td>@u.Usuario</td>
+                <td>@u.Correo</td>
+
+                <td>
+                    <span class="badge @(u.EstadoId == 1 ? "bg-success" : "bg-secondary")">
+                        @u.EstadoNombre
+                    </span>
+                </td>
+
+                <td>
+                    
+
+                    @if (u.EstadoId == 1)
+                    {
+                        @Html.ActionLink("Desactivar", "Desactivar", new { id = u.UsuarioId }, new { @class = "btn btn-danger btn-sm" })
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Activar", "Activar", new { id = u.UsuarioId }, new { @class = "btn btn-success btn-sm" })
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

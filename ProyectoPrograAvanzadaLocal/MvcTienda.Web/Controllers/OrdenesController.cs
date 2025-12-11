@@ -91,13 +91,26 @@ namespace MvcTienda.Web.Controllers
         [Authorize]
         public ActionResult MisOrdenes()
         {
-            int usuarioId = User.Identity.GetUserId<int>();
+            // 
+            var ordenes = _service.GetAll();
 
-            var ordenes = _service
-                .GetAll()
-                .Where(o => o.UsuarioId == usuarioId)
-                .OrderByDescending(o => o.Fecha_Orden)
-                .ToList();
+            // se filtra por el usuario conectado
+            if (!User.IsInRole("Administrador"))
+            {
+                int usuarioId = User.Identity.GetUserId<int>();
+
+                ordenes = ordenes
+                    .Where(o => o.UsuarioId == usuarioId)
+                    .OrderByDescending(o => o.Fecha_Orden)
+                    .ToList();
+            }
+            else
+            {
+                // Admin ve todas
+                ordenes = ordenes
+                    .OrderByDescending(o => o.Fecha_Orden)
+                    .ToList();
+            }
 
             return View(ordenes);
         }

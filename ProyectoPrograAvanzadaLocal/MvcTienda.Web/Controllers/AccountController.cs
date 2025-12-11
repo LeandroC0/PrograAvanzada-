@@ -46,13 +46,30 @@ namespace MvcTienda.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(string usuario, string password)
         {
-            var ok = await _authService.Register(usuario, password);
-
-            if (!ok)
+            // Validar usuario vacío
+            if (string.IsNullOrWhiteSpace(usuario) || string.IsNullOrWhiteSpace(password))
             {
-                ViewBag.Error = "No se pudo registrar el usuario.";
+                ViewBag.Error = "Debe ingresar un usuario y una contraseña.";
                 return View();
             }
+
+            //  Validar si el usuario ya existe
+            var existente = await _authService.BuscarUsuarioAsync(usuario);
+            if (existente != null)
+            {
+                ViewBag.Error = $"El usuario '{usuario}' ya existe. Intente otro nombre.";
+                return View();
+            }
+
+            // 2️ Intentar registrar y capturar errores de contraseña
+            var resultado = await _authService.RegisterConResultado(usuario, password);
+
+            if (!resultado.Succeeded)
+            {
+                ViewBag.Error = string.Join("<br/>", resultado.Errors);
+                return View();
+            }
+
 
             return RedirectToAction("Login");
         }

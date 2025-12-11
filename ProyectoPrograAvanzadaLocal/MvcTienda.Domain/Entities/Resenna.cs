@@ -15,5 +15,7 @@ namespace MvcTienda.Domain.Entities
 
         public Producto Producto { get; set; }
         public Estado Estado { get; set; }
+
+       
     }
 }

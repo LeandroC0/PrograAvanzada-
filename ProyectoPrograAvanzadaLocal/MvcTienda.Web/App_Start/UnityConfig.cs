@@ -9,6 +9,7 @@ using MvcTienda.Aplicacion.Ordenes;
 using MvcTienda.Aplicacion.Productos;
 using MvcTienda.Aplicacion.Resennas;
 using MvcTienda.Aplicacion.Seguridad;
+using MvcTienda.Aplicacion.Usuarios;
 using MvcTienda.Auth.Services;
 using MvcTienda.Domain.Repositories;
 using MvcTienda.Infrastructura.Data;
@@ -28,9 +29,9 @@ namespace MvcTienda.Web
         private static Lazy<IUnityContainer> container =
           new Lazy<IUnityContainer>(() =>
           {
-              var c = new UnityContainer();
-              RegisterTypes(c);
-              return c;
+              var container = new UnityContainer();
+              RegisterTypes(container);
+              return container;
           });
 
         public static IUnityContainer Container => container.Value;
@@ -64,6 +65,8 @@ namespace MvcTienda.Web
             container.RegisterType<IAuthService, AuthService>(); 
             container.RegisterType<IOrdenService, OrdenService>();
             container.RegisterType<IDetalleOrdenService, DetalleOrdenService>();
+            container.RegisterType<IUsuarioAdminService, UsuarioAdminService>();
+
 
 
             // Identity stores
