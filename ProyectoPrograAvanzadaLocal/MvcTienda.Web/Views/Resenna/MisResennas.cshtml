@@ -3,11 +3,16 @@
     ViewBag.Title = "MisResennas";
 }
 
-<h2 class="mb-4">Mis Reseñas</h2>
+<h2 class="mb-4 text-center fw-bold">
+    <i class="bi bi-person-check text-primary"></i> Mis Reseñas
+</h2>
 
 @if (!Model.Any())
 {
-    <div class="alert alert-info">Aún no has creado ninguna reseña.</div>
+    <div class="alert alert-info text-center shadow-sm p-3"
+         style="border-radius: 12px; max-width: 500px; margin: 0 auto;">
+        Aún no has creado ninguna reseña.
+    </div>
 }
 else
 {
@@ -15,26 +20,47 @@ else
         @foreach (var item in Model)
         {
             <div class="col-md-4 mb-4">
-                <div class="card h-100 shadow">
+                <div class="card h-100 shadow-sm border-0" style="border-radius: 15px; overflow:hidden;">
 
                     <div class="card-body">
-                        <h5 class="card-title">Reseña #@item.ResennaId</h5>
 
-                        <p class="card-text">
-                            <strong>Producto:</strong> @item.ProductoNombre <br />
-                            <strong>Comentario:</strong> @item.Comentario <br />
-                            <strong>Calificación:</strong> @item.Calificacion ⭐<br />
-                            <strong>Fecha:</strong> @item.Fecha_Resenna.ToString("yyyy-MM-dd") <br />
+                        <h5 class="card-title fw-bold mb-3">
+                            <i class="bi bi-chat-left-quote text-primary"></i>
+                            &nbsp; Reseña #@item.ResennaId
+                        </h5>
+
+                        <p class="card-text" style="line-height: 1.6;">
+                            <strong>Producto:</strong>
+                            <span class="text-muted">@item.ProductoNombre</span> <br />
+
+                            <strong>Comentario:</strong>
+                            <span class="text-muted">@item.Comentario</span> <br />
+
+                            <strong>Calificación:</strong>
+                            <span class="fw-semibold">@item.Calificacion ⭐</span><br />
+
+                            <strong>Fecha:</strong>
+                            <span class="text-muted">@item.Fecha_Resenna.ToString("yyyy-MM-dd")</span> <br />
 
                             <strong>Estado:</strong>
-                            <span class="badge @(item.EstadoId == 4 ? "bg-success" :
-                                                item.EstadoId == 5 ? "bg-danger" :
-                                                "bg-warning text-dark")">
+                            <span class="badge
+                                @(item.EstadoId == 4 ? "bg-success" :
+                                  item.EstadoId == 5 ? "bg-danger" :
+                                  "bg-warning text-dark")"
+                                  style="padding: 6px 10px; border-radius: 8px;">
                                 @item.EstadoNombre
                             </span>
                         </p>
 
-                        @Html.ActionLink("Detalles", "Details", new { id = item.ResennaId }, new { @class = "btn btn-info btn-sm" })
+                        <div class="d-grid mt-3">
+                            @Html.ActionLink(
+                                "Detalles",
+                                "Details",
+                                new { id = item.ResennaId },
+                                new { @class = "btn btn-info btn-sm shadow-sm w-100", style = "border-radius: 8px;" }
+                            )
+                        </div>
+
                     </div>
 
                 </div>

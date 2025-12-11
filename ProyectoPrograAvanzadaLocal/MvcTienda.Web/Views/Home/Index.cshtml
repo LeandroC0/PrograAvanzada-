@@ -2,18 +2,40 @@
     ViewBag.Title = "Home Page";
 }
 
-<main>
-    <section class="row" aria-labelledby="aspnetTitle">
-        <h1 id="title">Segundo Avance del proyecto de progamación avanzada.</h1>
+<main class="mt-5">
+
+    <!-- Sección principal -->
+    <section class="text-center mb-5">
+        <h1 id="title" class="fw-bold mb-3" style="font-size: 2.5rem;">
+            Segundo Avance del proyecto de programación avanzada.
+        </h1>
+        <p class="text-muted" style="font-size: 1.1rem;">
+            Bienvenido al sistema desarrollado por el Grupo #4
+        </p>
     </section>
 
-    <div class="row">
-        <section class="col-md-4" aria-labelledby="gettingStartedTitle">
-            <h2 id="librariesTitle">Avance #2 del grupo #4</h2>
-            <p>
-                El presente avance se realiza con arquitectura por capas, junto a services, repositories y la gestión de usuarios y roles.
-            </p>
-            <p><a class="btn btn-outline-dark" href="https://github.com/LeandroC0/PrograAvanzada-/tree/proyectocompletoo">GitHub &raquo;</a></p>
-        </section>
+    <!-- Tarjetas de información -->
+    <div class="row justify-content-center">
+
+        <div class="col-md-6">
+            <div class="card shadow-lg p-4" style="border-radius: 18px;">
+                <h2 class="fw-bold text-center mb-3">Avance #2 del Grupo #4</h2>
+
+                <p class="text-center">
+                    El presente avance se realiza con arquitectura por capas,
+                    junto a services, repositories y la gestión de usuarios y roles.
+                </p>
+
+                <div class="text-center mt-3">
+                    <a class="btn btn-primary px-4 py-2"
+                       style="border-radius: 10px;"
+                       href="https://github.com/LeandroC0/PrograAvanzada-/tree/proyectocompletoo">
+                        GitHub &raquo;
+                    </a>
+                </div>
+            </div>
+        </div>
+
     </div>
+
 </main>

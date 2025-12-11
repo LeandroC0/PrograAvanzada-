@@ -2,10 +2,10 @@
     ViewBag.Title = "Catálogo de Productos";
     bool isAdmin = User.IsInRole("Administrador");
     bool isLogged = Request.IsAuthenticated;
-    bool isUser = isLogged && !isAdmin; // 👈 USUARIO NORMAL (Asociado)
+    bool isUser = isLogged && !isAdmin;
 }
 
-<h2>Catálogo de Productos (API)</h2>
+<h2>Catálogo de Productos</h2>
 
 @if (isAdmin)
 {
@@ -29,10 +29,6 @@
 
 <div class="row" id="productosContainer"></div>
 
-
-<!-- ============================================================
-   MODAL CREAR / EDITAR
-=============================================================== -->
 <div class="modal fade" id="modalProducto" tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -78,10 +74,6 @@
     </div>
 </div>
 
-
-<!-- ============================================================
-   MODAL DETALLES
-=============================================================== -->
 <div class="modal fade" id="modalDetalles" tabindex="-1">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -129,17 +121,12 @@ const isAdmin = @isAdmin.ToString().ToLower();
 const isLogged = @isLogged.ToString().ToLower();
 const isUser = @isUser.ToString().ToLower(); 
 
-// CARRITO LOCAL
 carritoId = localStorage.getItem("carritoId");
 if (!carritoId) {
     carritoId = self.crypto.randomUUID();
     localStorage.setItem("carritoId", carritoId);
 }
 
-
-/* ============================================================
-   CARGAR PRODUCTOS
-=============================================================== */
 $(document).ready(function () {
     cargarProductos();
 
@@ -181,11 +168,6 @@ function cargarProductos() {
 
 }
 
-
-
-/* ============================================================
-   RENDER PRODUCTOS + BOTONES CORRECTOS POR ROL
-=============================================================== */
 function renderProductos(list) {
 
     let html = "";
@@ -246,7 +228,6 @@ function renderProductos(list) {
 
     $("#productosContainer").html(html);
 
-    // Inicializar carruseles
     setTimeout(() => {
         document.querySelectorAll(".carousel").forEach(c => {
             new bootstrap.Carousel(c, { interval: 2600 });
@@ -254,11 +235,6 @@ function renderProductos(list) {
     }, 100);
 }
 
-
-
-/* ============================================================
-   AGREGAR AL CARRITO → Solo usuario normal
-=============================================================== */
     $(document).on("click", ".agregar-carrito", function () {
 
         let id = $(this).data("id");
@@ -277,11 +253,6 @@ function renderProductos(list) {
 
     });
 
-
-
-/* ============================================================
-   CREAR PRODUCTO
-=============================================================== */
 function abrirModalCrear() {
     $("#tituloModal").text("Crear Producto");
     $("#productoId").val("");
@@ -317,10 +288,6 @@ function guardarProductoAPI() {
     });
 }
 
-
-/* ============================================================
-   EDITAR PRODUCTO
-=============================================================== */
 function abrirModalEditar(id) {
 
     $("#tituloModal").text("Editar Producto");
@@ -363,11 +330,6 @@ function actualizarProductoAPI(id) {
     });
 }
 
-
-
-/* ============================================================
-   CAMBIAR ESTADO
-=============================================================== */
 function cambiarEstado(id, nuevoEstado) {
 
     if (!confirm("¿Confirmar acción?")) return;
@@ -384,10 +346,6 @@ function cambiarEstado(id, nuevoEstado) {
     });
 }
 
-
-/* ============================================================
-   DETALLES
-=============================================================== */
 function verDetalles(id) {
 
     $.get(api + "productos/" + id, function (p) {

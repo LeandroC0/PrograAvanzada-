@@ -7,52 +7,74 @@
     bool isUser = isLogged && !isAdmin;
 }
 
-<h2 class="mb-4">Lista de Reseñas</h2>
+<h2 class="mb-4 text-center fw-bold">
+    <i class="bi bi-stars text-primary"></i> Lista de Reseñas
+</h2>
 
-<p>
+<div class="mb-4 text-center">
     @if (isUser)
     {
-        @Html.ActionLink("Crear Nueva Reseña", "Create", null, new { @class = "btn btn-success mb-3" })
-        @Html.ActionLink("Mis Reseñas", "MisResennas", null, new { @class = "btn btn-primary mb-3 me-2" })
+        @Html.ActionLink("Crear Nueva Reseña", "Create", null,
+            new { @class = "btn btn-success me-2 mb-2 shadow-sm", style = "border-radius:10px;" })
+
+        @Html.ActionLink("Mis Reseñas", "MisResennas", null,
+            new { @class = "btn btn-primary mb-2 shadow-sm", style = "border-radius:10px;" })
     }
 
     @if (isAdmin)
     {
-        @Html.ActionLink("Moderar Reseñas", "Index", "ResennaApi", null, new { @class = "btn btn-success mb-3" })
+        @Html.ActionLink("Moderar Reseñas", "Index", "ResennaApi", null,
+            new { @class = "btn btn-warning text-dark mb-2 shadow-sm", style = "border-radius:10px;" })
     }
-
-</p>
-
+</div>
 
 
 <div class="row">
     @foreach (var item in Model)
     {
         <div class="col-md-4 mb-4">
-            <div class="card h-100">
+            <div class="card h-100 shadow-sm border-0" style="border-radius: 15px; overflow:hidden;">
 
                 <div class="card-body">
-                    <h5 class="card-title">Reseña #@item.ResennaId</h5>
 
-                    <p class="card-text">
-                        <strong>Comentario:</strong> @item.Comentario <br />
-                        <strong>Calificación:</strong> @item.Calificacion ⭐<br />
-                        <strong>Fecha:</strong> @item.Fecha_Resenna.ToString("yyyy-MM-dd") <br />
-                        <strong>Producto:</strong> @item.ProductoNombre <br />
+                    <h5 class="card-title fw-bold mb-3">
+                        <i class="bi bi-chat-left-quote text-primary"></i>
+                        &nbsp; Reseña #@item.ResennaId
+                    </h5>
 
-                        <!-- AQUÍ SÍ EXISTE EL BADGE -->
+                    <p class="card-text" style="line-height:1.6;">
+                        <strong>Comentario:</strong> <span class="text-muted">@item.Comentario</span> <br />
+
+                        <strong>Calificación:</strong>
+                        <span class="fw-semibold">@item.Calificacion ⭐</span><br />
+
+                        <strong>Fecha:</strong>
+                        <span class="text-muted">@item.Fecha_Resenna.ToString("yyyy-MM-dd")</span> <br />
+
+                        <strong>Producto:</strong>
+                        <span class="text-muted">@item.ProductoNombre</span> <br />
+
                         <strong>Estado:</strong>
-                        <span id="estado-@item.ResennaId" class="badge bg-primary">
+                        <span id="estado-@item.ResennaId"
+                              class="badge bg-primary px-2 py-1"
+                              style="border-radius:8px;">
                             @item.EstadoNombre
                         </span>
                         <br />
 
-                        <strong>Usuario:</strong> @item.UsuarioNombre
+                        <strong>Usuario:</strong>
+                        <span class="text-muted">@item.UsuarioNombre</span>
                     </p>
 
-                    <div class="d-flex justify-content-between mt-3">
-                        @Html.ActionLink("Detalles", "Details", new { id = item.ResennaId }, new { @class = "btn btn-info btn-sm" })
+                    <div class="d-flex mt-3">
+                        @Html.ActionLink(
+                            "Detalles",
+                            "Details",
+                            new { id = item.ResennaId },
+                            new { @class = "btn btn-info btn-sm w-100 shadow-sm", style = "border-radius:8px;" }
+                        )
                     </div>
+
                 </div>
             </div>
         </div>
