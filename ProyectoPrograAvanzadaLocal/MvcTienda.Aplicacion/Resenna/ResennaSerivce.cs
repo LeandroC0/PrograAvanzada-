@@ -74,6 +74,25 @@ namespace MvcTienda.Aplicacion.Resennas
                 }).ToList();
         }
 
+        public IEnumerable<ResennaDto> GetAllByUsuarioId(int usuarioId)
+        {
+            return _repo.GetAll()
+                .Where(r => r.UsuarioId == usuarioId)
+                .Select(r => new ResennaDto
+                {
+                    ResennaId = r.ResennaId,
+                    Comentario = r.Comentario,
+                    Calificacion = r.Calificación,
+                    Fecha_Resenna = r.Fecha_Reseña,
+                    ProductoId = r.ProductoId,
+                    ProductoNombre = r.Producto?.Nombre,
+                    EstadoId = r.EstadoId,
+                    EstadoNombre = r.Estado?.Nombre,
+                    UsuarioId = r.UsuarioId,
+                    UsuarioNombre = _userManager.FindByIdAsync(r.UsuarioId).Result?.UserName ?? "Desconocido"
+                }).ToList();
+        }
+
         public ResennaDto GetById(int id)
         {
             var r = _repo.GetById(id);

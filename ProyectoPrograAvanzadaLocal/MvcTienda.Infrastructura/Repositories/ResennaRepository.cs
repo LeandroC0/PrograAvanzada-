@@ -70,5 +70,10 @@ namespace MvcTienda.Infrastructura.Repositories
         {
             _context.SaveChanges();
         }
+
+        public IEnumerable<Resenna> GetAllByUsuarioId(int usuarioId)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

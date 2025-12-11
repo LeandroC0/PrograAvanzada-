@@ -1,0 +1,44 @@
+﻿@model IEnumerable<MvcTienda.Aplicacion.Resennas.ResennaDto>
+@{
+    ViewBag.Title = "MisResennas";
+}
+
+<h2 class="mb-4">Mis Reseñas</h2>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info">Aún no has creado ninguna reseña.</div>
+}
+else
+{
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow">
+
+                    <div class="card-body">
+                        <h5 class="card-title">Reseña #@item.ResennaId</h5>
+
+                        <p class="card-text">
+                            <strong>Producto:</strong> @item.ProductoNombre <br />
+                            <strong>Comentario:</strong> @item.Comentario <br />
+                            <strong>Calificación:</strong> @item.Calificacion ⭐<br />
+                            <strong>Fecha:</strong> @item.Fecha_Resenna.ToString("yyyy-MM-dd") <br />
+
+                            <strong>Estado:</strong>
+                            <span class="badge @(item.EstadoId == 4 ? "bg-success" :
+                                                item.EstadoId == 5 ? "bg-danger" :
+                                                "bg-warning text-dark")">
+                                @item.EstadoNombre
+                            </span>
+                        </p>
+
+                        @Html.ActionLink("Detalles", "Details", new { id = item.ResennaId }, new { @class = "btn btn-info btn-sm" })
+                    </div>
+
+                </div>
+            </div>
+        }
+    </div>
+}

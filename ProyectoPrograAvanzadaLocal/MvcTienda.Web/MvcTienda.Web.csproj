@@ -267,6 +267,7 @@
     <Content Include="Views\ResennaApi\Index.cshtml" />
     <Content Include="Views\Ordenes\MisOrdenes.cshtml" />
     <Content Include="Views\UsuarioAdmin\Index.cshtml" />
+    <Content Include="Views\Resenna\MisResennas.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

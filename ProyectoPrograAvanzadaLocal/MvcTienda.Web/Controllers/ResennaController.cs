@@ -3,6 +3,7 @@ using MvcTienda.Aplicacion.Productos;
 using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 
 namespace MvcTienda.Web.Controllers
 {
@@ -38,6 +39,23 @@ namespace MvcTienda.Web.Controllers
             }
         }
 
+        public ActionResult MisResennas()
+        {
+            int usuarioId = User.Identity.GetUserId<int>();
+            try
+            {
+                ViewData["TituloPagina"] = "Mis reseñas";
+                var resennas = _service.GetAllByUsuarioId(usuarioId);
+
+                return View(resennas);
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Error = "Error al cargar las reseñas: " + ex.Message;
+                return View(new List<ResennaDto>());
+            }
+        }
+
         // GET: Resenna/Details/5
         public ActionResult Details(int id)
         {
@@ -57,6 +75,13 @@ namespace MvcTienda.Web.Controllers
         // GET: Resenna/Create
         public ActionResult Create()
         {
+            int usuarioId = User.Identity.GetUserId<int>();
+            string usuarioNombre = User.Identity.GetUserName();
+
+            ViewBag.UsuarioId = usuarioId;
+            ViewBag.UsuarioNombre = usuarioNombre;
+            ViewBag.Fecha_Resenna = DateTime.Now;
+
             ViewBag.ListaProductos = new SelectList(_productoService.GetAll(), "ProductoId", "Nombre");
             return View(new ResennaDto());
         }
@@ -74,6 +99,7 @@ namespace MvcTienda.Web.Controllers
 
             try
             {
+                dto.UsuarioId = User.Identity.GetUserId<int>();
                 _service.Create(dto);
                 TempData["Mensaje"] = "Reseña creada exitosamente.";
                 return RedirectToAction("Index");

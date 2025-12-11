@@ -87,6 +87,7 @@
     <Compile Include="Dashboard\DashboardService.cs" />
     <Compile Include="Dashboard\IDashboardService.cs" />
     <Compile Include="Imagen\ImagenProdcutoApiDto.cs" />
+    <Compile Include="Resenna\IResennaService.cs" />
     <Compile Include="Usuario\AuthService.cs" />
     <Compile Include="DetalleOrden\DetalleOrdenDto.cs" />
     <Compile Include="DetalleOrden\DetalleOrdenService.cs" />
@@ -100,7 +101,6 @@
     <Compile Include="Imagen\ImagenProductoSerivce.cs" />
     <Compile Include="Orden\IOrdenService.cs" />
     <Compile Include="Producto\IProductoService.cs" />
-    <Compile Include="Resenna\IResennaRepository.cs" />
     <Compile Include="Orden\OrdenDto.cs" />
     <Compile Include="Orden\OrdenService.cs" />
     <Compile Include="Producto\ProductoDto.cs" />
