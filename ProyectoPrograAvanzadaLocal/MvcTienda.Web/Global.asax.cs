@@ -31,6 +31,9 @@ namespace MvcTienda.Web
                 {
                     context.Estados.Add(new Estado { Nombre = "Activo" });
                     context.Estados.Add(new Estado { Nombre = "Inactivo" });
+                    context.Estados.Add(new Estado { Nombre = "Pendiente" });
+                    context.Estados.Add(new Estado { Nombre = "Aprobado" });
+                    context.Estados.Add(new Estado { Nombre = "Rechazado" });
                     context.SaveChanges();
                 }
 
