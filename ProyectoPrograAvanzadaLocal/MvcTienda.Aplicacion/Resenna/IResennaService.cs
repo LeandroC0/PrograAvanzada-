@@ -8,6 +8,7 @@ namespace MvcTienda.Aplicacion.Resennas
         IEnumerable<ResennaDto> GetAllPublic();
         IEnumerable<ResennaDto> GetAllPendiente();
         IEnumerable<ResennaDto> GetAllByUsuarioId(int usuarioId);
+        IEnumerable<ResennaDto> GetAllByProductoId(int productoId);
         ResennaDto GetById(int id);
         void Create(ResennaDto dto);
         void Update(ResennaDto dto);

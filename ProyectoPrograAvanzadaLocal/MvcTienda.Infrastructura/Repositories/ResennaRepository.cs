@@ -75,5 +75,13 @@ namespace MvcTienda.Infrastructura.Repositories
         {
             throw new System.NotImplementedException();
         }
+
+        public IEnumerable<Resenna> GetAllByProductoId(int productoId)
+        {
+            return _context.Resennas
+            .Include(r => r.Producto)
+            .Include(r => r.Estado)
+            .Where(r => r.ProductoId == productoId && r.EstadoId == 4);
+        }
     }
 }

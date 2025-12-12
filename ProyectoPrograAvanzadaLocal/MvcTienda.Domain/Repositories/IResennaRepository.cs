@@ -9,6 +9,7 @@ namespace MvcTienda.Domain.Repositories
         IEnumerable<Resenna> GetAllPublic();
         Resenna GetById(int id);
         IEnumerable<Resenna> GetAllByUsuarioId(int usuarioId);
+        IEnumerable<Resenna> GetAllByProductoId(int productoId);
         void Add(Resenna resenna);
         void Update(Resenna resenna);
         void CambiarEstado(int id, int estadoId);

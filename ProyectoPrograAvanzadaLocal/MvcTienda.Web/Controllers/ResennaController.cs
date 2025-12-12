@@ -1,9 +1,10 @@
-﻿using MvcTienda.Aplicacion.Resennas;
+﻿using Microsoft.AspNet.Identity;
 using MvcTienda.Aplicacion.Productos;
+using MvcTienda.Aplicacion.Resennas;
+using MvcTienda.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
-using Microsoft.AspNet.Identity;
 
 namespace MvcTienda.Web.Controllers
 {
@@ -18,17 +19,22 @@ namespace MvcTienda.Web.Controllers
         }
 
         // GET: Resenna
-        public ActionResult Index()
+        public ActionResult Index(int productoId = 0)
         {
             try
             {
                 ViewData["TituloPagina"] = "Lista de reseñas";
                 ViewBag.Mensaje = TempData["Mensaje"];
-                var resennas = _service.GetAllPublic();
-                if (resennas == null)
+                ViewBag.Productos = _productoService.GetAll();
+                IEnumerable<ResennaDto> resennas;
+
+                if (productoId == 0)
                 {
-                    ViewBag.Error = "No se encontraron reseñas.";
-                    return View(new List<ResennaDto>());
+                    resennas = _service.GetAllPublic();
+                }
+                else
+                {
+                    resennas = _service.GetAllByProductoId(productoId);
                 }
                 return View(resennas);
             }

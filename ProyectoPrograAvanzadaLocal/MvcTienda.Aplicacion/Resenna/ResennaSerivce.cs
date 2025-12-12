@@ -52,7 +52,7 @@ namespace MvcTienda.Aplicacion.Resennas
                     EstadoNombre = r.Estado?.Nombre,
                     UsuarioId = r.UsuarioId,
                     UsuarioNombre = _userManager.FindByIdAsync(r.UsuarioId).Result?.UserName ?? "Desconocido"
-                }).ToList();
+                });
         }
 
         public IEnumerable<ResennaDto> GetAllPublic()
@@ -71,7 +71,7 @@ namespace MvcTienda.Aplicacion.Resennas
                     EstadoNombre = r.Estado?.Nombre,
                     UsuarioId = r.UsuarioId,
                     UsuarioNombre = _userManager.FindByIdAsync(r.UsuarioId).Result?.UserName ?? "Desconocido"
-                }).ToList();
+                });
         }
 
         public IEnumerable<ResennaDto> GetAllByUsuarioId(int usuarioId)
@@ -90,7 +90,26 @@ namespace MvcTienda.Aplicacion.Resennas
                     EstadoNombre = r.Estado?.Nombre,
                     UsuarioId = r.UsuarioId,
                     UsuarioNombre = _userManager.FindByIdAsync(r.UsuarioId).Result?.UserName ?? "Desconocido"
-                }).ToList();
+                });
+        }
+        public IEnumerable<ResennaDto> GetAllByProductoId(int productoId)
+        {
+            return _repo.GetAll()
+                .Where(r => r.ProductoId == productoId && r.EstadoId == 4)
+                .Select(r => new ResennaDto
+                {
+                    ResennaId = r.ResennaId,
+                    Comentario = r.Comentario,
+                    Calificacion = r.Calificación,
+                    Fecha_Resenna = r.Fecha_Reseña,
+                    ProductoId = r.ProductoId,
+                    ProductoNombre = r.Producto?.Nombre,
+                    EstadoId = r.EstadoId,
+                    EstadoNombre = r.Estado?.Nombre,
+                    UsuarioId = r.UsuarioId,
+                    UsuarioNombre = _userManager.FindByIdAsync(r.UsuarioId).Result?.UserName ?? "Desconocido"
+
+                });
         }
 
         public ResennaDto GetById(int id)
