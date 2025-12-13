@@ -37,6 +37,21 @@ namespace MvcTienda.API.Controllers
                 return InternalServerError();
             }
         }
+        [HttpGet]
+        [Route("producto/{productoId:int}")]
+        public IHttpActionResult GetByProducto(int productoId)
+        {
+            try
+            {
+                var resennas = _service.GetAllByProductoId(productoId);
+                return Ok(resennas);
+            }
+            catch (Exception)
+            {
+                // Aquí conviene loguear
+                return InternalServerError();
+            }
+        }
 
         // PUT api/resennas/5
         [HttpPut]

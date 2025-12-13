@@ -1,7 +1,11 @@
-﻿using System.Web.Mvc;
+﻿using MvcTienda.Aplicacion.Resennas;
+using System.Collections.Generic;
+using System.Web.Mvc;
 
 public class ProductosAPIController : Controller
 {
+
+    private readonly IResennaService _resennaService;
     public ActionResult Index()
     {
         return View();
@@ -10,6 +14,7 @@ public class ProductosAPIController : Controller
     public ActionResult Detalle(int id)
     {
         ViewBag.Id = id;
+        IEnumerable<ResennaDto> resennas = _resennaService.GetAllByProductoId(id);
         return View();
     }
     [Authorize(Roles = "Administrador")]

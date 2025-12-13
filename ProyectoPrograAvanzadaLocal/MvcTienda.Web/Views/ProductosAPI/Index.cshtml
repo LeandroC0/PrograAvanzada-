@@ -64,6 +64,8 @@
                     </select>
                 </div>
 
+
+
             </div>
 
             <div class="modal-footer">
@@ -103,6 +105,10 @@
                 <p><strong>Inventario:</strong> <span id="detInventario"></span></p>
                 <p><strong>Estado:</strong> <span id="detEstado"></span></p>
 
+                <div id="containerResennas" class="row">
+                    <p class="text-muted">Cargando reseñas...</p>
+                </div>
+
             </div>
 
         </div>
@@ -119,7 +125,7 @@
 const api = "https://localhost:44325/api/";
 const isAdmin = @isAdmin.ToString().ToLower();
 const isLogged = @isLogged.ToString().ToLower();
-const isUser = @isUser.ToString().ToLower(); 
+const isUser = @isUser.ToString().ToLower();
 
 carritoId = localStorage.getItem("carritoId");
 if (!carritoId) {
@@ -247,7 +253,7 @@ function renderProductos(list) {
             data: JSON.stringify({ ProductoId: id, Cantidad: 1 }),
             success: function () {
                 alert("Agregado al carrito: " + nombre);
-                actualizarContadorCarrito(); 
+                actualizarContadorCarrito();
             }
         });
 
@@ -346,7 +352,9 @@ function cambiarEstado(id, nuevoEstado) {
     });
 }
 
-function verDetalles(id) {
+    function verDetalles(id) {
+
+        $("#productoId").val(id);
 
     $.get(api + "productos/" + id, function (p) {
 
@@ -380,11 +388,47 @@ function verDetalles(id) {
 
             new bootstrap.Carousel(document.querySelector('#carouselDetalles'));
 
+            const productoId = $("#productoId").val();
+            cargarResennas(productoId);
+
             $("#modalDetalles").modal("show");
         });
 
     });
+    }
 
-}
+    function cargarResennas(productoId) {
+
+        $.get(api + "resennas/producto/" + productoId, function (resennas) {
+
+            let html = "";
+
+            if (!resennas || resennas.length === 0) {
+                html = `<p class="text-muted">Este producto aún no tiene reseñas.</p>`;
+            } else {
+
+                resennas.forEach(r => {
+                    html += `
+                <div class="col-md-6 mb-3">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body">
+                            <strong>${r.UsuarioNombre}</strong><br>
+                            <span class="text-warning">${"⭐".repeat(r.Calificacion)}</span>
+
+                            <p class="mt-2 mb-1">${r.Comentario}</p>
+
+                            <small class="text-muted">
+                                ${new Date(r.Fecha_Resenna).toLocaleDateString()}
+                            </small>
+                        </div>
+                    </div>
+                </div>`;
+                });
+            }
+
+            $("#containerResennas").html(html);
+        });
+    }
+
 
 </script>
