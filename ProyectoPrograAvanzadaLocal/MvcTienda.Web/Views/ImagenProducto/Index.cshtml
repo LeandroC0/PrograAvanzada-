@@ -40,8 +40,10 @@
                 <input type="hidden" id="imgId" />
 
                 <div class="form-group mb-2">
-                    <label>Producto ID</label>
-                    <input type="number" id="productoId" class="form-control" />
+                    <label class="form-label fw-bold">Producto</label>
+                    <select id="productoId" class="form-control form-control-lg">
+                        <option value="">--- Seleccione un producto ---</option>
+                    </select>
                 </div>
 
                 <div class="form-group mb-2">
@@ -141,6 +143,7 @@
 
             $("#btnAgregar").click(function () {
                 limpiarFormulario();
+                cargarProductos();
                 $("#modalTitulo").text("Agregar Imagen");
                 $("#modalImagen").modal("show");
             });
@@ -169,6 +172,7 @@
                         alert("Guardado correctamente");
                         $("#modalImagen").modal("hide");
                         cargarImagenes();
+                        cargarProductos();
                     },
                     error: function (xhr) {
                         alert("ERROR: " + xhr.responseText);
@@ -184,6 +188,8 @@
                 let id = $(this).data("id");
 
                 $.get(`${API}/${id}`, function (data) {
+
+                    cargarProductos();
 
                     $("#modalTitulo").text("Editar Imagen");
                     $("#imgId").val(data.ImagenProductoId);
@@ -204,6 +210,8 @@
                 let id = $(this).data("id");
 
                 $.get(`${API}/${id}`, function (data) {
+
+                    cargarProductos();
 
                     $("#detallesContenido").html(`
                         <h5>ID: ${data.ImagenProductoId}</h5>
@@ -245,6 +253,31 @@
             }
 
         });
+
+        function cargarProductos() {
+            $.ajax({
+                url: "https://localhost:44325/api/productos",
+                type: "GET",
+                success: function (data) {
+
+                    let select = $("#productoId");
+                    select.empty();
+                    select.append('<option value="">--- Seleccione un producto ---</option>');
+
+                    data.forEach(p => {
+                        select.append(
+                            `<option value="${p.ProductoId}">
+                        ${p.Nombre}
+                     </option>`
+                        );
+                    });
+                },
+                error: function () {
+                    alert("Error cargando productos");
+                }
+            });
+        }
+
 
     </script>
 

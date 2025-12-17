@@ -1,4 +1,5 @@
 ﻿using MvcTienda.Aplicacion.Imagenes;
+using MvcTienda.Aplicacion.Productos;
 using System;
 using System.IO;
 using System.Linq;
@@ -11,10 +12,12 @@ namespace MvcTienda.API.Controllers
     public class ImagenProductoApiController : ApiController
     {
         private readonly IImagenProductoService _service;
+        private readonly IProductoService _productoService;
 
-        public ImagenProductoApiController(IImagenProductoService service)
+        public ImagenProductoApiController(IImagenProductoService service, IProductoService productoService)
         {
             _service = service;
+            _productoService = productoService;
         }
 
         // GET api/imagenes
