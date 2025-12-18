@@ -4,8 +4,14 @@
 }
 
 <h2>Mi Carrito</h2>
+<div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
+    <ul class="navbar-nav flex-grow-1">
+        <li>@Html.ActionLink("Catálogo", "Index", "ProductosAPI", null, new { @class = "btn btn-info me-2 mb-2 shadow-sm", style = "border-radius:10px;" })</li>
+    </ul>
+</div>
 
 <table class="table" id="tablaCarrito">
+
     <thead>
         <tr>
             <th>Producto</th>
