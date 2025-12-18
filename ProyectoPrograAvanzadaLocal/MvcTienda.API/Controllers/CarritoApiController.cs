@@ -46,9 +46,9 @@ namespace MvcTienda.Web.Api
             return _carritos[carritoId];
         }
 
-        // ============================================
-        // GET /api/carrito?carritoId=...
-        // ============================================
+        
+        // GET /api/carrito?carritoId
+        
         [HttpGet]
         [Route("")]
         public IHttpActionResult Get(string carritoId)
@@ -73,9 +73,9 @@ namespace MvcTienda.Web.Api
         }
 
 
-        // ============================================
+        
         // POST /api/carrito/agregar
-        // ============================================
+        
         [HttpPost]
         [Route("agregar")]
         public async Task<IHttpActionResult> Agregar(string carritoId, ItemCarritoDto model)
@@ -111,9 +111,9 @@ namespace MvcTienda.Web.Api
             return Ok(carrito);
         }
 
-        // ============================================
+        
         // PUT /api/carrito/actualizar
-        // ============================================
+       
         [HttpPut]
         [Route("actualizar")]
         public IHttpActionResult Actualizar(string carritoId, ItemCarritoDto model)
@@ -132,9 +132,8 @@ namespace MvcTienda.Web.Api
             return Ok(carrito);
         }
 
-        // ============================================
         // DELETE /api/carrito/eliminar/{id}
-        // ============================================
+        
         [HttpDelete]
         [Route("eliminar/{id:int}")]
         public IHttpActionResult Eliminar(string carritoId, int id)
@@ -146,9 +145,8 @@ namespace MvcTienda.Web.Api
             return Ok(carrito);
         }
 
-        // ============================================
         // POST /api/carrito/confirmar
-        // ============================================
+        
         [HttpPost]
         [Route("confirmar")]
         public async Task<IHttpActionResult> Confirmar(string carritoId, int usuarioId)
