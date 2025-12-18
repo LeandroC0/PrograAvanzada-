@@ -18,16 +18,15 @@
                 @Html.ValidationSummary(true, "", new { @class = "text-danger text-center mb-3" })
 
                 <div class="mb-3">
-                    @Html.LabelFor(model => model.Comentario, new { @class = "form-label fw-bold" })
-                    @Html.EditorFor(model => model.Comentario, new
-                    {
-                        htmlAttributes = new
-                        {
-                            @class = "form-control form-control-lg",
-                            placeholder = "Escribe tu comentario..."
-                        }
-                    })
+                    @Html.LabelFor(model => model.ProductoId, new { @class = "form-label fw-bold" })
+                    @Html.DropDownListFor(
+                        m => m.ProductoId,
+                        (IEnumerable<SelectListItem>)ViewBag.ListaProductos,
+                        "--- Seleccione un producto ---",
+                        new { @class = "form-control form-control-lg" }
+                    )
                 </div>
+
                 <div class="mb-3">
                     @Html.LabelFor(model => model.Calificacion, new { @class = "form-label fw-bold" })
                     @Html.EditorFor(model => model.Calificacion, new
@@ -42,7 +41,18 @@
                     })
                 </div>
 
-                <!-- Fecha -->
+                <div class="mb-3">
+                    @Html.LabelFor(model => model.Comentario, new { @class = "form-label fw-bold" })
+                    @Html.EditorFor(model => model.Comentario, new
+                    {
+                        htmlAttributes = new
+                        {
+                            @class = "form-control form-control-lg",
+                            placeholder = "Escribe tu comentario..."
+                        }
+                    })
+                </div>
+
                 <div class="mb-3">
                     @Html.LabelFor(model => model.Fecha_Resenna, new { @class = "form-label fw-bold" })
                     @Html.EditorFor(model => model.Fecha_Resenna, new
@@ -55,26 +65,11 @@
                         }
                     })
                 </div>
-                <div class="mb-3">
-                    @Html.LabelFor(model => model.ProductoId, new { @class = "form-label fw-bold" })
-                    @Html.DropDownListFor(
-                        m => m.ProductoId,
-                        (IEnumerable<SelectListItem>)ViewBag.ListaProductos,
-                        "--- Seleccione un producto ---",
-                        new { @class = "form-control form-control-lg" }
-                    )
-                </div>
-                <div class="mb-3">
-                    @Html.Label("Estado", new { @class = "form-label fw-bold" })
-                    <select name="EstadoId" class="form-control form-control-lg">
-                        <option default value="3">Pendiente</option>
-                    </select>
-                </div>
 
                 <div class="mb-3">
-                    <label class="form-label fw-bold">Usuario</label>
-                    <input type="text" class="form-control form-control-lg"
-                           value="@ViewBag.UsuarioNombre" readonly />
+                    <input type="hidden" name="EstadoId" value="3" />
+
+                    <input type="hidden" name="UsuarioNombre" value="@ViewBag.UsuarioNombre" />
                 </div>
 
                 @Html.HiddenFor(model => model.UsuarioId, new { Value = ViewBag.UsuarioId })

@@ -13,16 +13,21 @@
         <div class="d-flex justify-content-between align-items-center">
             <div>
                 <label><strong>Filtrar:</strong></label>
-                <select id="filtroEstado" class="form-control w-25 d-inline-block ms-2">
+                <select id="filtroEstado" class="form-control w-100 d-inline-block ms-2">
                     <option value="0">Todos</option>
                     <option value="1">Activos</option>
                     <option value="2">Inactivos</option>
                 </select>
             </div>
 
-            <button class="btn btn-primary" id="btnAbrirCrear">
-                <i class="fas fa-plus"></i> Crear Producto
-            </button>
+            <div class="d-flex gap-2">
+                <button class="btn btn-primary" id="btnAbrirCrear">
+                    <i class="fas fa-plus"></i> Crear Producto
+                </button>
+
+                <i class="fas fa-plus"></i>@Html.ActionLink("Imágenes de los Productos", "Index", "ImagenProducto", null, new { @class = "btn btn-primary" })
+
+            </div>
         </div>
     </div>
 }
@@ -63,8 +68,6 @@
                         <option value="2">Inactivo</option>
                     </select>
                 </div>
-
-
 
             </div>
 

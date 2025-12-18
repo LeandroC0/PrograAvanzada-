@@ -69,7 +69,9 @@
                     @if (User.IsInRole("Administrador"))
                     {
                         <li>@Html.ActionLink("Estados", "Index", "Estado", null, new { @class = "nav-link" })</li>
-                        <li>@Html.ActionLink("Imagen de Producto", "Index", "ImagenProducto", null, new { @class = "nav-link" })</li>
+                        @*
+                            <li>@Html.ActionLink("Imagen de Producto", "Index", "ImagenProducto", null, new { @class = "nav-link" })</li>
+                        *@
                         <li>@Html.ActionLink("Dashboard", "Index", "DashboardAPI", null, new { @class = "nav-link" })</li>
                         <li>@Html.ActionLink("Moderar Usuario", "Index", "UsuarioAdmin", null, new { @class = "nav-link" })</li>
                     }
