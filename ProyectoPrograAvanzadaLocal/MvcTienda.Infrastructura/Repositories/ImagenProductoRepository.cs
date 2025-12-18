@@ -20,12 +20,16 @@ namespace MvcTienda.Infrastructura.Repositories
         {
             return _context.ImagenesProducto
                 .Include(i => i.Producto)
+                .Include(i => i.Estado)
                 .ToList();
         }
 
         public ImagenProducto GetById(int id)
         {
-            return _context.ImagenesProducto.Find(id);
+            return _context.ImagenesProducto
+        .Include(i => i.Producto)
+        .Include(i => i.Estado)
+        .FirstOrDefault(i => i.ImagenProductoId == id);
         }
 
         public void Add(ImagenProducto imagen)

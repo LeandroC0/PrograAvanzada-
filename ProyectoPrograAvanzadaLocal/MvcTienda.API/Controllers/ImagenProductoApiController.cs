@@ -26,14 +26,18 @@ namespace MvcTienda.API.Controllers
         public IHttpActionResult GetAll()
         {
             var imagenes = _service.GetAll()
+                .Where(i => i.RutaImagen != null)
                 .Select(i => new
                 {
                     i.ImagenProductoId,
                     ImagenBase64 = Convert.ToBase64String(i.RutaImagen),
                     i.ProductoId,
-                    i.EstadoId
-                });
+                    i.ProductoNombre,
 
+                    i.EstadoId,
+                    i.EstadoNombre
+                })
+        .ToList();
             return Ok(imagenes);
         }
 

@@ -11,10 +11,10 @@ namespace MvcTienda.Aplicacion.Imagen
 {
     public int ImagenProductoId { get; set; }
 
-    // Para enviar imágenes desde Postman o Angular
+   
     public string ImagenBase64 { get; set; }
 
-    // Para subir archivos desde un formulario
+    
     public HttpPostedFileBase Archivo { get; set; }
 
     public int ProductoId { get; set; }

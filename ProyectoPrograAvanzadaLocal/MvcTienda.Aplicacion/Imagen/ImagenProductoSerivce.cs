@@ -40,7 +40,7 @@ namespace MvcTienda.Aplicacion.Imagenes
                 ProductoId = img.ProductoId,
                 ProductoNombre = img.Producto?.Nombre,
                 EstadoId = img.EstadoId,
-                EstadoNombre = img.Estado != null ? img.Estado.Nombre : "Sin Estado"
+                EstadoNombre = img.Estado.Nombre
             };
         }
 

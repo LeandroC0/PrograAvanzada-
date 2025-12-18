@@ -33,7 +33,7 @@ namespace MvcTienda.API.Controllers
             }
             catch (Exception)
             {
-                // Aquí conviene loguear
+                
                 return InternalServerError();
             }
         }
@@ -48,7 +48,7 @@ namespace MvcTienda.API.Controllers
             }
             catch (Exception)
             {
-                // Aquí conviene loguear
+                
                 return InternalServerError();
             }
         }
