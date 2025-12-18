@@ -156,6 +156,11 @@ namespace MvcTienda.Aplicacion.Ordenes
                 });
 
                 prod.Inventario -= item.Cantidad;
+                if (prod.Inventario <= 0)
+                {
+                    prod.Inventario = 0; 
+                    prod.EstadoId = 2;   
+                }
                 _productoRepo.Update(prod);
             }
 
